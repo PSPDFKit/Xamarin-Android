@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSPDFKit.Android", "PSPDFKit.Android\PSPDFKit.Android.csproj", "{B87BA6DF-8454-41AE-811C-B9D7B7353E5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndroidSample", "samples\AndroidSample\AndroidSample\AndroidSample.csproj", "{1C96E840-A7C0-44FE-85EA-87E666BD7C79}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1C96E840-A7C0-44FE-85EA-87E666BD7C79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C96E840-A7C0-44FE-85EA-87E666BD7C79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C96E840-A7C0-44FE-85EA-87E666BD7C79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C96E840-A7C0-44FE-85EA-87E666BD7C79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B87BA6DF-8454-41AE-811C-B9D7B7353E5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B87BA6DF-8454-41AE-811C-B9D7B7353E5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B87BA6DF-8454-41AE-811C-B9D7B7353E5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B87BA6DF-8454-41AE-811C-B9D7B7353E5D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
