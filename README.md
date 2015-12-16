@@ -22,14 +22,14 @@ PSPDFKit runs on Android devices running:
 
 You have two options to get it:
 
-###Build from PSPDFKit.Android.sln
+####Build from PSPDFKit.Android.sln
 
 1. Open `PSPDFKit.Android.sln` in `Xamarin Studio` or `Visual Studio`
 2. Build the project
 3. Get the dll from the `PSPDFKit.Android/bin` folder
 4. Enjoy 
 
-###Build from terminal
+####Build from terminal
 
 1. Just run `make dll` command from `root` or `binding` directory
 2. Get the dll from the `Dll` folder
