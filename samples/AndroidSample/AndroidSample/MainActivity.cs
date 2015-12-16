@@ -36,8 +36,7 @@ namespace AndroidSample
 			var openDemoDocumentButton = FindViewById<Button> (Resource.Id.main_btn_open_example);
 			var openDocumentButton = FindViewById <Button> (Resource.Id.main_btn_open_document);
 
-			if (yourLicenseKey != "LICENSE_KEY_GOES_HERE")			
-				PSPDFKitGlobal.Initialize (this, yourLicenseKey);
+			PSPDFKitGlobal.Initialize (this, yourLicenseKey);
 
 			// Opens a demo document from assets directory
 			openDemoDocumentButton.Click += (sender, e) => {
@@ -57,11 +56,6 @@ namespace AndroidSample
 
 		void ShowPdfDocument (Android.Net.Uri docUri)
 		{
-			if (yourLicenseKey == "LICENSE_KEY_GOES_HERE") {
-				ShowError ("Please set your license key\n\nIf you do not have one please visit\nhttps://pspdfkit.com/android/");
-				return;
-			}
-
 			// Customize thumbnailBar color defaults
 			var thumbnailBarThemeConfiguration = new ThumbnailBarThemeConfiguration.Builder (this)
 				.SetBackgroundColor (Android.Graphics.Color.Argb (255, 52, 152, 219))
