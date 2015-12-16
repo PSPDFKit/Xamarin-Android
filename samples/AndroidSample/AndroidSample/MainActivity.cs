@@ -36,7 +36,7 @@ namespace AndroidSample
 			var openDemoDocumentButton = FindViewById<Button> (Resource.Id.main_btn_open_example);
 			var openDocumentButton = FindViewById <Button> (Resource.Id.main_btn_open_document);
 
-			if (yourLicenseKey != "INSERT_YOUR_KEY_HERE")			
+			if (yourLicenseKey != "LICENSE_KEY_GOES_HERE")			
 				PSPDFKitGlobal.Initialize (this, yourLicenseKey);
 
 			// Opens a demo document from assets directory
@@ -57,7 +57,7 @@ namespace AndroidSample
 
 		void ShowPdfDocument (Android.Net.Uri docUri)
 		{
-			if (yourLicenseKey == "INSERT_YOUR_KEY_HERE") {
+			if (yourLicenseKey == "LICENSE_KEY_GOES_HERE") {
 				ShowError ("Please set your license key\n\nIf you do not have one please visit\nhttps://pspdfkit.com/android/");
 				return;
 			}
