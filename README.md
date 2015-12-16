@@ -17,7 +17,7 @@ You will require an installation of the [Java 7 SDK](http://www.oracle.com/techn
 
 ###Step 1 - Get PSPDFKit .aar file
 
-1. Download PSPDFKit from your [customer portal](https://customers.pspdfkit.com) if you haven't done so already.
+1. Download PSPDFKit from your [customer portal](https://customers.pspdfkit.com) if you haven't done so already, or [request an evaluation version](https://pspdfkit.com/#trynow).
 2. Unzip the file you downloaded in step 1 and copy `pspdfkit-2.0.0.aar` to [`PSPDFKit.Android/Jars`](PSPDFKit.Android/Jars) folder.
 3. run `make` command from `root` or `binding` directory, this will download additional resources needed by the binding.
 
@@ -25,14 +25,14 @@ You will require an installation of the [Java 7 SDK](http://www.oracle.com/techn
 
 You have two options to get it:
 
-###Build from PSPDFKit.Android.sln
+####Build from PSPDFKit.Android.sln
 
 1. Open `PSPDFKit.Android.sln` in `Xamarin Studio` or `Visual Studio`
 2. Build the project
 3. Get the dll from the `PSPDFKit.Android/bin` folder
 4. Enjoy 
 
-###Build from terminal
+####Build from terminal
 
 1. Just run `make dll` command from `root` or `binding` directory
 2. Get the dll from the `Dll` folder
