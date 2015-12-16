@@ -12,6 +12,9 @@ PSPDFKit runs on Android devices running:
 * Android 4.1 or newer / API level 16 or higher
 * 32/64-bit ARM (armeabi-v7a / arm64-v8a) or 32-bit Intel x86 CPU (MIPS and x86-64 builds are available by request and are not included by default due to size constraints.)
 
+Note: This has only been tested with Xamarin Studio on Mac OS X El Capitan. Other versions or Visual Studio are not supported.
+You will require an installation of the [Java 7 SDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html).
+
 ###Step 1 - Get PSPDFKit .aar file
 
 1. Download PSPDFKit from your [customer portal](https://customers.pspdfkit.com) if you haven't done so already.
