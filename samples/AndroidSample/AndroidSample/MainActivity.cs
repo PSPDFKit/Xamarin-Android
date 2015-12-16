@@ -21,7 +21,7 @@ namespace AndroidSample
 	[Activity (Label = "@string/app_name", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/AppTheme")]
 	public class MainActivity : Activity
 	{		
-		static readonly string yourLicenseKey = "INSERT_YOUR_KEY_HERE";
+		static readonly string yourLicenseKey = "LICENSE_KEY_GOES_HERE";
 
 		const string sampleDoc = "demo.pdf";
 		const int RequestOpenDocument = 1;
