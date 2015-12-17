@@ -1,6 +1,6 @@
 #Xamarin PSPDFKit.Android Bindings
 
-Xamarin.Android Bindings for PSPDFKit `v2.0.0`
+Xamarin.Android Bindings for PSPDFKit `v2.0.1`
 
 ## Building PSPDFKit.Android.dll
 
