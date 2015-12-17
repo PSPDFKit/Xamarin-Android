@@ -15,6 +15,10 @@ using PSPDFKit.UI;
 using PSPDFKit.Configuration.Activity;
 using PSPDFKit.Configuration.Page;
 using PSPDFKit.Configuration.Theming;
+using Android;
+using Android.Content.PM;
+using Android.Support.V4.Content;
+using Android.Support.V4.App;
 
 namespace AndroidSample
 {
@@ -24,7 +28,16 @@ namespace AndroidSample
 		static readonly string yourLicenseKey = "LICENSE_KEY_GOES_HERE";
 
 		const string sampleDoc = "demo.pdf";
+
 		const int RequestOpenDocument = 1;
+
+		// On Marshmallow+ devices this is used to ask for the necessary write permission.
+		const int RequestWritePermission = 2;
+		readonly string [] PermissionsExternalStorage = 
+		{
+			Manifest.Permission.ReadExternalStorage,
+			Manifest.Permission.WriteExternalStorage
+		};
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -40,9 +53,15 @@ namespace AndroidSample
 
 			// Opens a demo document from assets directory
 			openDemoDocumentButton.Click += (sender, e) => {
-				// Extract the pdf from assets if not already extracted
-				var docUri = DocumentHelper.ExtractAsset (this, sampleDoc);
-				ShowPdfDocument (docUri);
+				// On Marshmallow devices the user must grant write permission to the extrnal storage.
+				const string permission = Manifest.Permission.WriteExternalStorage;
+				if (ContextCompat.CheckSelfPermission(this, permission) == (int)Permission.Granted)
+				{
+					ShowDocumentFromAssets ();
+					return;
+				}
+
+				ActivityCompat.RequestPermissions(this, PermissionsExternalStorage, RequestWritePermission);
 			};
 
 			// Opens a document from Android document provider
@@ -52,6 +71,13 @@ namespace AndroidSample
 				openIntent.SetType ("application/*");
 				StartActivityForResult (openIntent, RequestOpenDocument);
 			};
+		}
+
+		void ShowDocumentFromAssets() {
+			// Extract the pdf from assets if not already extracted
+			var docUri = DocumentHelper.ExtractAsset (this, sampleDoc);
+			ShowPdfDocument (docUri);
+			return;
 		}
 
 		void ShowPdfDocument (Android.Net.Uri docUri)
@@ -99,6 +125,13 @@ namespace AndroidSample
 			}
 		}
 			
+		public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
+		{
+			if(requestCode == RequestWritePermission && grantResults[0] == Permission.Granted) {	
+				ShowDocumentFromAssets ();
+			}
+		}
+
 		void ShowError (string message = null)
 		{
 			var alert = new AlertDialog.Builder (this);
