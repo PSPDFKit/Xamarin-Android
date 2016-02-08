@@ -100,7 +100,7 @@ namespace AndroidSample
 			if (!PSPDFKitGlobal.IsOpenableUri (this, docUri))
 				ShowError ("This document uri cannot be opened \n " + docUri.ToString ());
 			else
-				PSPDFAppCompatActivity.ShowDocument (this, docUri, pspdfkitConfiguration);
+				PSPDFActivity.ShowDocument (this, docUri, pspdfkitConfiguration);
 		}
 
 		protected async override void OnActivityResult (int requestCode, Result resultCode, Intent data)
