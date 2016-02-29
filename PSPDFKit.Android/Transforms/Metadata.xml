@@ -18,11 +18,13 @@
 
   <remove-node path="/api/package[@name='com.pspdfkit.ui']/class[@name='PSPDFSearchViewModular']/field[@name='adapter']" />
   <remove-node path="/api/package[@name='com.pspdfkit.document']/class[@name='PageSize']/implements[@name='java.lang.Comparable']" />
+  <remove-node path="/api/package[@name='com.pspdfkit.utils']/class[@name='PageRect']/implements[@name='java.lang.Comparable']" />
   <remove-node path="/api/package[@name='com.pspdfkit.document']/class[@name='PSPDFDocument']/method[@name='getInternal']" />
   <remove-node path="/api/package[@name='com.pspdfkit.document']/class[@name='PSPDFDocument']/method[@name='createFromInternalDocument' and count(parameter)=1]" />
   <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='Annotation']/field[@name='b']" />
   <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='Annotation']/method[@name='attachToDocument']" />
   <remove-node path="/api/package[@name='com.pspdfkit.listeners']/class[@name='DefaultTextSelectionListener']/implements[@name='com.pspdfkit.framework.views.page.utils.a.a']" />
+  <remove-node path="/api/package[@name='com.pspdfkit.listeners']/class[@name='DefaultTextSelectionListener']/method[@name='getAnnotationDefaultsProvider']" />
   <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='Annotation']/field[@name='a']" />
   <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='Annotation']/method[@name='a']" />
   <remove-node path="/api/package[@name='com.pspdfkit.utils']/class[@name='Optional']/method[@name='filter']" />
@@ -31,7 +33,8 @@
   <remove-node path="/api/package[@name='com.pspdfkit.utils']/class[@name='Optional']/method[@name='orElseCall']" />
   <remove-node path="/api/package[@name='com.pspdfkit.utils']/class[@name='Optional']/method[@name='orElseThrow']" />
   <remove-node path="/api/package[@name='com.pspdfkit.utils']/class[@name='Optional']/method[@name='ifPresent']" />
-  <remove-node path="/api/package[@name='com.pspdfkit.events']/class[@name='Commands.EnterSpecialMode']/field[@name='modeHandler']" />
+  <remove-node path="/api/package[@name='com.pspdfkit.events']/class[@name='Commands.EnterSpecialMode']/field[@name='controller']" />
+  <remove-node path="/api/package[@name='com.pspdfkit.events']/class[@name='Commands.EnterTextSelectionMode']/field[@name='modeHandler']" />
   <remove-node path="/api/package[@name='com.pspdfkit.ui.editors']/class[@name='PSPDFAnnotationEditor']/method[@name='getAnnotation']" />
   <remove-node path="/api/package[@name='com.pspdfkit.ui']/class[@name='PSPDFFragment']/method[@name='getAnnotationStateManager']" />
   <remove-node path="/api/package[@name='com.pspdfkit.ui']/class[@name='PSPDFOutlineView.OutlinePagerAdapter']/method[@name='setDocument']" />
@@ -42,9 +45,8 @@
 <!-- Remove some ctors with FIRE!!-->
   <remove-node path="/api/package[@name='com.pspdfkit.document']/class[@name='OutlineElement']/constructor[@name='OutlineElement' and parameter[1][@type='com.pspdfkit.framework.model.a']]" />
   <remove-node path="/api/package[@name='com.pspdfkit.events']/class[@name='Events.NewSearchResults']/constructor[@name='Events.NewSearchResults' and parameter[1][@type='java.util.List&lt;com.pspdfkit.framework.text.a&gt;']]" />
-  <remove-node path="/api/package[@name='com.pspdfkit.events']/class[@name='Commands.EnterSpecialMode']/constructor[@name='Commands.EnterSpecialMode' and count(parameter)=1 and parameter[1][@type='com.pspdfkit.framework.views.page.handler.f']]" />
-  <remove-node path="/api/package[@name='com.pspdfkit.events']/class[@name='Commands.EnterSpecialMode']/constructor[@name='Commands.EnterSpecialMode' and count(parameter)=2 and parameter[1][@type='com.pspdfkit.framework.views.page.handler.f']]" />
-  <remove-node path="/api/package[@name='com.pspdfkit.events']/class[@name='Commands.EnterSpecialMode']/constructor[@name='Commands.EnterSpecialMode' and count(parameter)=4 and parameter[1][@type='com.pspdfkit.framework.views.page.handler.f']]" />
+  <remove-node path="/api/package[@name='com.pspdfkit.events']/class[@name='Commands.EnterSpecialMode']/constructor[@name='Commands.EnterSpecialMode' and count(parameter)=2 and parameter[2][@type='com.pspdfkit.framework.views.document.a']]" />
+  <remove-node path="/api/package[@name='com.pspdfkit.events']/class[@name='Commands.EnterTextSelectionMode']/constructor[@name='Commands.EnterTextSelectionMode' and count(parameter)=2 and parameter[1][@type='com.pspdfkit.framework.views.page.handler.i']]" />
   <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='Annotation']/constructor[@name='Annotation' and count(parameter)=1 and parameter[1][@type='com.pspdfkit.framework.jni.Annotation']]" />
   <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='NoteAnnotation']/constructor[@name='NoteAnnotation' and count(parameter)=1 and parameter[1][@type='com.pspdfkit.framework.jni.Annotation']]" />
   <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='AnnotationProvider']/constructor[@name='AnnotationProvider' and count(parameter)=1 and parameter[1][@type='com.pspdfkit.framework.model.a']]" />
@@ -120,6 +122,10 @@
   <remove-node path="/api/package[@name='com.pspdfkit.datastructures']/class[@name='ImmutableDate']/method[@name='setSeconds' and count(parameter)=1 and parameter[1][@type='int']]" />
   <remove-node path="/api/package[@name='com.pspdfkit.datastructures']/class[@name='ImmutableDate']/method[@name='setTime' and count(parameter)=1 and parameter[1][@type='long']]" />
   <remove-node path="/api/package[@name='com.pspdfkit.datastructures']/class[@name='ImmutableDate']/method[@name='setYear' and count(parameter)=1 and parameter[1][@type='int']]" />
+
+  <!-- help generator with event args names -->
+  <attr path="/api/package[@name='com.pspdfkit.ui']/interface[@name='ActivityMenuManager.ActivityMenuListener']/method[@name='toggleView' and count(parameter)=2]" name="argsType">ToggleViewEventArgs2</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui']/interface[@name='ActivityMenuManager.ActivityMenuListener']/method[@name='toggleView' and count(parameter)=2]" name="managedName">ToggleView2</attr>
 
 <!-- Youtube API Fixes-->
   <remove-node path="/api/package[@name='com.google.android.youtube.player']/class[@name='YouTubeThumbnailView']/method[@name='finalize' and count(parameter)=0]" />
