@@ -23,6 +23,10 @@ You will require an installation of the [Java 7 SDK](http://www.oracle.com/techn
 
 Note: Ensure the file is really named  `pspdfkit-x.x.x.aar` and that there's no hidden `.zip` file ending. OS X likes to add these things and doesn't show them by default. Use the Inspector to be sure.
 
+Important: You need to select Java 7 as the runtime. Ther's a known bug with Xamarin Studio that creates faulty dlls when compiling using Java 8: https://forums.xamarin.com/discussion/47490/do-not-use-java-jdk-1-8-when-generating-android-bindings-in-xamarin-studio
+
+Xamarin Studio will use the default Java, but this can be customized in Preferences -> SDK Locations -> Java SDK (JDK). Use `/usr/libexec/java_home -v 1.7` to see where the Java 7 home path is.
+
 ### Step 2 - Get your Dll
 
 You have two options to get it:
