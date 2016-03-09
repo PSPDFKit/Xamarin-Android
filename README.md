@@ -4,7 +4,7 @@ Xamarin.Android Bindings for PSPDFKit `v2.2.1`
 
 ## Building PSPDFKit.Android.dll
 
-###Requirements
+### Requirements
 
 PSPDFKit runs on Android devices running:
 
@@ -20,6 +20,8 @@ You will require an installation of the [Java 7 SDK](http://www.oracle.com/techn
 1. Download PSPDFKit from your [customer portal](https://customers.pspdfkit.com) if you haven't done so already, or [request an evaluation version](https://pspdfkit.com/#trynow).
 2. Unzip the file you downloaded in step 1 and copy `pspdfkit-2.1.1.aar` to [`PSPDFKit.Android/Jars`](PSPDFKit.Android/Jars) folder.
 3. run `make` command from `root` or `binding` directory, this will download additional resources needed by the binding.
+
+Note: Ensure the file is really named  `pspdfkit-x.x.x.aar` and that there's no hidden `.zip` file ending. OS X likes to add these things and doesn't show them by default. Use the Inspector to be sure.
 
 ### Step 2 - Get your Dll
 
@@ -37,6 +39,8 @@ You have two options to get it:
 1. Just run `make dll` command from `root` or `binding` directory
 2. Get the dll from the `Dll` folder
 3. Enjoy
+
+Note: Currently building the dll is only supported on OS X 10.11 with Xamarin Studio. We're working on an update that will allow Windows as well.
 
 ##Integrating with your own project
 
@@ -168,7 +172,7 @@ Other configuration options for UI elements (icons, element sizes) can be found 
 
 ###More information
 
-For more documentation about PSPDFKit check out [PSPDFKit online documentation](https://pspdfkit.com/guides/android/current/) and bundled Javadoc.
+For more documentation about PSPDFKit check out [PSPDFKit online documentation](https://pspdfkit.com/guides/android/current) and bundled Javadoc.
 
 ###Known Issues
 
