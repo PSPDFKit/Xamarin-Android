@@ -11,63 +11,28 @@
      This matches for example "PSPDFKitActivityImpl.1" -->
   <remove-node path="//class['Impl' = substring(substring-before(@name,'.') , string-length(substring-before(@name,'.')) - 3)]" />
 
-  <!-- Removes anything referencing com.pspdfkit.framework.events.a as parameter and return type -->
-<!--<remove-node path="//method[parameter[contains(@type, 'com.pspdfkit.framework.events.a')]]" />
-  <remove-node path="//method[contains(@return, 'com.pspdfkit.framework.events.a')]" />
-  <remove-node path="//constructor[parameter[contains(@type, 'com.pspdfkit.framework.events.a')]]" />-->
+<!-- Removes any "constructor" that any of its parameters uses
+     any of the types contained in com.pspdfkit.framework.* -->
+  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework')]" />
 
-  <remove-node path="/api/package[@name='com.pspdfkit.ui']/class[@name='PSPDFSearchViewModular']/field[@name='adapter']" />
-  <remove-node path="/api/package[@name='com.pspdfkit.document']/class[@name='PageSize']/implements[@name='java.lang.Comparable']" />
-  <remove-node path="/api/package[@name='com.pspdfkit.utils']/class[@name='PageRect']/implements[@name='java.lang.Comparable']" />
-  <remove-node path="/api/package[@name='com.pspdfkit.document']/class[@name='PSPDFDocument']/method[@name='getInternal']" />
-  <remove-node path="/api/package[@name='com.pspdfkit.document']/class[@name='PSPDFDocument']/method[@name='createFromInternalDocument' and count(parameter)=1]" />
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='Annotation']/field[@name='b']" />
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='Annotation']/method[@name='attachToDocument']" />
-  <remove-node path="/api/package[@name='com.pspdfkit.listeners']/class[@name='DefaultTextSelectionListener']/implements[@name='com.pspdfkit.framework.views.page.utils.a.a']" />
-  <remove-node path="/api/package[@name='com.pspdfkit.listeners']/class[@name='DefaultTextSelectionListener']/method[@name='getAnnotationDefaultsProvider']" />
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='Annotation']/field[@name='a']" />
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='Annotation']/method[@name='a']" />
-  <remove-node path="/api/package[@name='com.pspdfkit.utils']/class[@name='Optional']/method[@name='filter']" />
-  <remove-node path="/api/package[@name='com.pspdfkit.utils']/class[@name='Optional']/method[@name='flatMap']" />
-  <remove-node path="/api/package[@name='com.pspdfkit.utils']/class[@name='Optional']/method[@name='map']" />
-  <remove-node path="/api/package[@name='com.pspdfkit.utils']/class[@name='Optional']/method[@name='orElseCall']" />
-  <remove-node path="/api/package[@name='com.pspdfkit.utils']/class[@name='Optional']/method[@name='orElseThrow']" />
-  <remove-node path="/api/package[@name='com.pspdfkit.utils']/class[@name='Optional']/method[@name='ifPresent']" />
-  <remove-node path="/api/package[@name='com.pspdfkit.events']/class[@name='Commands.EnterSpecialMode']/field[@name='controller']" />
-  <remove-node path="/api/package[@name='com.pspdfkit.events']/class[@name='Commands.EnterTextSelectionMode']/field[@name='modeHandler']" />
-  <remove-node path="/api/package[@name='com.pspdfkit.ui.editors']/class[@name='PSPDFAnnotationEditor']/method[@name='getAnnotation']" />
-  <remove-node path="/api/package[@name='com.pspdfkit.ui']/class[@name='PSPDFFragment']/method[@name='getAnnotationStateManager']" />
-  <remove-node path="/api/package[@name='com.pspdfkit.ui']/class[@name='PSPDFOutlineView.OutlinePagerAdapter']/method[@name='setDocument']" />
-  <remove-node path="/api/package[@name='com.pspdfkit.ui']/class[@name='PSPDFOutlineView']/implements[@name='com.pspdfkit.framework.views.outline.c.a']" />
-  <remove-node path="/api/package[@name='com.pspdfkit.ui']/class[@name='PSPDFSearchView']/field[@name='searchInProgress']" />
-  <remove-node path="/api/package[@name='com.pspdfkit.datastructures']/class[@name='Range']/implements[@name='java.lang.Comparable']" />
+<!-- Removes any "method" that any of its parameters uses
+     any of the types contained in com.pspdfkit.framework.* -->
+  <remove-node path="//method/parameter[contains(@type, 'com.pspdfkit.framework')]" />
+  <remove-node path="//method/parameter[contains(@type, 'rx.')]" />
+  <remove-node path="//method[contains(@return, 'com.pspdfkit.framework')]" />
+  <remove-node path="//method[contains(@return, 'rx.')]" />
 
-<!-- Remove some ctors with FIRE!!-->
-  <remove-node path="/api/package[@name='com.pspdfkit.document']/class[@name='OutlineElement']/constructor[@name='OutlineElement' and parameter[1][@type='com.pspdfkit.framework.model.a']]" />
-  <remove-node path="/api/package[@name='com.pspdfkit.events']/class[@name='Events.NewSearchResults']/constructor[@name='Events.NewSearchResults' and parameter[1][@type='java.util.List&lt;com.pspdfkit.framework.text.a&gt;']]" />
-  <remove-node path="/api/package[@name='com.pspdfkit.events']/class[@name='Commands.EnterSpecialMode']/constructor[@name='Commands.EnterSpecialMode' and count(parameter)=2 and parameter[2][@type='com.pspdfkit.framework.views.document.a']]" />
-  <remove-node path="/api/package[@name='com.pspdfkit.events']/class[@name='Commands.EnterTextSelectionMode']/constructor[@name='Commands.EnterTextSelectionMode' and count(parameter)=2 and parameter[1][@type='com.pspdfkit.framework.views.page.handler.i']]" />
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='Annotation']/constructor[@name='Annotation' and count(parameter)=1 and parameter[1][@type='com.pspdfkit.framework.jni.Annotation']]" />
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='NoteAnnotation']/constructor[@name='NoteAnnotation' and count(parameter)=1 and parameter[1][@type='com.pspdfkit.framework.jni.Annotation']]" />
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='AnnotationProvider']/constructor[@name='AnnotationProvider' and count(parameter)=1 and parameter[1][@type='com.pspdfkit.framework.model.a']]" />
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='TextMarkupAnnotation']/constructor[@name='TextMarkupAnnotation' and count(parameter)=1 and parameter[1][@type='com.pspdfkit.framework.jni.Annotation']]" />
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='UnknownAnnotation']/constructor[@name='UnknownAnnotation' and count(parameter)=1 and parameter[1][@type='com.pspdfkit.framework.jni.Annotation']]" />
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='LinkAnnotation']/constructor[@name='LinkAnnotation' and parameter[1][@type='com.pspdfkit.framework.jni.Annotation']]" />
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='FreeTextAnnotation']/constructor[@name='FreeTextAnnotation' and parameter[1][@type='com.pspdfkit.framework.jni.Annotation']]" />
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='HighlightAnnotation']/constructor[@name='HighlightAnnotation' and parameter[1][@type='com.pspdfkit.framework.jni.Annotation']]" />
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='InkAnnotation']/constructor[@name='InkAnnotation' and parameter[1][@type='com.pspdfkit.framework.jni.Annotation']]" />
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='SquigglyAnnotation']/constructor[@name='SquigglyAnnotation' and parameter[1][@type='com.pspdfkit.framework.jni.Annotation']]" />
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='StrikeOutAnnotation']/constructor[@name='StrikeOutAnnotation' and parameter[1][@type='com.pspdfkit.framework.jni.Annotation']]" />
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='UnderlineAnnotation']/constructor[@name='UnderlineAnnotation' and parameter[1][@type='com.pspdfkit.framework.jni.Annotation']]" />
+<!-- Removes any "field" of type com.pspdfkit.framework.* -->
+  <remove-node path="//field[contains(@type, 'com.pspdfkit.framework')]" />
 
-<!-- Some API modifications -->
-  <!--  <attr path="/api/package[@name='com.pspdfkit.annotations']/class[@name='Annotation']/method[@name='getPagePosition']" name="return">java.lang.Object</attr>-->
-  <attr path="/api/package[@name='com.pspdfkit.listeners']/interface[@name='DocumentListener']/method[@name='onDocumentLoadFailed']" name="argsType">OnDocumentLoadFailedEventArgs</attr>
-  <attr path="/api/package[@name='com.pspdfkit.listeners']/interface[@name='DocumentListener']/method[@name='onDocumentLoaded']" name="argsType">OnDocumentLoadedEventArgs</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='PSPDFSearchView']/field[@name='isDisplayed']" name="managedName">Displayed</attr>
+<!-- Removes any "interface" of type java.lang.Comparable -->
+  <remove-node path="//implements[contains(@name, 'java.lang.Comparable')]" />
+  <remove-node path="//implements[contains(@name, 'com.pspdfkit.framework')]" />
 
 <!-- C# friendly namespaces -->
   <attr path="/api/package[@name='com.pspdfkit']" name="managedName">PSPDFKit</attr>
+  <attr path="/api/package[@name='com.pspdfkit.annotations']" name="managedName">PSPDFKit.Annotations</attr>
+  <attr path="/api/package[@name='com.pspdfkit.annotations.actions']" name="managedName">PSPDFKit.Annotations.Actions</attr>
   <attr path="/api/package[@name='com.pspdfkit.configuration']" name="managedName">PSPDFKit.Configuration</attr>
   <attr path="/api/package[@name='com.pspdfkit.configuration.activity']" name="managedName">PSPDFKit.Configuration.Activity</attr>
   <attr path="/api/package[@name='com.pspdfkit.configuration.rendering']" name="managedName">PSPDFKit.Configuration.Rendering</attr>
@@ -79,42 +44,33 @@
   <attr path="/api/package[@name='com.pspdfkit.document.library']" name="managedName">PSPDFKit.Document.Library</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.providers']" name="managedName">PSPDFKit.Document.Providers</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.processor']" name="managedName">PSPDFKit.Document.Processor</attr>
+  <attr path="/api/package[@name='com.pspdfkit.document.search']" name="managedName">PSPDFKit.Document.Search</attr>
+  <attr path="/api/package[@name='com.pspdfkit.document.sharing']" name="managedName">PSPDFKit.Document.Sharing</attr>
   <attr path="/api/package[@name='com.pspdfkit.events']" name="managedName">PSPDFKit.EventsSdk</attr>
   <attr path="/api/package[@name='com.pspdfkit.exceptions']" name="managedName">PSPDFKit.Exceptions</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui']" name="managedName">PSPDFKit.UI</attr>
-  <attr path="/api/package[@name='com.pspdfkit.annotations']" name="managedName">PSPDFKit.Annotations</attr>
-  <attr path="/api/package[@name='com.pspdfkit.annotations.actions']" name="managedName">PSPDFKit.Annotations.Actions</attr>
   <attr path="/api/package[@name='com.pspdfkit.listeners']" name="managedName">PSPDFKit.Listeners</attr>
   <attr path="/api/package[@name='com.pspdfkit.media']" name="managedName">PSPDFKit.Media</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui']" name="managedName">PSPDFKit.UI</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.dialog']" name="managedName">PSPDFKit.UI.Dialog</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.drawable']" name="managedName">PSPDFKit.UI.Drawable</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.editors']" name="managedName">PSPDFKit.UI.Editors</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.search']" name="managedName">PSPDFKit.UI.Search</attr>
   <attr path="/api/package[@name='com.pspdfkit.utils']" name="managedName">PSPDFKit.Utils</attr>
 
 <!-- Avoid colision in types -->
   <attr path="/api/package[@name='com.pspdfkit']/class[@name='PSPDFKit']" name="managedName">PSPDFKitGlobal</attr>
   <attr path="/api/package[@name='com.pspdfkit.document']/class[@name='PSPDFDocumentMetadata']/method[@name='getCreator' and count(parameter)=0]" name="managedName">GetDocumentCreator</attr>
 
-<!-- TODO: We do not support Java RX.Observable so unfortunately Async types must be removed 
-     we might be able to implement this using RX.NET or just plain Async/Await 
-     ++ Not using a general Xpath rule to remove *Async so we can have a list of all *Async methods ++-->
-  <remove-node path="/api/package[@name='com.pspdfkit']/class[@name='PSPDFKit']/method[@name='openDocumentAsync']" />
-  <remove-node path="/api/package[@name='com.pspdfkit']/class[@name='PSPDFKit']/method[@name='openDocumentsAsync']" />
-  <remove-node path="/api/package[@name='com.pspdfkit']/class[@name='PSPDFKit']/method[@name='openDocumentsFromSourcesAsync']" />
-  <remove-node path="/api/package[@name='com.pspdfkit.document']/class[@name='PSPDFDocument']/method[@name='renderPageToBitmapAsync']" />
-  <remove-node path="/api/package[@name='com.pspdfkit.document']/class[@name='PSPDFDocument']/method[@name='saveAsync']" />
-  <remove-node path="/api/package[@name='com.pspdfkit.document']/class[@name='PSPDFDocument']/method[@name='saveIfModifiedAsync']" />
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='Annotation']/method[@name='renderToBitmapAsync']" />
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='AnnotationProvider']/method[@name='addAnnotationToPageAsync']" />
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='AnnotationProvider']/method[@name='getAnnotationAsync']" />
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='AnnotationProvider']/method[@name='getAnnotationsAsync']" />
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='AnnotationProvider']/method[@name='getAllAnnotationsOfType']" />
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='AnnotationProvider']/method[@name='removeAnnotationFromPageAsync']" />
-  <attr path="/api/package[@name='com.pspdfkit.events']/class[@name='EventBus']/method[@name='events']" name="return">java.lang.Object</attr>
-  <attr path="/api/package[@name='com.pspdfkit.events']/class[@name='EventBus']/method[@name='eventsMainThread']" name="return">java.lang.Object</attr>
-  <attr path="/api/package[@name='com.pspdfkit.events']/class[@name='EventBus']/method[@name='eventsWithType']" name="return">java.lang.Object</attr>
-  <attr path="/api/package[@name='com.pspdfkit.events']/class[@name='EventBus']/method[@name='eventsMainThread']" name="return">java.lang.Object</attr>
-  <attr path="/api/package[@name='com.pspdfkit.events']/class[@name='EventBus']/method[@name='eventsWithTypeMainThread']" name="return">java.lang.Object</attr>
+<!-- Some API modifications -->
+  <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='PSPDFThumbnailBar']" name="extends">java.lang.Object</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='AbstractSearchView']" name="extends">java.lang.Object</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='PSPDFSearchViewInline']" name="extends">java.lang.Object</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='PSPDFSearchViewModular']" name="extends">java.lang.Object</attr>
+  <attr path="/api/package[@name='com.pspdfkit.listeners']/interface[@name='DocumentListener']/method[@name='onDocumentLoadFailed']" name="argsType">OnDocumentLoadFailedEventArgs</attr>
+  <attr path="/api/package[@name='com.pspdfkit.listeners']/interface[@name='DocumentListener']/method[@name='onDocumentLoaded']" name="argsType">OnDocumentLoadedEventArgs</attr>
+<!--  <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='PSPDFSearchView']/field[@name='isDisplayed']" name="managedName">Displayed</attr>-->
 
-  <!-- ImmutableDate is inmutable so no need to re-expose setters -->
+<!-- ImmutableDate is inmutable so no need to re-expose setters -->
   <remove-node path="/api/package[@name='com.pspdfkit.datastructures']/class[@name='ImmutableDate']/method[@name='setDate' and count(parameter)=1 and parameter[1][@type='int']]" />
   <remove-node path="/api/package[@name='com.pspdfkit.datastructures']/class[@name='ImmutableDate']/method[@name='setHours' and count(parameter)=1 and parameter[1][@type='int']]" />
   <remove-node path="/api/package[@name='com.pspdfkit.datastructures']/class[@name='ImmutableDate']/method[@name='setMinutes' and count(parameter)=1 and parameter[1][@type='int']]" />
@@ -132,12 +88,12 @@
   <attr path="/api/package[@name='com.google.android.youtube.player']" name="managedName">Google.YouTube.Player</attr>
 
 <!-- We need to fake these two methods in order to satisfy C# interface implementation and generator -->
-  <add-node path="/api/package[@name='com.pspdfkit.ui']/class[@name='PSPDFSearchView']">
+<!--  <add-node path="/api/package[@name='com.pspdfkit.ui']/class[@name='PSPDFSearchView']">
   	<method abstract="false" deprecated="not deprecated" final="false" name="hide" native="false" return="void" static="false" synchronized="false" visibility="public">
     </method>
     <method abstract="false" deprecated="not deprecated" final="false" name="show" native="false" return="void" static="false" synchronized="false" visibility="public">
     </method>
-  </add-node>
+  </add-node>-->
 
 <!-- TODO: Find a way to get parameter names into the assembly -->
 </metadata>

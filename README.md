@@ -1,6 +1,6 @@
 #Xamarin PSPDFKit.Android Bindings
 
-Xamarin.Android Bindings for PSPDFKit `v2.2.1`
+Xamarin.Android Bindings for PSPDFKit `v2.3.2`
 
 ## Building PSPDFKit.Android.dll
 
@@ -56,10 +56,11 @@ In order to use **PSPDFKit.Android.dll** with your own project you will need to 
 
 Once you have done this you will need to add some [NuGet](https://www.nuget.org/) packages to you project
 
-* [Xamarin Support Library v4](https://www.nuget.org/packages/Xamarin.Android.Support.v4) - **Required**
-* [Xamarin Support Library v7 AppCompat](https://www.nuget.org/packages/Xamarin.Android.Support.v7.AppCompat/21.0.3) - **Optional**
-
-You only need **v7 AppCompat** if you are going to use AppCompat themes in your android app and if you will be using `PSPDFAppCompatActivity`.
+* [Xamarin Support Library v4](https://www.nuget.org/packages/Xamarin.Android.Support.v4/)
+* [Xamarin Support Library v7 AppCompat](https://www.nuget.org/packages/Xamarin.Android.Support.v7.AppCompat/)
+* [Xamarin Support Library v7 RecyclerView](https://www.nuget.org/packages/Xamarin.Android.Support.v7.RecyclerView/)
+* [Xamarin Support Library v7 CardView](https://www.nuget.org/packages/Xamarin.Android.Support.v7.CardView/)
+* [Xamarin Support Library Design](https://www.nuget.org/packages/Xamarin.Android.Support.Design/)
 
 If you need to know how to add NuGet packages to your Xamarin project please refer to [Walkthrough: Including a NuGet in your project](http://developer.xamarin.com/guides/cross-platform/application_fundamentals/nuget_walkthrough/) from Xamarin site.
 
