@@ -1,6 +1,6 @@
 #Xamarin PSPDFKit.Android Bindings
 
-Xamarin.Android Bindings for PSPDFKit `v2.3.2`
+Xamarin.Android Bindings for PSPDFKit `v2.3.3`
 
 ## Building PSPDFKit.Android.dll
 
@@ -18,7 +18,7 @@ You will require an installation of the [Java 7 SDK](http://www.oracle.com/techn
 ###Step 1 - Get PSPDFKit .aar file
 
 1. Download PSPDFKit from your [customer portal](https://customers.pspdfkit.com) if you haven't done so already, or [request an evaluation version](https://pspdfkit.com/#trynow).
-2. Unzip the file you downloaded in step 1 and copy `pspdfkit-2.1.1.aar` to [`PSPDFKit.Android/Jars`](PSPDFKit.Android/Jars) folder.
+2. Unzip the file you downloaded in step 1 and copy `pspdfkit-x.x.x.aar` to [`PSPDFKit.Android/Jars`](PSPDFKit.Android/Jars) folder.
 3. run `make` command from `root` or `binding` directory, this will download additional resources needed by the binding.
 
 Note: Ensure the file is really named  `pspdfkit-x.x.x.aar` and that there's no hidden `.zip` file ending. OS X likes to add these things and doesn't show them by default. Use the Inspector to be sure.

@@ -73,11 +73,11 @@
     <TransformFile Include="Transforms\Metadata.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedReferenceJar Include="Jars\rxandroid-1.1.0.jar" />
-    <EmbeddedReferenceJar Include="Jars\rxjava-1.1.1.jar" />
+    <EmbeddedReferenceJar Include="Jars\rxandroid-1.2.0.jar" />
+    <EmbeddedReferenceJar Include="Jars\rxjava-1.1.5.jar" />
   </ItemGroup>
   <ItemGroup>
-    <LibraryProjectZip Include="Jars\pspdfkit-2.3.2.aar" />
+    <LibraryProjectZip Include="Jars\pspdfkit-2.3.3.aar" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedJar Include="Jars\YouTubeAndroidPlayerApi-1.2.1\libs\YouTubeAndroidPlayerApi.jar">
