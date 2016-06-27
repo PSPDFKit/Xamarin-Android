@@ -13,7 +13,11 @@
 
 <!-- Removes any "constructor" that any of its parameters uses
      any of the types contained in com.pspdfkit.framework.* -->
-  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework')]" />
+ <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.v')]" />
+ <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.af')]" />
+ <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.ac')]" />
+<!-- Not creating a general rule to avoid bug reported by David -->
+<!-- <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework')]" />-->
 
 <!-- Removes any "method" that any of its parameters uses
      any of the types contained in com.pspdfkit.framework.* -->
@@ -42,6 +46,7 @@
   <attr path="/api/package[@name='com.pspdfkit.datastructures']" name="managedName">PSPDFKit.Datastructures</attr>
   <attr path="/api/package[@name='com.pspdfkit.document']" name="managedName">PSPDFKit.Document</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.library']" name="managedName">PSPDFKit.Document.Library</attr>
+  <attr path="/api/package[@name='com.pspdfkit.document.printing']" name="managedName">PSPDFKit.Document.Printing</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.providers']" name="managedName">PSPDFKit.Document.Providers</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.processor']" name="managedName">PSPDFKit.Document.Processor</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.search']" name="managedName">PSPDFKit.Document.Search</attr>
@@ -55,11 +60,19 @@
   <attr path="/api/package[@name='com.pspdfkit.ui.drawable']" name="managedName">PSPDFKit.UI.Drawable</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.editors']" name="managedName">PSPDFKit.UI.Editors</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.search']" name="managedName">PSPDFKit.UI.Search</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.special_mode.controller']" name="managedName">PSPDFKit.UI.SpecialMode.Controller</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.special_mode.controller.base']" name="managedName">PSPDFKit.UI.SpecialMode.Controller.Base</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.special_mode.manager']" name="managedName">PSPDFKit.UI.SpecialMode.Manager</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.toolbar']" name="managedName">PSPDFKit.UI.Toolbar</attr>
   <attr path="/api/package[@name='com.pspdfkit.utils']" name="managedName">PSPDFKit.Utils</attr>
 
 <!-- Avoid colision in types -->
   <attr path="/api/package[@name='com.pspdfkit']/class[@name='PSPDFKit']" name="managedName">PSPDFKitGlobal</attr>
   <attr path="/api/package[@name='com.pspdfkit.document']/class[@name='PSPDFDocumentMetadata']/method[@name='getCreator' and count(parameter)=0]" name="managedName">GetDocumentCreator</attr>
+  <attr path="/api/package[@name='com.pspdfkit.annotations']/class[@name='Annotation']/field[@name='a']" name="managedName">AField</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.toolbar']/class[@name='ContextualToolbar']/field[@name='backButton']" name="managedName">BackButtonField</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.toolbar']/class[@name='ContextualToolbar']/field[@name='closeButton']" name="managedName">CloseButtonField</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.toolbar']/class[@name='ContextualToolbar']/field[@name='dragButton']" name="managedName">DragButtonField</attr>
 
 <!-- Some API modifications -->
   <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='PSPDFThumbnailBar']" name="extends">java.lang.Object</attr>
