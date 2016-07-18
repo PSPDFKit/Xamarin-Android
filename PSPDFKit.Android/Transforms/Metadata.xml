@@ -1,5 +1,5 @@
 ﻿<metadata>
-  
+
 <!-- Remove non public Api namespaces -->
   <remove-node path="/api/package[contains(@name, 'com.pspdfkit.framework')]" />
 
@@ -76,12 +76,32 @@
 
 <!-- Some API modifications -->
   <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='PSPDFThumbnailBar']" name="extends">java.lang.Object</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='AbstractSearchView']" name="extends">java.lang.Object</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='PSPDFSearchViewInline']" name="extends">java.lang.Object</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='PSPDFSearchViewModular']" name="extends">java.lang.Object</attr>
   <attr path="/api/package[@name='com.pspdfkit.listeners']/interface[@name='DocumentListener']/method[@name='onDocumentLoadFailed']" name="argsType">OnDocumentLoadFailedEventArgs</attr>
   <attr path="/api/package[@name='com.pspdfkit.listeners']/interface[@name='DocumentListener']/method[@name='onDocumentLoaded']" name="argsType">OnDocumentLoadedEventArgs</attr>
-<!--  <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='PSPDFSearchView']/field[@name='isDisplayed']" name="managedName">Displayed</attr>-->
+
+<!-- Private clases that needs to be public + Manual fixes due to C# vs Java differences -->
+  <attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='AbstractSearchView']" name="visibility">public</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='AbstractSearchView']" name="extends">java.lang.Object</attr>
+  <remove-node path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='AbstractSearchView']/field[@name='searchInProgress']" />
+  <attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='AbstractSearchView']/field[@name='isDisplayed']" name="managedName">Displayed</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='AbstractSearchView']/method[@name='onSearchStarted']" name="visibility">public</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='AbstractSearchView']/method[@name='onMoreSearchResults']" name="visibility">public</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='AbstractSearchView']/method[@name='onSearchComplete']" name="visibility">public</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='AbstractSearchView']/method[@name='onSearchError']" name="visibility">public</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='AbstractSearchView']/method[@name='onSearchCanceled']" name="visibility">public</attr>
+	
+  <attr path="/api/package[@name='com.pspdfkit.ui']/interface[@name='PSPDFViews.PSPDFView']/method[@name='hide' and count(parameter)=0]" name="managedName">HideView</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui']/interface[@name='PSPDFViews.PSPDFView']/method[@name='show' and count(parameter)=0]" name="managedName">ShowView</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='PSPDFOutlineView']/method[@name='hide' and count(parameter)=0]" name="managedName">HideView</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='PSPDFOutlineView']/method[@name='show' and count(parameter)=0]" name="managedName">ShowView</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='PSPDFThumbnailBar']/method[@name='hide' and count(parameter)=0]" name="managedName">HideView</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='PSPDFThumbnailBar']/method[@name='show' and count(parameter)=0]" name="managedName">ShowView</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='PSPDFThumbnailGrid']/method[@name='hide' and count(parameter)=0]" name="managedName">HideView</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='PSPDFThumbnailGrid']/method[@name='show' and count(parameter)=0]" name="managedName">ShowView</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='PSPDFSearchViewInline']/method[@name='hide' and count(parameter)=0]" name="managedName">HideView</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='PSPDFSearchViewInline']/method[@name='show' and count(parameter)=0]" name="managedName">ShowView</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='PSPDFSearchViewModular']/method[@name='hide' and count(parameter)=0]" name="managedName">HideView</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='PSPDFSearchViewModular']/method[@name='show' and count(parameter)=0]" name="managedName">ShowView</attr>
 
 <!-- ImmutableDate is inmutable so no need to re-expose setters -->
   <remove-node path="/api/package[@name='com.pspdfkit.datastructures']/class[@name='ImmutableDate']/method[@name='setDate' and count(parameter)=1 and parameter[1][@type='int']]" />
