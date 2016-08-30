@@ -13,9 +13,9 @@
 
 <!-- Removes any "constructor" that any of its parameters uses
      any of the types contained in com.pspdfkit.framework.* -->
- <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.v')]" />
- <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.af')]" />
- <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.ac')]" />
+ <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.x')]" />
+ <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.ai')]" />
+ <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.ae')]" />
 <!-- Not creating a general rule to avoid bug reported by David -->
 <!-- <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework')]" />-->
 
@@ -37,9 +37,12 @@
   <attr path="/api/package[@name='com.pspdfkit']" name="managedName">PSPDFKit</attr>
   <attr path="/api/package[@name='com.pspdfkit.annotations']" name="managedName">PSPDFKit.Annotations</attr>
   <attr path="/api/package[@name='com.pspdfkit.annotations.actions']" name="managedName">PSPDFKit.Annotations.Actions</attr>
+  <attr path="/api/package[@name='com.pspdfkit.annotations.defaults']" name="managedName">PSPDFKit.Annotations.Defaults</attr>
+  <attr path="/api/package[@name='com.pspdfkit.bookmarks']" name="managedName">PSPDFKit.Bookmarks</attr>
   <attr path="/api/package[@name='com.pspdfkit.configuration']" name="managedName">PSPDFKit.Configuration</attr>
   <attr path="/api/package[@name='com.pspdfkit.configuration.activity']" name="managedName">PSPDFKit.Configuration.Activity</attr>
   <attr path="/api/package[@name='com.pspdfkit.configuration.rendering']" name="managedName">PSPDFKit.Configuration.Rendering</attr>
+  <attr path="/api/package[@name='com.pspdfkit.configuration.search']" name="managedName">PSPDFKit.Configuration.Search</attr>
   <attr path="/api/package[@name='com.pspdfkit.configuration.page']" name="managedName">PSPDFKit.Configuration.Page</attr>
   <attr path="/api/package[@name='com.pspdfkit.configuration.theming']" name="managedName">PSPDFKit.Configuration.Theming</attr>
   <attr path="/api/package[@name='com.pspdfkit.configuration.annotations']" name="managedName">PSPDFKit.Configuration.Annotations</attr>
@@ -59,6 +62,9 @@
   <attr path="/api/package[@name='com.pspdfkit.ui.dialog']" name="managedName">PSPDFKit.UI.Dialog</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.drawable']" name="managedName">PSPDFKit.UI.Drawable</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.editors']" name="managedName">PSPDFKit.UI.Editors</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.inspector']" name="managedName">PSPDFKit.UI.Inspector</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.inspector.annotation']" name="managedName">PSPDFKit.UI.Inspector.Annotation</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.inspector.views']" name="managedName">PSPDFKit.UI.Inspector.Views</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.search']" name="managedName">PSPDFKit.UI.Search</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.special_mode.controller']" name="managedName">PSPDFKit.UI.SpecialMode.Controller</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.special_mode.controller.base']" name="managedName">PSPDFKit.UI.SpecialMode.Controller.Base</attr>
@@ -73,6 +79,7 @@
   <attr path="/api/package[@name='com.pspdfkit.ui.toolbar']/class[@name='ContextualToolbar']/field[@name='backButton']" name="managedName">BackButtonField</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.toolbar']/class[@name='ContextualToolbar']/field[@name='closeButton']" name="managedName">CloseButtonField</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.toolbar']/class[@name='ContextualToolbar']/field[@name='dragButton']" name="managedName">DragButtonField</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.toolbar']/class[@name='ToolbarCoordinatorLayout.LayoutParams']/field[@name='position']" name="managedName">PositionField</attr>
 
 <!-- Some API modifications -->
   <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='PSPDFThumbnailBar']" name="extends">java.lang.Object</attr>
@@ -80,6 +87,7 @@
   <attr path="/api/package[@name='com.pspdfkit.listeners']/interface[@name='DocumentListener']/method[@name='onDocumentLoaded']" name="argsType">OnDocumentLoadedEventArgs</attr>
 
 <!-- Private clases that needs to be public + Manual fixes due to C# vs Java differences -->
+  <attr path="/api/package[@name='com.pspdfkit.ui.inspector.annotation']/class[@name='AnnotationInspectorBaseController']" name="visibility">public</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='AbstractSearchView']" name="visibility">public</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='AbstractSearchView']" name="extends">java.lang.Object</attr>
   <remove-node path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='AbstractSearchView']/field[@name='searchInProgress']" />
