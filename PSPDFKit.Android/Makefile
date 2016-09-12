@@ -1,8 +1,8 @@
 MONOXBUILD=/Library/Frameworks/Mono.framework/Commands/xbuild
-PDFKITVERSION=2.5.0
+PDFKITVERSION=2.5.1
 RXANDROIDVERSION=1.2.1
 RXJAVAVERSION=1.1.9
-YOUTUBEVERSION=1.2.1
+YOUTUBEVERSION=1.2.2
 RXANDROIDURL=http://search.maven.org/remotecontent?filepath=io/reactivex/rxandroid/$(RXANDROIDVERSION)/rxandroid-$(RXANDROIDVERSION).aar
 RXJAVAURL=http://search.maven.org/remotecontent?filepath=io/reactivex/rxjava/$(RXJAVAVERSION)/rxjava-$(RXJAVAVERSION).jar
 YOUTUBEURL=https://developers.google.com/youtube/android/player/downloads/YouTubeAndroidPlayerApi-$(YOUTUBEVERSION).zip

@@ -4,6 +4,7 @@
 *.DS_Store
 [Bb]in
 [Dd]ebug*/
+[Jj]ars
 obj/
 tmp/
 *.g.cs

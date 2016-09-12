@@ -79,10 +79,10 @@
     <EmbeddedReferenceJar Include="Jars\rxjava-1.1.9.jar" />
   </ItemGroup>
   <ItemGroup>
-    <LibraryProjectZip Include="Jars\pspdfkit-2.5.0.aar" />
+    <LibraryProjectZip Include="Jars\pspdfkit-2.5.1.aar" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedJar Include="Jars\YouTubeAndroidPlayerApi-1.2.1\libs\YouTubeAndroidPlayerApi.jar">
+    <EmbeddedJar Include="Jars\YouTubeAndroidPlayerApi-1.2.2\libs\YouTubeAndroidPlayerApi.jar">
       <Link>Jars\YouTubeAndroidPlayerApi.jar</Link>
     </EmbeddedJar>
   </ItemGroup>
