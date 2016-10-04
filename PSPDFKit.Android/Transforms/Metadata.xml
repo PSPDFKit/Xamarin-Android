@@ -13,9 +13,9 @@
 
 <!-- Removes any "constructor" that any of its parameters uses
      any of the types contained in com.pspdfkit.framework.* -->
- <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.x')]" />
- <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.ai')]" />
- <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.ae')]" />
+ <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.z')]" />
+ <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.ak')]" />
+<!-- <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.ae')]" />-->
 <!-- Not creating a general rule to avoid bug reported by David -->
 <!-- <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework')]" />-->
 
@@ -25,6 +25,7 @@
   <remove-node path="//method/parameter[contains(@type, 'rx.')]" />
   <remove-node path="//method[contains(@return, 'com.pspdfkit.framework')]" />
   <remove-node path="//method[contains(@return, 'rx.')]" />
+  <remove-node path="//implements[contains(@name, 'rx.')]" />
 
 <!-- Removes any "field" of type com.pspdfkit.framework.* -->
   <remove-node path="//field[contains(@type, 'com.pspdfkit.framework')]" />
@@ -35,6 +36,7 @@
 
 <!-- C# friendly namespaces -->
   <attr path="/api/package[@name='com.pspdfkit']" name="managedName">PSPDFKit</attr>
+  <attr path="/api/package[@name='com.pspdfkit.analytics']" name="managedName">PSPDFKit.AnalyticsSdk</attr>
   <attr path="/api/package[@name='com.pspdfkit.annotations']" name="managedName">PSPDFKit.Annotations</attr>
   <attr path="/api/package[@name='com.pspdfkit.annotations.actions']" name="managedName">PSPDFKit.Annotations.Actions</attr>
   <attr path="/api/package[@name='com.pspdfkit.annotations.defaults']" name="managedName">PSPDFKit.Annotations.Defaults</attr>
@@ -48,6 +50,8 @@
   <attr path="/api/package[@name='com.pspdfkit.configuration.annotations']" name="managedName">PSPDFKit.Configuration.Annotations</attr>
   <attr path="/api/package[@name='com.pspdfkit.datastructures']" name="managedName">PSPDFKit.Datastructures</attr>
   <attr path="/api/package[@name='com.pspdfkit.document']" name="managedName">PSPDFKit.Document</attr>
+  <attr path="/api/package[@name='com.pspdfkit.document.download']" name="managedName">PSPDFKit.Document.Download</attr>
+  <attr path="/api/package[@name='com.pspdfkit.document.download.source']" name="managedName">PSPDFKit.Document.Download.Source</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.library']" name="managedName">PSPDFKit.Document.Library</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.printing']" name="managedName">PSPDFKit.Document.Printing</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.providers']" name="managedName">PSPDFKit.Document.Providers</attr>
@@ -59,6 +63,7 @@
   <attr path="/api/package[@name='com.pspdfkit.listeners']" name="managedName">PSPDFKit.Listeners</attr>
   <attr path="/api/package[@name='com.pspdfkit.media']" name="managedName">PSPDFKit.Media</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui']" name="managedName">PSPDFKit.UI</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.actionmenu']" name="managedName">PSPDFKit.UI.ActionMenuSdk</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.dialog']" name="managedName">PSPDFKit.UI.Dialog</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.drawable']" name="managedName">PSPDFKit.UI.Drawable</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.editors']" name="managedName">PSPDFKit.UI.Editors</attr>
@@ -70,13 +75,13 @@
   <attr path="/api/package[@name='com.pspdfkit.ui.special_mode.controller.base']" name="managedName">PSPDFKit.UI.SpecialMode.Controller.Base</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.special_mode.manager']" name="managedName">PSPDFKit.UI.SpecialMode.Manager</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.toolbar']" name="managedName">PSPDFKit.UI.Toolbar</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.toolbar.rx']" name="managedName">PSPDFKit.UI.Toolbar.RX</attr>
   <attr path="/api/package[@name='com.pspdfkit.utils']" name="managedName">PSPDFKit.Utils</attr>
 
 <!-- Avoid colision in types -->
   <attr path="/api/package[@name='com.pspdfkit']/class[@name='PSPDFKit']" name="managedName">PSPDFKitGlobal</attr>
   <attr path="/api/package[@name='com.pspdfkit.document']/class[@name='PSPDFDocumentMetadata']/method[@name='getCreator' and count(parameter)=0]" name="managedName">GetDocumentCreator</attr>
   <attr path="/api/package[@name='com.pspdfkit.annotations']/class[@name='Annotation']/field[@name='a']" name="managedName">AField</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui.toolbar']/class[@name='ContextualToolbar']/field[@name='backButton']" name="managedName">BackButtonField</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.toolbar']/class[@name='ContextualToolbar']/field[@name='closeButton']" name="managedName">CloseButtonField</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.toolbar']/class[@name='ContextualToolbar']/field[@name='dragButton']" name="managedName">DragButtonField</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.toolbar']/class[@name='ToolbarCoordinatorLayout.LayoutParams']/field[@name='position']" name="managedName">PositionField</attr>
@@ -85,6 +90,7 @@
   <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='PSPDFThumbnailBar']" name="extends">java.lang.Object</attr>
   <attr path="/api/package[@name='com.pspdfkit.listeners']/interface[@name='DocumentListener']/method[@name='onDocumentLoadFailed']" name="argsType">OnDocumentLoadFailedEventArgs</attr>
   <attr path="/api/package[@name='com.pspdfkit.listeners']/interface[@name='DocumentListener']/method[@name='onDocumentLoaded']" name="argsType">OnDocumentLoadedEventArgs</attr>
+  <attr path="/api/package[@name='com.pspdfkit.document.download']/class[@name='DownloadProgressFragment']/method[@name='getDialog' and count(parameter)=0]" name="return">com.android.app.Dialog</attr>
 
 <!-- Private clases that needs to be public + Manual fixes due to C# vs Java differences -->
   <attr path="/api/package[@name='com.pspdfkit.ui.inspector.annotation']/class[@name='AnnotationInspectorBaseController']" name="visibility">public</attr>

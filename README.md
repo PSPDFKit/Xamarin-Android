@@ -1,6 +1,6 @@
 #Xamarin PSPDFKit.Android Bindings
 
-Xamarin.Android Bindings for PSPDFKit `v2.5.1`
+Xamarin.Android Bindings for PSPDFKit `v2.6.0`
 
 ## Building PSPDFKit.Android.dll
 
@@ -8,12 +8,12 @@ Xamarin.Android Bindings for PSPDFKit `v2.5.1`
 
 PSPDFKit runs on Android devices running:
 
-* **Xamarin.Android >= 5.1.x**
+* **Xamarin.Android >= 7.0.x**
+* **64-bit version of JDK 1.8**
 * Android 4.1 or newer / API level 16 or higher
 * 32/64-bit ARM (armeabi-v7a / arm64-v8a) or 32-bit Intel x86 CPU (MIPS and x86-64 builds are available by request and are not included by default due to size constraints.)
 
 Note: This has only been tested with Xamarin Studio on Mac OS X El Capitan. Other versions or Visual Studio are not supported.
-You will require an installation of the [Java 7 SDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html).
 
 ###Step 1 - Get PSPDFKit .aar file
 
@@ -23,9 +23,7 @@ You will require an installation of the [Java 7 SDK](http://www.oracle.com/techn
 
 Note: Ensure the file is really named  `pspdfkit-x.x.x.aar` and that there's no hidden `.zip` file ending. OS X likes to add these things and doesn't show them by default. Use the Inspector to be sure.
 
-Important: You need to select Java 7 as the runtime. Ther's a known bug with Xamarin Studio that creates faulty dlls when compiling using Java 8: https://forums.xamarin.com/discussion/47490/do-not-use-java-jdk-1-8-when-generating-android-bindings-in-xamarin-studio
-
-Xamarin Studio will use the default Java, but this can be customized in Preferences -> SDK Locations -> Java SDK (JDK). Use `/usr/libexec/java_home -v 1.7` to see where the Java 7 home path is.
+Xamarin Studio will use the default Java, but this can be customized in Preferences -> SDK Locations -> Java SDK (JDK).
 
 ### Step 2 - Get your Dll
 
