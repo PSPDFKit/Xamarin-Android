@@ -26,7 +26,7 @@ namespace AndroidSample
 	public class MainActivity : Activity
 	{		
 		static readonly string yourLicenseKey = "LICENSE_KEY_GOES_HERE";
-
+		
 		const string sampleDoc = "demo.pdf";
 
 		const int RequestOpenDocument = 1;

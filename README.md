@@ -1,6 +1,6 @@
 #Xamarin PSPDFKit.Android Bindings
 
-Xamarin.Android Bindings for PSPDFKit `v2.6.0`
+Xamarin.Android Bindings for PSPDFKit `v2.8.1`
 
 ## Building PSPDFKit.Android.dll
 
@@ -12,8 +12,9 @@ PSPDFKit runs on Android devices running:
 * **64-bit version of JDK 1.8**
 * Android 4.1 or newer / API level 16 or higher
 * 32/64-bit ARM (armeabi-v7a / arm64-v8a) or 32-bit Intel x86 CPU (MIPS and x86-64 builds are available by request and are not included by default due to size constraints.)
+* Projects using PSPDFKit.Android.dll **must** set Target Framework to API 24 (Android 7.0).
 
-Note: This has only been tested with Xamarin Studio on Mac OS X El Capitan. Other versions or Visual Studio are not supported.
+Note: Building this binding project has only been tested with Xamarin Studio on macOS 10.11+. Other versions or Visual Studio are not supported. That said you can use the resulting PSPDFKit.Android.dll in Visual Studio.
 
 ###Step 1 - Get PSPDFKit .aar file
 
