@@ -88,7 +88,7 @@ try {
 ```xml
 <application android:largeHeap="true">
     <activity android:name="com.pspdfkit.ui.PSPDFActivity"
-              android:windowSoftInputMode="adjustNothing">
+              android:windowSoftInputMode="adjustNothing" />
 </application>
 ```
 
