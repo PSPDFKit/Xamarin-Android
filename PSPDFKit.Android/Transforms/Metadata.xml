@@ -13,9 +13,9 @@
 
 <!-- Removes any "constructor" that any of its parameters uses
      any of the types contained in com.pspdfkit.framework.* -->
- <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.ba')]" />
- <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.an')]" />
- <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.au')]" />
+ <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.bb')]" />
+ <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.ao')]" />
+ <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.av')]" />
 <!-- Not creating a general rule to avoid bug reported by David -->
 <!-- <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework')]" />-->
 
@@ -40,13 +40,15 @@
   <attr path="/api/package[@name='com.pspdfkit.annotations']" name="managedName">PSPDFKit.Annotations</attr>
   <attr path="/api/package[@name='com.pspdfkit.annotations.actions']" name="managedName">PSPDFKit.Annotations.Actions</attr>
   <attr path="/api/package[@name='com.pspdfkit.annotations.defaults']" name="managedName">PSPDFKit.Annotations.Defaults</attr>
-  <attr path="/api/package[@name='com.pspdfkit.annotations.utils']" name="managedName">PSPDFKit.Annotations.Utils</attr>
+  <attr path="/api/package[@name='com.pspdfkit.annotations.signatures']" name="managedName">PSPDFKit.Annotations.Signatures</attr>
+  <attr path="/api/package[@name='com.pspdfkit.annotations.stamps']" name="managedName">PSPDFKit.Annotations.Stamps</attr>
   <attr path="/api/package[@name='com.pspdfkit.bookmarks']" name="managedName">PSPDFKit.Bookmarks</attr>
   <attr path="/api/package[@name='com.pspdfkit.configuration']" name="managedName">PSPDFKit.Configuration</attr>
   <attr path="/api/package[@name='com.pspdfkit.configuration.activity']" name="managedName">PSPDFKit.Configuration.Activity</attr>
   <attr path="/api/package[@name='com.pspdfkit.configuration.rendering']" name="managedName">PSPDFKit.Configuration.Rendering</attr>
   <attr path="/api/package[@name='com.pspdfkit.configuration.search']" name="managedName">PSPDFKit.Configuration.Search</attr>
   <attr path="/api/package[@name='com.pspdfkit.configuration.page']" name="managedName">PSPDFKit.Configuration.Page</attr>
+  <attr path="/api/package[@name='com.pspdfkit.configuration.policy']" name="managedName">PSPDFKit.Configuration.Policy</attr>
   <attr path="/api/package[@name='com.pspdfkit.configuration.theming']" name="managedName">PSPDFKit.Configuration.Theming</attr>
   <attr path="/api/package[@name='com.pspdfkit.configuration.annotations']" name="managedName">PSPDFKit.Configuration.Annotations</attr>
   <attr path="/api/package[@name='com.pspdfkit.datastructures']" name="managedName">PSPDFKit.Datastructures</attr>
@@ -71,7 +73,6 @@
   <attr path="/api/package[@name='com.pspdfkit.ui']" name="managedName">PSPDFKit.UI</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.actionmenu']" name="managedName">PSPDFKit.UI.ActionMenuSdk</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.dialog']" name="managedName">PSPDFKit.UI.Dialog</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui.dialog.stamps']" name="managedName">PSPDFKit.UI.Dialog.Stamps</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.drawable']" name="managedName">PSPDFKit.UI.Drawable</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.editor']" name="managedName">PSPDFKit.UI.Editor</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.inspector']" name="managedName">PSPDFKit.UI.Inspector</attr>
@@ -101,8 +102,11 @@
 
 <!-- Some API modifications -->
   <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='PSPDFThumbnailBar']" name="extends">java.lang.Object</attr>
+  <attr path="/api/package[@name='com.pspdfkit.document.editor.page']/class[@name='NewPageDialog.NewPageDialogTitleStyle']" name="extends">java.lang.Object</attr>
   <attr path="/api/package[@name='com.pspdfkit.listeners']/interface[@name='DocumentListener']/method[@name='onDocumentLoadFailed']" name="argsType">OnDocumentLoadFailedEventArgs</attr>
   <attr path="/api/package[@name='com.pspdfkit.listeners']/interface[@name='DocumentListener']/method[@name='onDocumentLoaded']" name="argsType">OnDocumentLoadedEventArgs</attr>
+  <attr path="/api/package[@name='com.pspdfkit.listeners']/interface[@name='LocalizationListener']/method[@name='getLocalizedString' and count(parameter)=5 and parameter[1][@type='android.content.Context'] and parameter[2][@type='int'] and parameter[3][@type='java.util.Locale'] and parameter[4][@type='android.view.View'] and parameter[5][@type='java.lang.Object...']]" name="managedName">GetLocalizedStr</attr>
+  <attr path="/api/package[@name='com.pspdfkit.listeners']/class[@name='DefaultLocalizationListener']/method[@name='getLocalizedString' and count(parameter)=5 and parameter[1][@type='android.content.Context'] and parameter[2][@type='int'] and parameter[3][@type='java.util.Locale'] and parameter[4][@type='android.view.View'] and parameter[5][@type='java.lang.Object...']]" name="managedName">GetLocalizedStr</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.download']/class[@name='DownloadProgressFragment']/method[@name='getDialog' and count(parameter)=0]" name="return">com.android.app.Dialog</attr>
 
 <!-- Private clases that needs to be public + Manual fixes due to C# vs Java differences -->
@@ -111,7 +115,6 @@
   <attr path="/api/package[@name='com.pspdfkit.annotations']/class[@name='BaseLineAnnotation']/method[@name='getLineEnds' and count(parameter)=0]" name="visibility">public</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='AbstractSearchView']" name="extends">java.lang.Object</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.sharing']/class[@name='DocumentSharingProvider']" name="extends">java.lang.Object</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui.inspector']/class[@name='PropertyInspector.PropertyInspectorTitleView']" name="extends">android.widget.FrameLayout</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.inspector.views']/class[@name='BorderStylePickerInspectorView']" name="extends">android.widget.FrameLayout</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.inspector.views']/class[@name='LineEndTypePickerInspectorView']" name="extends">android.widget.FrameLayout</attr>
   <remove-node path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='AbstractSearchView']/field[@name='searchInProgress']" />
