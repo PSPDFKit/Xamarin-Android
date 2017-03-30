@@ -1,4 +1,4 @@
-#Xamarin PSPDFKit.Android Bindings
+# Xamarin PSPDFKit.Android Bindings
 
 Xamarin.Android Bindings for PSPDFKit `v2.9.3`
 
@@ -18,7 +18,7 @@ PSPDFKit runs on Android devices running:
 
 Note: Building this binding project has only been tested with Xamarin Studio on macOS 10.11+. Other versions or Visual Studio are not supported. That said you can use the resulting PSPDFKit.Android.dll in Visual Studio.
 
-###Step 1 - Get PSPDFKit .aar file
+### Step 1 - Get PSPDFKit .aar file
 
 1. Download PSPDFKit from your [customer portal](https://customers.pspdfkit.com) if you haven't done so already, or [request an evaluation version](https://pspdfkit.com/#trynow).
 2. Unzip the file you downloaded in step 1 and copy `pspdfkit-x.x.x.aar` to [`PSPDFKit.Android/Jars`](PSPDFKit.Android/Jars) folder.
@@ -32,14 +32,14 @@ Xamarin Studio will use the default Java, but this can be customized in Preferen
 
 You have two options to get it:
 
-####Build from PSPDFKit.Android.sln
+#### Build from PSPDFKit.Android.sln
 
 1. Open `PSPDFKit.Android.sln` in `Xamarin Studio` or `Visual Studio`
 2. Build the project
 3. Get the dll from the `PSPDFKit.Android/bin` folder
 4. Enjoy 
 
-####Build from terminal
+#### Build from terminal
 
 1. Just run `make dll` command from `root` or `binding` directory
 2. Get the dll from the `Dll` folder
@@ -47,7 +47,7 @@ You have two options to get it:
 
 Note: Currently building the dll is only supported on OS X 10.11 with Xamarin Studio. We're working on an update that will allow Windows as well.
 
-##Integrating with your own project
+## Integrating with your own project
 
 In order to use **PSPDFKit.Android.dll** with your own project you will need to add it as a reference to it. You can achieve this by doing the following:
 
@@ -65,13 +65,13 @@ Once you have done this you will need to add some [NuGet](https://www.nuget.org/
 
 If you need to know how to add NuGet packages to your Xamarin project please refer to [Walkthrough: Including a NuGet in your project](http://developer.xamarin.com/guides/cross-platform/application_fundamentals/nuget_walkthrough/) from Xamarin site.
 
-##Usage
+## Usage
 
 PSPDFKit can display documents either in a new Activity or a Fragment you include into your hierarchy.
 
 Note that currently only local files are supported for PSPDFKit.
 
-###Checking for compatibility
+### Checking for compatibility
 
 You can include PSPDFKit into applications which will be distributed to devices not supported by PSPDFkit. In that case you can attempt initializing and catch PSPDFInitializationFailedException to check for device compatibility.
 
@@ -83,7 +83,7 @@ try {
 }
 ```
 
-###Display PSPDFKit Activity
+### Display PSPDFKit Activity
 
 * Add PSPDFKit viewer activity to your applications **AndroidManifest.xml**
 
@@ -108,7 +108,7 @@ PSPDFActivity.ShowDocument(this, pdfDocument, configuration);
 
 >You can create an Uri object from file using `Android.Net.Uri.FromFile(File)` call or you can pass in Uri returned by [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider.html). For all configuration options refer to included JavaDoc.
 
-###Display PSPDFKit Fragment
+### Display PSPDFKit Fragment
 
 * Make sure you have `android:largeHeap="true"` property in your `<application>` tag in **AndroidManifest.xml**. Rendering PDF files is memory intensive and this property will ensure your app has enough heap allocated to avoid out of memory errors.
 
@@ -133,7 +133,7 @@ SupportFragmentManager.BeginTransaction().Replace(Resource.Id.Content, fragment)
 
 >Note that the Fragment extends Android.Support.V4.App.Fragment and not Android.App.Fragment.
 
-###Render page to a bitmap
+### Render page to a bitmap
 
 You can use PSPDFKit to render PDF to bitmaps without showing them in activities. To do that, use PSPDFKit and PSPDFDocument class calls.
 
@@ -154,7 +154,7 @@ try {
 }
 ```
 
-###Customization
+### Customization
 
 To customize PSPDFKit Activity UI elements use standard Android themes. When using AppCompat, PSPDFKit will color actionbar and other elements according to colorPrimary and colorAccent attributes. Example theme definition:
 
@@ -176,11 +176,11 @@ And then it should be applied in AndroidManifest.xml:
 
 Other configuration options for UI elements (icons, element sizes) can be found in `PSPDFActivityConfiguration` class.
 
-###More information
+### More information
 
 For more documentation about PSPDFKit check out [PSPDFKit online documentation](https://pspdfkit.com/guides/android/current) and bundled Javadoc.
 
-###Known Issues
+### Known Issues
 
 **Unsupported devices**
 
