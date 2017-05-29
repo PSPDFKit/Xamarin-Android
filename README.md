@@ -1,6 +1,6 @@
 # Xamarin PSPDFKit.Android Bindings
 
-Xamarin.Android Bindings for PSPDFKit `v2.9.4`
+Xamarin.Android Bindings for PSPDFKit `v3.1.1`
 
 Xamarin.iOS Bindings for PSPDFKit for iOS: [PSPDFKit/Xamarin-iOS](https://github.com/PSPDFKit/Xamarin-iOS)
 
@@ -10,7 +10,7 @@ Xamarin.iOS Bindings for PSPDFKit for iOS: [PSPDFKit/Xamarin-iOS](https://github
 
 PSPDFKit runs on Android devices running:
 
-* **Xamarin.Android >= 7.0.x**
+* **Xamarin.Android >= 7.3.x**
 * **64-bit version of JDK 1.8**
 * Android 4.1 or newer / API level 16 or higher
 * 32/64-bit ARM (armeabi-v7a / arm64-v8a) or 32-bit Intel x86 CPU (MIPS and x86-64 builds are available by request and are not included by default due to size constraints.)

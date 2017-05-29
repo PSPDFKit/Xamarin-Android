@@ -1,40 +1,32 @@
 ﻿using System;
+using System.IO;
 
+using Android;
 using Android.App;
 using Android.Content;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
+using Android.Content.PM;
 using Android.OS;
-using System.IO;
-using System.Threading.Tasks;
+using Android.Support.V4.App;
+using Android.Support.V4.Content;
+using Android.Widget;
 
 using PSPDFKit;
-using PSPDFKit.Configuration;
-using PSPDFKit.UI;
 using PSPDFKit.Configuration.Activity;
 using PSPDFKit.Configuration.Page;
-using PSPDFKit.Configuration.Theming;
-using Android;
-using Android.Content.PM;
-using Android.Support.V4.Content;
-using Android.Support.V4.App;
+using PSPDFKit.UI;
 
-namespace AndroidSample
-{
+namespace AndroidSample {
 	[Activity (Label = "@string/app_name", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/AppTheme")]
-	public class MainActivity : Activity
-	{		
-		static readonly string yourLicenseKey = "LICENSE_KEY_GOES_HERE";
-		
-		const string sampleDoc = "demo.pdf";
+	public class MainActivity : Activity {
 
+		static readonly string yourLicenseKey = "LICENSE_KEY_GOES_HERE";
+
+		const string sampleDoc = "demo.pdf";
 		const int RequestOpenDocument = 1;
 
 		// On Marshmallow+ devices this is used to ask for the necessary write permission.
 		const int RequestWritePermission = 2;
-		readonly string [] PermissionsExternalStorage = 
-		{
+		readonly string [] PermissionsExternalStorage = {
 			Manifest.Permission.ReadExternalStorage,
 			Manifest.Permission.WriteExternalStorage
 		};
@@ -55,8 +47,7 @@ namespace AndroidSample
 			openDemoDocumentButton.Click += (sender, e) => {
 				// On Marshmallow devices the user must grant write permission to the extrnal storage.
 				const string permission = Manifest.Permission.WriteExternalStorage;
-				if (ContextCompat.CheckSelfPermission(this, permission) == (int)Permission.Granted)
-				{
+				if (ContextCompat.CheckSelfPermission(this, permission) == (int)Permission.Granted) {
 					ShowDocumentFromAssets ();
 					return;
 				}
@@ -82,25 +73,19 @@ namespace AndroidSample
 
 		void ShowPdfDocument (Android.Net.Uri docUri)
 		{
-			// Customize thumbnailBar color defaults
-			var thumbnailBarThemeConfiguration = new ThumbnailBarThemeConfiguration.Builder (this)
-				.SetBackgroundColor (Android.Graphics.Color.Argb (255, 52, 152, 219))
-				.SetThumbnailBorderColor (Android.Graphics.Color.Argb (255, 44, 62, 80))
-				.Build ();
-
 			// Show Document using PSPDFKit activity
-			var pspdfkitConfiguration = new PSPDFActivityConfiguration.Builder (ApplicationContext, yourLicenseKey)
+			var pspdfkitConfiguration = new PdfActivityConfiguration.Builder (ApplicationContext)
 				.ScrollDirection (PageScrollDirection.Horizontal)
 				.ShowPageNumberOverlay ()
 				.ShowThumbnailGrid ()
-				.ShowThumbnailBar ()
-				.ThumbnailBarThemeConfiguration (thumbnailBarThemeConfiguration)
+				.FitMode (PageFitMode.FitToWidth)
+				.BackgroundColor (Android.Graphics.Color.Argb (255, 52, 152, 219))
 				.Build ();
 
 			if (!PSPDFKitGlobal.IsOpenableUri (this, docUri))
 				ShowError ("This document uri cannot be opened \n " + docUri.ToString ());
 			else
-				PSPDFActivity.ShowDocument (this, docUri, pspdfkitConfiguration);
+				PdfActivity.ShowDocument (this, docUri, pspdfkitConfiguration);
 		}
 
 		protected async override void OnActivityResult (int requestCode, Result resultCode, Intent data)
@@ -125,11 +110,10 @@ namespace AndroidSample
 			}
 		}
 			
-		public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
+		public override void OnRequestPermissionsResult (int requestCode, string[] permissions, Permission[] grantResults)
 		{
-			if(requestCode == RequestWritePermission && grantResults[0] == Permission.Granted) {	
+			if(requestCode == RequestWritePermission && grantResults[0] == Permission.Granted)
 				ShowDocumentFromAssets ();
-			}
 		}
 
 		void ShowError (string message = null)
