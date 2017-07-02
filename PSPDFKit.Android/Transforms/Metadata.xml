@@ -13,9 +13,10 @@
 
 <!-- Removes any "constructor" that any of its parameters uses
 	 any of the types contained in com.pspdfkit.framework.* -->
-	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.br')]" />
-	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.bj')]" />
-	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.aw')]" />
+	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.bv')]" />
+	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.bk')]" />
+	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.ax')]" />
+	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.jni.NativeDocument')]" />
 <!-- Not creating a general rule to avoid bug reported by David -->
 <!-- <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework')]" />-->
 
@@ -100,8 +101,6 @@
 	<attr path="/api/package[@name='com.pspdfkit.ui.toolbar']/class[@name='ContextualToolbar']/field[@name='dragButton']" name="managedName">DragButtonField</attr>
 	<attr path="/api/package[@name='com.pspdfkit.ui.toolbar']/class[@name='ToolbarCoordinatorLayout.LayoutParams']/field[@name='position']" name="managedName">PositionField</attr>
 	<attr path="/api/package[@name='com.pspdfkit.document.datastore']/class[@name='DocumentDataStore.DocumentUid']/field[@name='documentUid']" name="managedName">DocUid</attr>
-	<attr path="/api/package[@name='com.pspdfkit.document.image']/class[@name='BaseImagePickerFragment']/field[@name='a']" name="managedName">AField</attr>
-	<attr path="/api/package[@name='com.pspdfkit.document.image']/class[@name='BaseImagePickerFragment']/field[@name='b']" name="managedName">BField</attr>
 
 <!-- Some API modifications -->
 	<attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='AbstractPdfSearchView']" name="extends">android.widget.FrameLayout</attr>
@@ -162,6 +161,9 @@
 	<remove-node path="/api/package[@name='com.pspdfkit.instant.framework.jni']/class[@name='NativeProgressReporter.CppProxy']/method[@name='finalize' and count(parameter)=0]" />
 	<remove-node path="/api/package[@name='com.pspdfkit.instant.framework.jni']/class[@name='NativeProgressObserver.CppProxy']/method[@name='finalize' and count(parameter)=0]" />
 
+	<remove-node path="/api/package[@name='com.pspdfkit.document']/class[@name='PdfDocument']/constructor[@name='PdfDocument' and count(parameter)=0]" />
+	<remove-node path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfActivity']/method[@name='createImplementation' and count(parameter)=0]" />
+
 	<add-node path="/api/package[@name='com.pspdfkit.ui.thumbnail']/class[@name='ThumbnailAdapter']">
 		<method abstract="false" deprecated="not deprecated" final="true" name="onBindViewHolder" native="false" return="void" static="false" synchronized="false" visibility="public">
 			<parameter name="viewHolder" type="android.support.v7.widget.RecyclerView.ViewHolder"></parameter>
@@ -182,6 +184,18 @@
 	<add-node path="/api/package[@name='com.pspdfkit.ui.thumbnail']/class[@name='PdfScrollableThumbnailBar']">
 		<method abstract="false" deprecated="not deprecated" final="false" name="setBackgroundColor" native="false" return="void" static="false" synchronized="false" visibility="public">
 			<parameter name="p0" type="int"></parameter>
+		</method>
+	</add-node>
+	<add-node path="/api/package[@name='com.pspdfkit.ui.transition']/class[@name='EpicenterTranslateClipReveal.StateEvaluator']">
+		<method abstract="false" deprecated="not deprecated" final="false" name="evaluate" native="false" return="java.lang.Object" static="false" synchronized="false" visibility="public">
+			<parameter name="fraction" type="float"></parameter>
+			<parameter name="startValue" type="java.lang.Object"></parameter>
+			<parameter name="endValue" type="java.lang.Object"></parameter>
+		</method>
+	</add-node>
+	<add-node path="/api/package[@name='com.pspdfkit.ui.transition']/class[@name='EpicenterTranslateClipReveal.StateProperty']">
+		<method abstract="false" deprecated="not deprecated" final="false" name="get" native="false" return="java.lang.Object" static="false" synchronized="false" visibility="public">
+			<parameter name="obj" type="java.lang.Object"></parameter>
 		</method>
 	</add-node>
 

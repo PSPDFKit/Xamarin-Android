@@ -1,7 +1,7 @@
 MONOXBUILD=/Library/Frameworks/Mono.framework/Commands/xbuild
-PDFKITVERSION=3.1.1
+PDFKITVERSION=3.2.1
 RXANDROIDVERSION=2.0.1
-RXJAVAVERSION=2.0.8
+RXJAVAVERSION=2.1.1
 YOUTUBEVERSION=1.2.2
 REACTIVESTREAMSVERSION=1.0.0.final
 RXANDROIDURL=http://search.maven.org/remotecontent?filepath=io/reactivex/rxjava2/rxandroid/$(RXANDROIDVERSION)/rxandroid-$(RXANDROIDVERSION).aar
