@@ -16,17 +16,15 @@ PSPDFKit runs on Android devices running:
 * 32/64-bit ARM (armeabi-v7a / arm64-v8a) or 32-bit Intel x86 CPU (MIPS and x86-64 builds are available by request and are not included by default due to size constraints.)
 * Projects using PSPDFKit.Android.dll **must** set Target Framework to API 24 (Android 7.0).
 
-Note: Building this binding project has only been tested with Xamarin Studio on macOS 10.11+. Other versions or Visual Studio are not supported. That said you can use the resulting PSPDFKit.Android.dll in Visual Studio.
-
 ### Step 1 - Get PSPDFKit .aar file
 
 1. Download PSPDFKit from your [customer portal](https://customers.pspdfkit.com) if you haven't done so already, or [request an evaluation version](https://pspdfkit.com/#trynow).
 2. Unzip the file you downloaded in step 1 and copy `pspdfkit-x.x.x.aar` to [`PSPDFKit.Android/Jars`](PSPDFKit.Android/Jars) folder.
-3. run `make` command from `root` or `binding` directory, this will download additional resources needed by the binding.
+3. run `./build.sh` (on macOS) or `./build.ps1` (on Windows, PowerShell) command from `root` directory, this will download additional resources needed by the binding.
 
 Note: Ensure the file is really named  `pspdfkit-x.x.x.aar` and that there's no hidden `.zip` file ending. OS X likes to add these things and doesn't show them by default. Use the Inspector to be sure.
 
-Xamarin Studio will use the default Java, but this can be customized in Preferences -> SDK Locations -> Java SDK (JDK).
+Visual Studio will use the default Java, but this can be customized in Preferences -> SDK Locations -> Java SDK (JDK).
 
 ### Step 2 - Get your Dll
 
@@ -34,18 +32,15 @@ You have two options to get it:
 
 #### Build from PSPDFKit.Android.sln
 
-1. Open `PSPDFKit.Android.sln` in `Xamarin Studio` or `Visual Studio`
+1. Open `PSPDFKit.Android.sln` in `Visual Studio`
 2. Build the project
 3. Get the dll from the `PSPDFKit.Android/bin` folder
 4. Enjoy 
 
 #### Build from terminal
 
-1. Just run `make dll` command from `root` or `binding` directory
-2. Get the dll from the `Dll` folder
-3. Enjoy
-
-Note: Currently building the dll is only supported on OS X 10.11 with Xamarin Studio. We're working on an update that will allow Windows as well.
+1. Just grab `PSPDFKit.Android.dll` from the `root` folder, if you successfuly followed **Step 1** it should be there.
+2. Enjoy
 
 ## Integrating with your own project
 
