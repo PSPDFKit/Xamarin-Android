@@ -2,7 +2,7 @@
 
 var target = Argument ("target", "Default");
 
-var PSPDFKIT_VERSION = "3.2.1";
+var PSPDFKIT_VERSION = "3.3.1";
 var RXANDROID_VERSION = "2.0.1";
 var RXJAVA_VERSION = "2.1.1";
 var YOUTUBE_VERSION = "1.2.2";

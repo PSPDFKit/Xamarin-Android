@@ -40,12 +40,15 @@
 	<attr path="/api/package[@name='com.pspdfkit.annotations.actions']" name="managedName">PSPDFKit.Annotations.Actions</attr>
 	<attr path="/api/package[@name='com.pspdfkit.annotations.defaults']" name="managedName">PSPDFKit.Annotations.Defaults</attr>
 	<attr path="/api/package[@name='com.pspdfkit.annotations.signatures']" name="managedName">PSPDFKit.Annotations.Signatures</attr>
-	<attr path="/api/package[@name='com.pspdfkit.annotations.stamps']" name="managedName">PSPDFKit.Annotations.Stamps</attr>
+    <attr path="/api/package[@name='com.pspdfkit.annotations.stamps']" name="managedName">PSPDFKit.Annotations.Stamps</attr>
+	<attr path="/api/package[@name='com.pspdfkit.annotations.xfdf']" name="managedName">PSPDFKit.Annotations.Xfdf</attr>
 	<attr path="/api/package[@name='com.pspdfkit.bookmarks']" name="managedName">PSPDFKit.Bookmarks</attr>
 	<attr path="/api/package[@name='com.pspdfkit.configuration']" name="managedName">PSPDFKit.Configuration</attr>
 	<attr path="/api/package[@name='com.pspdfkit.configuration.activity']" name="managedName">PSPDFKit.Configuration.Activity</attr>
 	<attr path="/api/package[@name='com.pspdfkit.configuration.rendering']" name="managedName">PSPDFKit.Configuration.Rendering</attr>
-	<attr path="/api/package[@name='com.pspdfkit.configuration.search']" name="managedName">PSPDFKit.Configuration.Search</attr>
+    <attr path="/api/package[@name='com.pspdfkit.configuration.search']" name="managedName">PSPDFKit.Configuration.Search</attr>
+    <attr path="/api/package[@name='com.pspdfkit.configuration.settings']" name="managedName">PSPDFKit.Configuration.Settings</attr>
+	<attr path="/api/package[@name='com.pspdfkit.configuration.theming']" name="managedName">PSPDFKit.Configuration.Theming</attr>
 	<attr path="/api/package[@name='com.pspdfkit.configuration.page']" name="managedName">PSPDFKit.Configuration.Page</attr>
 	<attr path="/api/package[@name='com.pspdfkit.configuration.policy']" name="managedName">PSPDFKit.Configuration.Policy</attr>
 	<attr path="/api/package[@name='com.pspdfkit.datastructures']" name="managedName">PSPDFKit.Datastructures</attr>
@@ -82,7 +85,8 @@
 	<attr path="/api/package[@name='com.pspdfkit.ui.inspector.views']" name="managedName">PSPDFKit.UI.Inspector.Views</attr>
 	<attr path="/api/package[@name='com.pspdfkit.ui.outline']" name="managedName">PSPDFKit.UI.Outline</attr>
 	<attr path="/api/package[@name='com.pspdfkit.ui.scrollbar']" name="managedName">PSPDFKit.UI.Scrollbar</attr>
-	<attr path="/api/package[@name='com.pspdfkit.ui.search']" name="managedName">PSPDFKit.UI.Search</attr>
+    <attr path="/api/package[@name='com.pspdfkit.ui.search']" name="managedName">PSPDFKit.UI.Search</attr>
+	<attr path="/api/package[@name='com.pspdfkit.ui.settings']" name="managedName">PSPDFKit.UI.Settings</attr>
 	<attr path="/api/package[@name='com.pspdfkit.ui.special_mode.controller']" name="managedName">PSPDFKit.UI.SpecialMode.Controller</attr>
 	<attr path="/api/package[@name='com.pspdfkit.ui.special_mode.controller.base']" name="managedName">PSPDFKit.UI.SpecialMode.Controller.Base</attr>
 	<attr path="/api/package[@name='com.pspdfkit.ui.special_mode.manager']" name="managedName">PSPDFKit.UI.SpecialMode.Manager</attr>
@@ -91,6 +95,7 @@
 	<attr path="/api/package[@name='com.pspdfkit.ui.toolbar.grouping']" name="managedName">PSPDFKit.UI.Toolbar.Grouping</attr>
 	<attr path="/api/package[@name='com.pspdfkit.ui.toolbar.grouping.presets']" name="managedName">PSPDFKit.UI.Toolbar.Grouping.Presets</attr>
 	<attr path="/api/package[@name='com.pspdfkit.ui.toolbar.rx']" name="managedName">PSPDFKit.UI.Toolbar.RX</attr>
+    <attr path="/api/package[@name='com.pspdfkit.ui.transition']" name="managedName">PSPDFKit.UI.Toolbar.Transition</attr>
 	<attr path="/api/package[@name='com.pspdfkit.utils']" name="managedName">PSPDFKit.Utils</attr>
 
 <!-- Avoid colision in types -->
@@ -99,7 +104,8 @@
 	<attr path="/api/package[@name='com.pspdfkit.annotations']/class[@name='Annotation']/field[@name='a']" name="managedName">AField</attr>
 	<attr path="/api/package[@name='com.pspdfkit.ui.toolbar']/class[@name='ContextualToolbar']/field[@name='closeButton']" name="managedName">CloseButtonField</attr>
 	<attr path="/api/package[@name='com.pspdfkit.ui.toolbar']/class[@name='ContextualToolbar']/field[@name='dragButton']" name="managedName">DragButtonField</attr>
-	<attr path="/api/package[@name='com.pspdfkit.ui.toolbar']/class[@name='ToolbarCoordinatorLayout.LayoutParams']/field[@name='position']" name="managedName">PositionField</attr>
+    <attr path="/api/package[@name='com.pspdfkit.ui.toolbar']/class[@name='ToolbarCoordinatorLayout.LayoutParams']/field[@name='position']" name="managedName">PositionField</attr>
+	<attr path="/api/package[@name='com.pspdfkit.document.download']/class[@name='DownloadProgressFragment']/field[@name='dialog']" name="managedName">DialogField</attr>
 	<attr path="/api/package[@name='com.pspdfkit.document.datastore']/class[@name='DocumentDataStore.DocumentUid']/field[@name='documentUid']" name="managedName">DocUid</attr>
 
 <!-- Some API modifications -->
@@ -109,7 +115,6 @@
 	<attr path="/api/package[@name='com.pspdfkit.listeners']/interface[@name='DocumentListener']/method[@name='onDocumentLoaded']" name="argsType">OnDocumentLoadedEventArgs</attr>
 	<attr path="/api/package[@name='com.pspdfkit.listeners']/interface[@name='LocalizationListener']/method[@name='getLocalizedString' and count(parameter)=5 and parameter[1][@type='android.content.Context'] and parameter[2][@type='int'] and parameter[3][@type='java.util.Locale'] and parameter[4][@type='android.view.View'] and parameter[5][@type='java.lang.Object...']]" name="managedName">GetLocalizedStr</attr>
 	<attr path="/api/package[@name='com.pspdfkit.listeners']/class[@name='DefaultLocalizationListener']/method[@name='getLocalizedString' and count(parameter)=5 and parameter[1][@type='android.content.Context'] and parameter[2][@type='int'] and parameter[3][@type='java.util.Locale'] and parameter[4][@type='android.view.View'] and parameter[5][@type='java.lang.Object...']]" name="managedName">GetLocalizedStr</attr>
-	<attr path="/api/package[@name='com.pspdfkit.document.download']/class[@name='DownloadProgressFragment']/method[@name='getDialog' and count(parameter)=0]" name="return">android.app.Dialog</attr>
 
 <!-- Private clases that needs to be public + Manual fixes due to C# vs Java differences -->
 	<attr path="/api/package[@name='com.pspdfkit.ui.inspector.annotation']/class[@name='AbstractAnnotationInspectorController']" name="visibility">public</attr>
