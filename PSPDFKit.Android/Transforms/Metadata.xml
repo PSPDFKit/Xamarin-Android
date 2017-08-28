@@ -13,7 +13,7 @@
 
 <!-- Removes any "constructor" that any of its parameters uses
 	 any of the types contained in com.pspdfkit.framework.* -->
-	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.bv')]" />
+	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.bu')]" />
 	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.bk')]" />
 	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.ax')]" />
 	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.jni.NativeDocument')]" />
