@@ -182,3 +182,7 @@ For more documentation about PSPDFKit check out [PSPDFKit online documentation](
 - Samsung Galaxy Note 2 (GT-N7100) / Android 4.4.2 (N7100XXUFND3)
 Memory issues because of defective garbage collection.
 Source: [https://code.google.com/p/android/issues/detail?id=71073](https://code.google.com/p/android/issues/detail?id=71073)
+
+### Contributing
+  
+Please ensure [you signed our CLA](https://pspdfkit.com/guides/web/current/miscellaneous/contributing/) so we can accept your contributions.
