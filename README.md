@@ -20,9 +20,9 @@ PSPDFKit runs on Android devices running:
 
 1. Download PSPDFKit from your [customer portal](https://customers.pspdfkit.com) if you haven't done so already, or [request an evaluation version](https://pspdfkit.com/#trynow).
 2. Unzip the file you downloaded in step 1 and copy `pspdfkit-x.x.x.aar` to [`PSPDFKit.Android/Jars`](PSPDFKit.Android/Jars) folder.
-3. run `./build.sh` (on macOS) or `./build.ps1` (on Windows, PowerShell) command from `root` directory, this will download additional resources needed by the binding.
+3. run `./build.sh` (on macOS) or `./build.ps1` (on Windows, PowerShell) command from root directory. This will download additional resources needed by the binding. Note that running this will require you to have Xamarin for Android already installed on your computer.
 
-Note: Ensure the file is really named  `pspdfkit-x.x.x.aar` and that there's no hidden `.zip` file ending. OS X likes to add these things and doesn't show them by default. Use the Inspector to be sure.
+**💡 Note:** Ensure the file is really named `pspdfkit-x.x.x.aar` and that there's no hidden `.zip` file ending. OS X likes to add these things and doesn't show them by default. Use the Inspector to be sure.
 
 Visual Studio will use the default Java, but this can be customized in Preferences -> SDK Locations -> Java SDK (JDK).
 
@@ -39,7 +39,7 @@ You have two options to get it:
 
 #### Build from terminal
 
-1. Just grab `PSPDFKit.Android.dll` from the `root` folder, if you successfuly followed **Step 1** it should be there.
+1. Just grab `PSPDFKit.Android.dll` from the root folder, if you successfuly followed **Step 1** it should be there.
 2. Enjoy
 
 ## Integrating with your own project
