@@ -3,10 +3,8 @@ using System.IO;
 using System.Threading.Tasks;
 using Android.Content;
 
-namespace AndroidSample 
-{
-	public class DocumentHelper 
-	{
+namespace AndroidSample {
+	public class DocumentHelper {
 		public static readonly int BufferSize = 8192;
 
 		public static Android.Net.Uri ExtractAsset (Context ctx, string assetName)

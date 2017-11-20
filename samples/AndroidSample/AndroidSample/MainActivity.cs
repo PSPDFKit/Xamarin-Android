@@ -15,11 +15,16 @@ using PSPDFKit.Configuration.Activity;
 using PSPDFKit.Configuration.Page;
 using PSPDFKit.UI;
 
+// This will add your license key into AndroidManifest.xml at build time. For more info on how this Attribute works see:
+// https://developer.xamarin.com/guides/android/advanced_topics/working_with_androidmanifest.xml/
+[assembly: MetaData (
+	name:"pspdfkit_license_key",
+	Value = "LICENSE_KEY_GOES_HERE"
+)]
+
 namespace AndroidSample {
 	[Activity (Label = "@string/app_name", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/AppTheme")]
 	public class MainActivity : Activity {
-
-		static readonly string yourLicenseKey = "LICENSE_KEY_GOES_HERE";
 
 		const string sampleDoc = "demo.pdf";
 		const int RequestOpenDocument = 1;
@@ -31,17 +36,15 @@ namespace AndroidSample {
 			Manifest.Permission.WriteExternalStorage
 		};
 
-		protected override void OnCreate (Bundle bundle)
+		protected override void OnCreate (Bundle savedInstanceState)
 		{
-			base.OnCreate (bundle);
+			base.OnCreate (savedInstanceState);
 
 			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Main);
 
 			var openDemoDocumentButton = FindViewById<Button> (Resource.Id.main_btn_open_example);
 			var openDocumentButton = FindViewById <Button> (Resource.Id.main_btn_open_document);
-
-			PSPDFKitGlobal.Initialize (this, yourLicenseKey);
 
 			// Opens a demo document from assets directory
 			openDemoDocumentButton.Click += (sender, e) => {
@@ -79,7 +82,6 @@ namespace AndroidSample {
 				.ShowPageNumberOverlay ()
 				.ShowThumbnailGrid ()
 				.FitMode (PageFitMode.FitToWidth)
-				.BackgroundColor (Android.Graphics.Color.Argb (255, 52, 152, 219))
 				.Build ();
 
 			if (!PSPDFKitGlobal.IsOpenableUri (this, docUri))

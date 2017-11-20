@@ -1,6 +1,6 @@
 # Xamarin PSPDFKit.Android Bindings
 
-Xamarin.Android Bindings for PSPDFKit `v3.3.3`
+Xamarin.Android Bindings for PSPDFKit `v4.1.0`
 
 Xamarin.iOS Bindings for PSPDFKit for iOS: [PSPDFKit/Xamarin-iOS](https://github.com/PSPDFKit/Xamarin-iOS)
 
@@ -12,43 +12,45 @@ PSPDFKit runs on Android devices running:
 
 * **Xamarin.Android >= 7.3.x**
 * **64-bit version of JDK 1.8**
-* Android 4.1 or newer / API level 16 or higher
-* 32/64-bit ARM (armeabi-v7a / arm64-v8a) or 32-bit Intel x86 CPU (MIPS and x86-64 builds are available by request and are not included by default due to size constraints.)
-* Projects using PSPDFKit.Android.dll **must** set Target Framework to API 24 (Android 7.0).
+* Android **4.4** or newer / API level **19** or higher
+* 32/64-bit ARM (armeabi-v7a with NEON/ arm64-v8a) or 32-bit Intel x86 CPU.
+* Projects using PSPDFKit.Android.dll **must** set [Target Framework](https://developer.xamarin.com/guides/android/application_fundamentals/understanding_android_api_levels/#framework) to API 26 (Android 8.0).
 
 ### Step 1 - Get PSPDFKit .aar file
 
 1. Download PSPDFKit from your [customer portal](https://customers.pspdfkit.com) if you haven't done so already, or [request an evaluation version](https://pspdfkit.com/#trynow).
-2. Unzip the file you downloaded in step 1 and copy `pspdfkit-x.x.x.aar` to [`PSPDFKit.Android/Jars`](PSPDFKit.Android/Jars) folder.
-3. run `./build.sh` (on macOS) or `./build.ps1` (on Windows, PowerShell) command from root directory. This will download additional resources needed by the binding. Note that running this will require you to have Xamarin for Android already installed on your computer.
+2. Unzip the file you downloaded in step 1 and copy `pspdfkit-x.x.x.aar` to [`PSPDFKit.Android/Jars`](PSPDFKit.Android/Jars) folder and also copy `pspdfkit-instant-x.x.x.aar` into [`PSPDFKit.Android.Instant/Jars`](PSPDFKit.Android.Instant/Jars) folder.
+3. run `./build.sh` (on macOS) or `./build.ps1` (on Windows, PowerShell) command from root directory. This will download additional resources needed by the binding. Note that running this will require you to have [Xamarin](https://www.xamarin.com/platform) already installed on your computer.
 
-**💡 Note:** Ensure the file is really named `pspdfkit-x.x.x.aar` and that there's no hidden `.zip` file ending. OS X likes to add these things and doesn't show them by default. Use the Inspector to be sure.
+**💡 Note:** Ensure the files are really named `pspdfkit-x.x.x.aar` and `pspdfkit-instant-x.x.x.aar` so there is no hidden `.zip` file ending. OS X likes to add these things and doesn't show them by default. Use the Inspector to be sure.
 
 Visual Studio will use the default Java, but this can be customized in Preferences -> SDK Locations -> Java SDK (JDK).
 
-### Step 2 - Get your Dll
+### Step 2 - Get your Dlls
 
 You have two options to get it:
 
 #### Build from PSPDFKit.Android.sln
 
-1. Open `PSPDFKit.Android.sln` in `Visual Studio`
-2. Build the project
-3. Get the dll from the `PSPDFKit.Android/bin` folder
-4. Enjoy 
+1. Open `PSPDFKit.Android.sln` in `Visual Studio`.
+2. Build the project.
+3. Get the dlls from the `PSPDFKit.Android/bin` and `PSPDFKit.Android.Instant/bin` folders.
+4. Enjoy.
 
 #### Build from terminal
 
-1. Just grab `PSPDFKit.Android.dll` from the root folder, if you successfuly followed **Step 1** it should be there.
-2. Enjoy
+1. Just grab `PSPDFKit.Android.dll` and `PSPDFKit.Android.Instant.dll` from the root folder, if you successfuly followed **Step 1** both should be there.
+2. Enjoy.
+
+**💡 Note:** `PSPDFKit.Android.Instant.dll` is an **optional** dependency, you only need it if you are using [PSPDFKit Instant](https://pspdfkit.com/instant/) collaboration features in your application.
 
 ## Integrating with your own project
 
-In order to use **PSPDFKit.Android.dll** with your own project you will need to add it as a reference to it. You can achieve this by doing the following:
+In order to use **PSPDFKit.Android.dll** and **PSPDFKit.Android.Instant.dll** with your own project you will need to add both as a reference to it. You can achieve this by doing the following:
 
 1. Right click in your **References** folder from your project and select **Edit References...**
 2. Select **.Net Assembly** tab and click **Browse**
-3. Locate your **PSPDFKit.Android.dll** copy
+3. Locate your **PSPDFKit.Android.dll** and **PSPDFKit.Android.Instant.dll** copies.
 
 Once you have done this you will need to add some [NuGet](https://www.nuget.org/) packages to you project
 
@@ -65,6 +67,10 @@ If you need to know how to add NuGet packages to your Xamarin project please ref
 PSPDFKit can display documents either in a new Activity or a Fragment you include into your hierarchy.
 
 Note that currently only local files are supported for PSPDFKit.
+
+### Xamarin.Android and ProGuard
+
+In order to integrate ProGuard with Xamarin you can read the following [documentation on Xamarin's Site](https://developer.xamarin.com/guides/android/deployment,_testing,_and_metrics/proguard/).
 
 ### Checking for compatibility
 
