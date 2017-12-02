@@ -23,5 +23,11 @@ namespace PSPDFKit.Instant {
 				}
 			}
 		}
+
+		public new IInstantAnnotationProvider AnnotationProvider {
+			get {
+				return base.AnnotationProvider.JavaCast<IInstantAnnotationProvider> ();
+			}
+		}
 	}
 }

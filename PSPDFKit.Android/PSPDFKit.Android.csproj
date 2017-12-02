@@ -109,7 +109,7 @@
     <EmbeddedReferenceJar Include="Jars\relinker-1.2.2.jar" />
   </ItemGroup>
   <ItemGroup>
-    <LibraryProjectZip Include="Jars\pspdfkit-4.1.0.aar" />
+    <LibraryProjectZip Include="Jars\pspdfkit-4.2.1.aar" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedJar Include="Jars\YouTubeAndroidPlayerApi-1.2.2\libs\YouTubeAndroidPlayerApi.jar">
