@@ -17,6 +17,7 @@ using PSPDFKit.Configuration.Page;
 using PSPDFKit.UI;
 using Xamarin.Forms;
 using XFSample.Droid;
+using SampleTools;
 
 // This will add your license key into AndroidManifest.xml at build time. For more info on how this Attribute works see:
 // https://developer.xamarin.com/guides/android/advanced_topics/working_with_androidmanifest.xml/
@@ -56,7 +57,7 @@ namespace XFSample.Droid {
 		public void ShowPdfActivity ()
 		{
 			// Extract the pdf from assets if not already extracted
-			var docUri = AndroidSample.DocumentHelper.ExtractAsset (this, sampleDoc);
+			var docUri = Utils.ExtractAsset (this, sampleDoc);
 
 			// Show Document using PSPDFKit activity
 			var pspdfkitConfiguration = new PdfActivityConfiguration.Builder (CrossCurrentActivity.Current.Activity)

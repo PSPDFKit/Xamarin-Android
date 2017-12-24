@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Globalization;
 using System.IO;
 using System.Threading.Tasks;
 using Android.Content;
+using Android.OS;
+using Android.Views;
 
-namespace AndroidSample {
-	public class DocumentHelper {
+namespace SampleTools {
+	public static class Utils {
 		public static readonly int BufferSize = 8192;
 
 		public static Android.Net.Uri ExtractAsset (Context ctx, string assetName)
@@ -57,6 +60,23 @@ namespace AndroidSample {
 			var docUri = Android.Net.Uri.FromFile (file);
 			return docUri;
 		}
+
+		public static string ToTitleCase (this string s, bool replaceUnderscore = false, string removeStr = null)
+		{
+			var ret = s;
+
+			if (removeStr != null)
+				ret = ret.Replace (removeStr, string.Empty);
+
+			if (replaceUnderscore)
+				ret = ret.Replace ("_", " ");
+
+			return CultureInfo.CurrentCulture.TextInfo.ToTitleCase (ret.ToLower ());
+		}
+
+		// Port to C# of java source code at [1] under the Apache License, Version 2.0
+		// [1]: https://github.com/consp1racy/material-navigation-drawer/blob/master/navigation-drawer/src/main/java/net/xpece/material/navigationdrawer/NavigationDrawerUtils.java
+		public static void SetProperNavigationDrawerWidth (View view) => view.ViewTreeObserver.AddOnGlobalLayoutListener (new MyGlobalLayoutListener (view));
 	}
 
 	public class DownloadBytesProgress 
@@ -80,6 +100,39 @@ namespace AndroidSample {
 		public string SaveFilePath { get; private set; }
 
 		public bool IsFinished { get { return BytesReceived == TotalBytes; } }
+	}
+
+	public class MyGlobalLayoutListener : Java.Lang.Object, ViewTreeObserver.IOnGlobalLayoutListener {
+
+		View view;
+		Context context;
+
+		public MyGlobalLayoutListener (View view)
+		{
+			this.view = view;
+			context = view.Context;
+		}
+
+		public void OnGlobalLayout ()
+		{
+			if (Build.VERSION.SdkInt >= BuildVersionCodes.JellyBean)
+				view.ViewTreeObserver.RemoveOnGlobalLayoutListener (this);
+			else
+				//noinspection deprecation
+				view.ViewTreeObserver.RemoveGlobalOnLayoutListener (this);
+
+			int smallestWidthPx = context.Resources.DisplayMetrics.WidthPixels
+					< context.Resources.DisplayMetrics.HeightPixels
+					? context.Resources.DisplayMetrics.WidthPixels
+					: context.Resources.DisplayMetrics.HeightPixels;
+			int drawerMargin = context.Resources.GetDimensionPixelOffset (PSPDFCatalog.Resource.Dimension.drawer_margin);
+
+			view.LayoutParameters.Width = Math.Min (
+					context.Resources.GetDimensionPixelSize (PSPDFCatalog.Resource.Dimension.drawer_max_width),
+					smallestWidthPx - drawerMargin
+				);
+			view.RequestLayout ();
+		}
 	}
 }
 

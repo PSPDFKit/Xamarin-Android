@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="PSPDFCatalog.Theme.Light">
+        <!-- Lollipop theme doesn't use KitKat translucent gradient but solid colors -->
+        <item name="android:windowTranslucentStatus">false</item>
+    </style>
+</resources>

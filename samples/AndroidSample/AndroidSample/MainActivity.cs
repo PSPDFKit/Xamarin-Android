@@ -14,6 +14,7 @@ using PSPDFKit;
 using PSPDFKit.Configuration.Activity;
 using PSPDFKit.Configuration.Page;
 using PSPDFKit.UI;
+using SampleTools;
 
 // This will add your license key into AndroidManifest.xml at build time. For more info on how this Attribute works see:
 // https://developer.xamarin.com/guides/android/advanced_topics/working_with_androidmanifest.xml/
@@ -69,7 +70,7 @@ namespace AndroidSample {
 
 		void ShowDocumentFromAssets() {
 			// Extract the pdf from assets if not already extracted
-			var docUri = DocumentHelper.ExtractAsset (this, sampleDoc);
+			var docUri = Utils.ExtractAsset (this, sampleDoc);
 			ShowPdfDocument (docUri);
 			return;
 		}
@@ -104,7 +105,7 @@ namespace AndroidSample {
 					var docPath = Path.Combine (ApplicationContext.CacheDir.ToString (), DateTime.Now.Ticks.ToString () + ".pdf");
 					var progressReporter = new Progress<DownloadBytesProgress> ();
 					progressReporter.ProgressChanged += (s, args) => dialog.Progress = (int)(100 * args.PercentComplete);
-					var docUri = await DocumentHelper.DownloadDocument (this, data.Data, docPath, progressReporter);
+					var docUri = await Utils.DownloadDocument (this, data.Data, docPath, progressReporter);
 					dialog.Hide ();
 					ShowPdfDocument (docUri);
 				} else

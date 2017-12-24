@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="PSPDFCatalog.SettingsPage"
+    Title="Settings">
+	<ContentPage.Content>
+        <TableView Intent="Settings">
+            <TableRoot>
+                <TableSection Title="Layout">
+                    <ViewCell>
+                        <ViewCell.View>
+                                <StackLayout Orientation="Horizontal" Padding="13, 0">
+                                <Label Text="Scroll Direction" VerticalOptions="Center" />
+                                <Picker HorizontalOptions="EndAndExpand" ItemsSource="{Binding PageScrollDirectionValues}" ItemDisplayBinding="{Binding DisplayName}" SelectedItem="{Binding SelectedPageScrollDirection, Mode=TwoWay}" />
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Orientation="Horizontal" Padding="13, 0">
+                                <Label Text="Page Layout" VerticalOptions="Center" />
+                                <Picker HorizontalOptions="EndAndExpand" ItemsSource="{Binding PageLayoutModeValues}" ItemDisplayBinding="{Binding DisplayName}" SelectedItem="{Binding SelectedPageLayoutMode, Mode=TwoWay}" />
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                    <SwitchCell Text="Scroll continuously" BindingContext="{Binding Settings}" On="{Binding ScrollMode}"/>
+                    <SwitchCell Text="Fit page to width" BindingContext="{Binding Settings}" On="{Binding FitMode}"/>
+                    <SwitchCell Text="Resote last viewed page" BindingContext="{Binding Settings}" On="{Binding RestoreLastViewedPage}"/>
+                    <SwitchCell Text="Show page number overlay" BindingContext="{Binding Settings}" On="{Binding ShowPageNumberOverlay}"/>
+                    <SwitchCell Text="Show page labels" BindingContext="{Binding Settings}" On="{Binding ShowPageLabels}"/>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Orientation="Horizontal" Padding="13, 0">
+                                <Label Text="User interface view mode" VerticalOptions="Center" />
+                                <Picker HorizontalOptions="EndAndExpand" ItemsSource="{Binding UserInterfaceViewModeValues}" ItemDisplayBinding="{Binding DisplayName}" SelectedItem="{Binding SelectedUserInterfaceViewMode, Mode=TwoWay}" />
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                    <SwitchCell Text="Hide UI when creating annotations" BindingContext="{Binding Settings}" On="{Binding HideUIWhenCreatingAnnotations}"/>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Orientation="Horizontal" Padding="13, 0">
+                                <Label Text="Theme Mode" VerticalOptions="Center" />
+                                <Picker HorizontalOptions="EndAndExpand" ItemsSource="{Binding ThemeModeValues}" ItemDisplayBinding="{Binding DisplayName}" SelectedItem="{Binding SelectedThemeMode, Mode=TwoWay}" />
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </TableSection>
+                <TableSection Title="Double Page">
+                    <SwitchCell Text="Display first page as single" BindingContext="{Binding Settings}" On="{Binding FirstPageAlwaysSingle}"/>
+                    <SwitchCell Text="Show gaps between pages" BindingContext="{Binding Settings}" On="{Binding ShowGapBetweenPages}"/>
+                </TableSection>
+                <TableSection Title="Search">
+                    <SwitchCell Text="Show search action" BindingContext="{Binding Settings}" On="{Binding EnableSearch}"/>
+                    <SwitchCell Text="Inline search" BindingContext="{Binding Settings}" On="{Binding InlineSearch}"/>
+                </TableSection>
+                <TableSection Title="Thumbnails / Outline">
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Orientation="Horizontal" Padding="13, 0">
+                                <Label Text="Thumbnail bar mode" VerticalOptions="Center" />
+                                <Picker HorizontalOptions="EndAndExpand" ItemsSource="{Binding ThumbnailBarModeValues}" ItemDisplayBinding="{Binding DisplayName}" SelectedItem="{Binding SelectedThumbnailBarMode, Mode=TwoWay}" />
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                    <SwitchCell Text="Show thumbnail grid" BindingContext="{Binding Settings}" On="{Binding ShowThumbnailGrid}"/>
+                    <SwitchCell Text="Enable document outline" BindingContext="{Binding Settings}" On="{Binding EnableDocumentOutline}"/>
+                    <SwitchCell Text="Enable annotation list" BindingContext="{Binding Settings}" On="{Binding EnableAnnotationList}"/>
+                </TableSection>
+                <TableSection Title="Annotations">
+                    <SwitchCell Text="Enable annotation editing" BindingContext="{Binding Settings}" On="{Binding EnableAnnotationEditing}"/>
+                </TableSection>
+                <TableSection Title="Forms">
+                    <SwitchCell Text="Enable form editing" BindingContext="{Binding Settings}" On="{Binding EnableFormEditing}"/>
+                </TableSection>
+                <TableSection Title="Actions">
+                    <SwitchCell Text="Show share action" BindingContext="{Binding Settings}" On="{Binding ShowShareAction}"/>
+                    <SwitchCell Text="Show print action" BindingContext="{Binding Settings}" On="{Binding ShowPrintAction}"/>
+                </TableSection>
+                <TableSection Title="Customization">
+                    <SwitchCell Text="Invert page colors" BindingContext="{Binding Settings}" On="{Binding InvertPageColors}"/>
+                    <SwitchCell Text="Grayscale" BindingContext="{Binding Settings}" On="{Binding Grayscale}"/>
+                    <SwitchCell Text="Enable text selection" BindingContext="{Binding Settings}" On="{Binding EnableTextSelection}"/>
+                </TableSection>
+                <TableSection Title="Activity">
+                    <SwitchCell Text="Immersive mode" BindingContext="{Binding Settings}" On="{Binding ImmersiveMode}"/>
+                </TableSection>
+                <TableSection Title="Other">
+                    <TextCell Text="Clear Cache" TextColor="Black" Command="{Binding ClearCacheCommand}" />
+                    <TextCell Text="Reset Settings" TextColor="Black" Detail="Requires app restart." Command="{Binding ResetSettingsCommand}" />
+                </TableSection>
+            </TableRoot>
+        </TableView>
+	</ContentPage.Content>
+</ContentPage>

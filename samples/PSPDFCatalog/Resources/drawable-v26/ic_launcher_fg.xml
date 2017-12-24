@@ -1,0 +1,58 @@
+<!--
+  ~   Copyright © 2017 PSPDFKit GmbH. All rights reserved.
+  ~
+  ~   THIS SOURCE CODE AND ANY ACCOMPANYING DOCUMENTATION ARE PROTECTED BY INTERNATIONAL COPYRIGHT LAW
+  ~   AND MAY NOT BE RESOLD OR REDISTRIBUTED. USAGE IS BOUND TO THE PSPDFKIT LICENSE AGREEMENT.
+  ~   UNAUTHORIZED REPRODUCTION OR DISTRIBUTION IS SUBJECT TO CIVIL AND CRIMINAL PENALTIES.
+  ~   This notice may not be removed from this file.
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:aapt="http://schemas.android.com/aapt"
+        android:width="108dp"
+        android:height="108dp"
+        android:viewportHeight="108.0"
+        android:viewportWidth="108.0">
+    <path
+        android:fillAlpha="0.33"
+        android:pathData="M64.65,108.02l-30.22,-30.64l39.32,-46.64l34.26,34.64l0,42.64l-43.36,0z"
+        android:strokeAlpha="0.33">
+        <aapt:attr name="android:fillColor">
+            <gradient
+
+                android:endX="10373.584228568077"
+                android:endY="3438.6929576396933"
+                android:startX="2389.9219995093345"
+                android:startY="-1091.8204350972178"
+                android:type="linear">
+                <item
+                    android:color="#B2000000"
+                    android:offset="0.0"/>
+                <item
+                    android:color="#54000000"
+                    android:offset="0.14"/>
+                <item
+                    android:color="#00000000"
+                    android:offset="1.0"/>
+            </gradient>
+        </aapt:attr>
+    </path>
+    <path
+        android:fillColor="#f2f2f2"
+        android:pathData="M54,29.51H71a3.66,3.66 0,0 1,3.66 3.66V74.83A3.66,3.66 0,0 1,71 78.49H54a0,0 0,0 1,0 0v-49A0,0 0,0 1,54 29.51Z"/>
+    <path
+        android:fillColor="#fff"
+        android:pathData="M37,29.51H54a0,0 0,0 1,0 0v49a0,0 0,0 1,0 0H37a3.66,3.66 0,0 1,-3.66 -3.66V33.17A3.66,3.66 0,0 1,37 29.51Z"/>
+    <path
+        android:fillColor="#06478e"
+        android:pathData="M49.77,60l-0.5,0.28 0.36,-0.44a16.29,16.29 0,0 0,3.65 -10v-0.57l0.2,0.53A16.29,16.29 0,0 0,60.34 58l0.49,0.29 -0.56,-0.09A16.29,16.29 0,0 0,49.77 60Z"/>
+    <path
+        android:fillColor="#3b81da"
+        android:pathData="M57.84,56.14c-3.09,-4.36 -2.56,-6.84 -1.7,-10.15 1,-3.93 -1.39,-7.84 -5.61,-6.68A3.68,3.68 0,0 0,47.77 42C46.63,46.29 53.41,52.7 57.84,56.14Z"/>
+    <path
+        android:fillColor="#3b81da"
+        android:pathData="M45,59.48c-3.92,1.08 -6.09,5.12 -3,8.2a3.68,3.68 0,0 0,3.7 1.06c4.3,-1.16 6.46,-10.25 7.22,-15.8C50.71,57.79 48.29,58.57 45,59.48Z"/>
+    <path
+        android:fillColor="#3b81da"
+        android:pathData="M69.91,57.14c-3.16,-3.14 -12.11,-0.47 -17.3,1.65 5.32,-0.5 7.2,1.2 9.64,3.6 2.9,2.85 7.48,2.71 8.59,-1.52A3.68,3.68 0,0 0,69.91 57.14Z"/>
+</vector>

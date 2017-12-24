@@ -9,6 +9,7 @@ var YOUTUBE_VERSION = "1.2.2";
 var REACTIVESTREAMS_VERSION = "1.0.1";
 var RELINKER_VERSION = "1.2.2";
 var OKHTTP3_VERSION = "3.9.0";
+var OKIO_VERSION = "1.13.0";
 
 var RXANDROIDURL = $"http://search.maven.org/remotecontent?filepath=io/reactivex/rxjava2/rxandroid/{RXANDROID_VERSION}/rxandroid-{RXANDROID_VERSION}.aar";
 var RXJAVAURL = $"http://search.maven.org/remotecontent?filepath=io/reactivex/rxjava2/rxjava/{RXJAVA_VERSION}/rxjava-{RXJAVA_VERSION}.jar";
@@ -16,6 +17,7 @@ var YOUTUBEURL = $"https://developers.google.com/youtube/android/player/download
 var REACTIVESTREAMSURL = $"http://search.maven.org/remotecontent?filepath=org/reactivestreams/reactive-streams/{REACTIVESTREAMS_VERSION}/reactive-streams-{REACTIVESTREAMS_VERSION}.jar";
 var RELINKERURL = $"https://dl.bintray.com/keepsafesoftware/Android/com/getkeepsafe/relinker/relinker/{RELINKER_VERSION}/relinker-{RELINKER_VERSION}.aar";
 var OKHTTP3URL = $"http://search.maven.org/remotecontent?filepath=com/squareup/okhttp3/okhttp/{OKHTTP3_VERSION}/okhttp-{OKHTTP3_VERSION}.jar";
+var OKIOURL = $"http://search.maven.org/remotecontent?filepath=com/squareup/okio/okio/{OKIO_VERSION}}/okio-{OKIO_VERSION}.jar";
 
 Task ("FetchDependencies")
 	.Does (() => {
@@ -26,6 +28,7 @@ Task ("FetchDependencies")
 		DownloadFile (YOUTUBEURL, $"./PSPDFKit.Android/Jars/YouTubeAndroidPlayerApi-{YOUTUBE_VERSION}.zip");
 		DownloadFile (RELINKERURL, $"./PSPDFKit.Android/Jars/relinker-{RELINKER_VERSION}.aar");
 		DownloadFile (OKHTTP3URL, $"./PSPDFKit.Android.Instant/Jars/okhttp-{OKHTTP3_VERSION}.jar");
+		DownloadFile (OKIOURL, $"./PSPDFKit.Android.Instant/Jars/okio-{OKIO_VERSION}.jar");
 });
 
 Task ("ExtractAars")
