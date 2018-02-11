@@ -92,6 +92,7 @@
     <Compile Include="Additions\DocumentEditingToolbar.cs" />
     <Compile Include="Additions\TextSelectionToolbar.cs" />
     <Compile Include="Additions\OptionsAdapter.cs" />
+    <Compile Include="Additions\CtorsWorkaround.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Additions\AboutAdditions.txt" />
@@ -103,13 +104,16 @@
     <TransformFile Include="Transforms\Metadata.xml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedReferenceJar Include="Jars\annotations-13.0.jar" />
+    <EmbeddedReferenceJar Include="Jars\kotlin-stdlib-1.2.21.jar" />
     <EmbeddedReferenceJar Include="Jars\rxandroid-2.0.1.jar" />
     <EmbeddedReferenceJar Include="Jars\rxjava-2.1.3.jar" />
     <EmbeddedReferenceJar Include="Jars\reactive-streams-1.0.1.jar" />
     <EmbeddedReferenceJar Include="Jars\relinker-1.2.2.jar" />
+    <EmbeddedReferenceJar Include="Jars\yearclass-2.0.0.jar" />
   </ItemGroup>
   <ItemGroup>
-    <LibraryProjectZip Include="Jars\pspdfkit-4.2.1.aar" />
+    <LibraryProjectZip Include="Jars\pspdfkit-4.3.1.aar" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedJar Include="Jars\YouTubeAndroidPlayerApi-1.2.2\libs\YouTubeAndroidPlayerApi.jar">

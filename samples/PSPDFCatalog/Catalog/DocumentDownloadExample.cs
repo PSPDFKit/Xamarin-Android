@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 using Android.Content;
@@ -10,10 +11,15 @@ using PSPDFKit;
 using PSPDFKit.Configuration.Activity;
 using PSPDFKit.UI;
 
+using SampleTools;
+using Xamarin.Android.Net;
+
 namespace PSPDFCatalog {
 
 	// This is an example showing how to download and show a PDF document from the web.
 	public class DocumentDownloadExample : PdfExampleBase {
+		HttpClient client = new HttpClient (new AndroidClientHandler ());
+
 		protected override string AssetPath => $"{DateTime.Now.Ticks}.pdf";
 
 		protected override void PrepareConfiguration (PdfActivityConfiguration.Builder configuration) => configuration.Title ("Case Study Box");
@@ -21,28 +27,28 @@ namespace PSPDFCatalog {
 		public override void LaunchExample (Context ctx, PdfActivityConfiguration.Builder configuration)
 		{
 			Task.Factory.StartNew (async () => {
-				using (var wc = new WebClient ()) {
-					AndHUD.Shared.Show (ctx, $"Downloading file....", progress: 0, cancelCallback: wc.CancelAsync);
-					PrepareConfiguration (configuration);
+				AndHUD.Shared.Show (ctx, $"Downloading file....", cancelCallback: client.CancelPendingRequests);
+				PrepareConfiguration (configuration);
+				var docUrl = "https://pspdfkit.com/downloads/case-study-box.pdf";
+				var docPath = Path.Combine (ctx.CacheDir.ToString (), AssetPath);
 
-					var docUrl = "https://pspdfkit.com/downloads/case-study-box.pdf";
-					var docPath = Path.Combine (ctx.CacheDir.ToString (), AssetPath);
-					wc.DownloadProgressChanged += (sender, e) => AndHUD.Shared.Show (ctx, $"Downloading file....\n{e.ProgressPercentage}%", e.ProgressPercentage);
-					wc.DownloadFileCompleted += (sender, e) => AndHUD.Shared.Dismiss (ctx);
-					await wc.DownloadFileTaskAsync (docUrl, docPath);
-					AndHUD.Shared.Dismiss (ctx);
+				using (var file = new FileStream (docPath, FileMode.Create, FileAccess.Write, FileShare.None))
+					await client.DownloadDataAsync (docUrl, file);
 
-					var jfile = new Java.IO.File (docPath);
-					var docUri = Android.Net.Uri.FromFile (jfile);
+				AndHUD.Shared.Dismiss (ctx);
 
-					// Start the PSPDFKitAppCompat activity by passing it the Uri of the file.
-					if (PSPDFKitGlobal.IsOpenableUri (ctx, docUri))
-						PdfActivity.ShowDocument (ctx, docUri, configuration.Build ());
-					else
-						AndHUD.Shared.ShowError (ctx, $"This document uri cannot be opened:\n{docUri}", MaskType.Black, TimeSpan.FromSeconds (2));
-				}
+				var jfile = new Java.IO.File (docPath);
+				var docUri = Android.Net.Uri.FromFile (jfile);
+
+				// Start the PSPDFKitAppCompat activity by passing it the Uri of the file.
+				if (PSPDFKitGlobal.IsOpenableUri (ctx, docUri))
+					PdfActivity.ShowDocument (ctx, docUri, configuration.Build ());
+				else
+					AndHUD.Shared.ShowError (ctx, $"This document uri cannot be opened:\n{docUri}", MaskType.Black, TimeSpan.FromSeconds (2));
 			});
 		}
+
+
 
 	}
 }

@@ -8,6 +8,11 @@ namespace PSPDFKit.Instant {
 	[Register ("com/pspdfkit/instant/annotations/InstantAnnotationProvider", "", "PSPDFKit.Instant.IInstantAnnotationProviderInvoker")]
 	public partial interface IInstantAnnotationProvider : global::PSPDFKit.Annotations.IAnnotationProvider {
 
+		bool HasUnsavedChanges {
+			// Metadata.xml XPath method reference: path="/api/package[@name='com.pspdfkit.instant.annotations']/interface[@name='InstantAnnotationProvider']/method[@name='hasUnsavedChanges' and count(parameter)=0]"
+			[Register ("hasUnsavedChanges", "()Z", "GetHasUnsavedChangesHandler:PSPDFKit.Instant.IInstantAnnotationProviderInvoker, PSPDFKit.Android.Instant")] get;
+		}
+
 		// Metadata.xml XPath method reference: path="/api/package[@name='com.pspdfkit.instant.annotations']/interface[@name='InstantAnnotationProvider']/method[@name='getAnnotationForIdentifier' and count(parameter)=1 and parameter[1][@type='java.lang.String']]"
 		[Register ("getAnnotationForIdentifier", "(Ljava/lang/String;)Lcom/pspdfkit/annotations/Annotation;", "GetGetAnnotationForIdentifier_Ljava_lang_String_Handler:PSPDFKit.Instant.IInstantAnnotationProviderInvoker, PSPDFKit.Android.Instant")]
 		global::PSPDFKit.Annotations.Annotation GetAnnotationForIdentifier (string p0);
@@ -499,6 +504,30 @@ namespace PSPDFKit.Instant {
 			JNIEnv.CallVoidMethod (((global::Java.Lang.Object) this).Handle, id_removeOnAnnotationUpdatedListener_Lcom_pspdfkit_annotations_AnnotationProvider_OnAnnotationUpdatedListener_, __args);
 		}
 
+		static Delegate cb_hasUnsavedChanges;
+#pragma warning disable 0169
+		static Delegate GetHasUnsavedChangesHandler ()
+		{
+			if (cb_hasUnsavedChanges == null)
+				cb_hasUnsavedChanges = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, bool>) n_HasUnsavedChanges);
+			return cb_hasUnsavedChanges;
+		}
+
+		static bool n_HasUnsavedChanges (IntPtr jnienv, IntPtr native__this)
+		{
+			global::PSPDFKit.Annotations.IAnnotationProvider __this = global::Java.Lang.Object.GetObject<global::PSPDFKit.Annotations.IAnnotationProvider> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			return __this.HasUnsavedChanges;
+		}
+#pragma warning restore 0169
+
+		IntPtr id_hasUnsavedChanges;
+		public unsafe bool HasUnsavedChanges {
+			get {
+				if (id_hasUnsavedChanges == IntPtr.Zero)
+					id_hasUnsavedChanges = JNIEnv.GetMethodID (class_ref, "hasUnsavedChanges", "()Z");
+				return JNIEnv.CallBooleanMethod (((global::Java.Lang.Object) this).Handle, id_hasUnsavedChanges);
+			}
+		}
 	}
 
 }

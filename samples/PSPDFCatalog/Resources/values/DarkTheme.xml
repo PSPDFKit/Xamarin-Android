@@ -4,7 +4,7 @@
   ~
   ~   PSPDFKit
   ~
-  ~   Copyright © 2017 PSPDFKit GmbH. All rights reserved.
+  ~   Copyright © 2017-2018 PSPDFKit GmbH. All rights reserved.
   ~
   ~   THIS SOURCE CODE AND ANY ACCOMPANYING DOCUMENTATION ARE PROTECTED BY INTERNATIONAL COPYRIGHT LAW
   ~   AND MAY NOT BE RESOLD OR REDISTRIBUTED. USAGE IS BOUND TO THE PSPDFKIT LICENSE AGREEMENT.
@@ -30,6 +30,7 @@
         <item name="android:editTextStyle">@style/PSPDFCatalog.Theme.Dark.EditTextStyle</item>
 
         <item name="pspdf__backgroundColor">@color/pspdf_dark_background_color</item>
+        <item name="pspdf__navigationHistoryIconColor">@color/pspdf_dark_accent</item>
         <item name="pspdf__contextualToolbarBackground">@color/pspdf_dark_status_bar</item>
         <item name="pspdf__contextualToolbarSubmenuBackground">@color/pspdf_dark_background_color</item>
         <item name="pspdf__actionBarIconsStyle">@style/PSPDFCatalog.Theme.Dark.ActionBarIconsStyle</item>
@@ -55,6 +56,7 @@
         <item name="pspdf__newPageDialogStyle">@style/PSPDFCatalog.Theme.Dark.NewPageDialog</item>
         <item name="pspdf__modalDialogStyle">@style/PSPDFCatalog.Theme.Dark.ModalDialog</item>
         <item name="pspdf__formSelectionStyle">@style/PSPDFCatalog.Theme.Dark.FormSelection</item>
+        <item name="pspdf__annotationNoteHinterStyle">@style/PSPDFCatalog.Theme.Dark.AnnotationNoteHinterStyle</item>
     </style>
 
     <!-- Password field edit text colors -->
@@ -100,12 +102,21 @@
         <item name="pspdf__backgroundColor">@android:color/transparent</item>
         <item name="pspdf__borderColor">@color/pspdf_dark_input_field_blue</item>
         <item name="pspdf__borderWidth">1dp</item>
-        <item name="pspdf__textColor">@color/pspdf_dark_icons_blue</item>
-        <item name="pspdf__hintTextColor">@color/pspdf_dark_icons_blue</item>
-        <item name="pspdf__navigationTextColor">@color/pspdf_dark_icons_blue</item>
+        <item name="pspdf__inputFieldTextAppearance">@style/PSPDFCatalog.Theme.Dark.InlineSearchStyle.InputFieldTextAppearance</item>
+        <item name="pspdf__resultTextAppearance">@style/PSPDFCatalog.Theme.Dark.InlineSearchStyle.ResultTextAppearance</item>
+        <item name="pspdf__throbberColor">@color/pspdf__dark_icons_blue</item>
         <item name="pspdf__prevIconColorTint">@color/pspdf_dark_icons_blue</item>
         <item name="pspdf__nextIconColorTint">@color/pspdf_dark_icons_blue</item>
         <item name="pspdf__backIconColorTint">@color/pspdf_dark_icons_blue</item>
+    </style>
+
+    <style name="PSPDFCatalog.Theme.Dark.InlineSearchStyle.InputFieldTextAppearance" parent="pspdf__SearchViewInline_InputFieldTextAppearance">
+        <item name="android:textColor">@color/pspdf__dark_icons_blue</item>
+        <item name="android:textColorHint">@color/pspdf__dark_icons_blue</item>
+    </style>
+
+    <style name="PSPDFCatalog.Theme.Dark.InlineSearchStyle.ResultTextAppearance" parent="pspdf__SearchViewInline_ResultTextAppearance">
+        <item name="android:textColor">@color/pspdf__dark_icons_blue</item>
     </style>
 
     <!-- Modular search items. -->
@@ -226,8 +237,7 @@
         <item name="android:colorBackground">?colorPrimary</item>
     </style>
 
-    <!-- Using light theme overlay will produce lightly themed new page dialog even when application theme is dark. -->
-    <style name="PSPDFCatalog.Theme.Dark.NewPageDialog" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="PSPDFCatalog.Theme.Dark.NewPageDialog" parent="ThemeOverlay.AppCompat"/>
 
     <style name="PSPDFCatalog.Theme.Dark.ModalDialog" parent="pspdf__ModalDialog">
         <item name="pspdf__titleBackground">?colorPrimaryDark</item>
@@ -238,6 +248,16 @@
     <style name="PSPDFCatalog.Theme.Dark.FormSelection" parent="pspdf__FormSelection">
         <item name="pspdf__selectedTextElementBackgroundColor">@color/pspdf_dark_selection_background</item>
         <item name="pspdf__touchedFormElementHighlightColor">#6064BDDF</item>
+    </style>
+
+    <style name="PSPDFCatalog.Theme.Dark.AnnotationNoteHinterStyle">
+        <item name="pspdf__noteHinterColor">@color/pspdf__color_gray</item>
+        <item name="pspdf__useNoteHinterIntrinsicSize">false</item>
+        <item name="pspdf__noteHinterWidth">24dp</item>
+        <item name="pspdf__noteHinterHeight">24dp</item>
+        <item name="pspdf__noteHinterTextMarkupLeftPadding">8dp</item>
+        <item name="pspdf__noteHinterAlpha">255</item>
+        <item name="pspdf__noteHinterIcon">@drawable/pspdf__ic_caret</item>
     </style>
 
 

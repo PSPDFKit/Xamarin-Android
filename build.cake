@@ -2,13 +2,20 @@
 
 var target = Argument ("target", "Default");
 
-var PSPDFKIT_VERSION = "4.2.1";
+// Nice online pom dependency explorer
+// https://jar-download.com/
+
+var PSPDFKIT_VERSION = "4.3.1";
 var RXANDROID_VERSION = "2.0.1";
-var RXJAVA_VERSION = "2.1.3";
-var YOUTUBE_VERSION = "1.2.2";
+var RXJAVA_VERSION = "2.1.3"; // Check Reactive-Streams if updated.
 var REACTIVESTREAMS_VERSION = "1.0.1";
+var YOUTUBE_VERSION = "1.2.2";
 var RELINKER_VERSION = "1.2.2";
-var OKHTTP3_VERSION = "3.9.0";
+var KOTLINSTDLIB_VERSION = "1.2.21"; // Check Annotations version if updated.
+var KOTLIANNOTATIONS_VERSION = "13.0";
+var YEARCLASS_VERSION = "2.0.0";
+
+var OKHTTP3_VERSION = "3.9.0"; // Check OKIO version if updated.
 var OKIO_VERSION = "1.13.0";
 
 var RXANDROIDURL = $"http://search.maven.org/remotecontent?filepath=io/reactivex/rxjava2/rxandroid/{RXANDROID_VERSION}/rxandroid-{RXANDROID_VERSION}.aar";
@@ -18,15 +25,24 @@ var REACTIVESTREAMSURL = $"http://search.maven.org/remotecontent?filepath=org/re
 var RELINKERURL = $"https://dl.bintray.com/keepsafesoftware/Android/com/getkeepsafe/relinker/relinker/{RELINKER_VERSION}/relinker-{RELINKER_VERSION}.aar";
 var OKHTTP3URL = $"http://search.maven.org/remotecontent?filepath=com/squareup/okhttp3/okhttp/{OKHTTP3_VERSION}/okhttp-{OKHTTP3_VERSION}.jar";
 var OKIOURL = $"http://search.maven.org/remotecontent?filepath=com/squareup/okio/okio/{OKIO_VERSION}/okio-{OKIO_VERSION}.jar";
+var KOTLINSTDLIBURL = $"http://search.maven.org/remotecontent?filepath=org/jetbrains/kotlin/kotlin-stdlib/{KOTLINSTDLIB_VERSION}/kotlin-stdlib-{KOTLINSTDLIB_VERSION}.jar";
+var KOTLIANNOTATIONSURL = $"http://search.maven.org/remotecontent?filepath=org/jetbrains/annotations/{KOTLIANNOTATIONS_VERSION}/annotations-{KOTLIANNOTATIONS_VERSION}.jar";
+var YEARCLASSURL = $"http://search.maven.org/remotecontent?filepath=com/facebook/device/yearclass/yearclass/{YEARCLASS_VERSION}/yearclass-{YEARCLASS_VERSION}.jar";
 
 Task ("FetchDependencies")
 	.Does (() => {
+		// PSPDFKit.Android
 		Information ("Downloading all the dependencies...");
 		DownloadFile (RXANDROIDURL, $"./PSPDFKit.Android/Jars/rxandroid-{RXANDROID_VERSION}.aar");
 		DownloadFile (RXJAVAURL, $"./PSPDFKit.Android/Jars/rxjava-{RXJAVA_VERSION}.jar");
 		DownloadFile (REACTIVESTREAMSURL, $"./PSPDFKit.Android/Jars/reactive-streams-{REACTIVESTREAMS_VERSION}.jar");
 		DownloadFile (YOUTUBEURL, $"./PSPDFKit.Android/Jars/YouTubeAndroidPlayerApi-{YOUTUBE_VERSION}.zip");
 		DownloadFile (RELINKERURL, $"./PSPDFKit.Android/Jars/relinker-{RELINKER_VERSION}.aar");
+		DownloadFile (KOTLINSTDLIBURL, $"./PSPDFKit.Android/Jars/kotlin-stdlib-{KOTLINSTDLIB_VERSION}.jar");
+		DownloadFile (KOTLIANNOTATIONSURL, $"./PSPDFKit.Android/Jars/annotations-{KOTLIANNOTATIONS_VERSION}.jar");
+		DownloadFile (YEARCLASSURL, $"./PSPDFKit.Android/Jars/yearclass-{YEARCLASS_VERSION}.jar");
+		
+		// PSPDFKit.Android.Instant
 		DownloadFile (OKHTTP3URL, $"./PSPDFKit.Android.Instant/Jars/okhttp-{OKHTTP3_VERSION}.jar");
 		DownloadFile (OKIOURL, $"./PSPDFKit.Android.Instant/Jars/okio-{OKIO_VERSION}.jar");
 });
