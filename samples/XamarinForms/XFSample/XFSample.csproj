@@ -6,6 +6,6 @@
 
   <ItemGroup>
     <PackageReference Include="Plugin.Permissions" Version="2.2.1" />
-    <PackageReference Include="Xamarin.Forms" Version="2.5.0.122203" />
+    <PackageReference Include="Xamarin.Forms" Version="2.5.0.280555" />
   </ItemGroup>
 </Project>

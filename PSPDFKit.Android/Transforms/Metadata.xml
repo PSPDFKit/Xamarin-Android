@@ -40,6 +40,9 @@
 	<remove-node path="//implements[contains(@name, 'java.lang.Comparable')]" />
 	<remove-node path="//implements[contains(@name, 'com.pspdfkit.framework')]" />
 
+<!-- Removes java.lang.Object build() -->
+	<remove-node path="//method[@return='java.lang.Object' and @name='build']" />
+
 <!-- C# friendly namespaces -->
 	<attr path="/api/package[@name='com.pspdfkit']" name="managedName">PSPDFKit</attr>
 	<attr path="/api/package[@name='com.pspdfkit.analytics']" name="managedName">PSPDFKit.AnalyticsSdk</attr>
@@ -79,11 +82,13 @@
 	<attr path="/api/package[@name='com.pspdfkit.events']" name="managedName">PSPDFKit.EventsSdk</attr>
 	<attr path="/api/package[@name='com.pspdfkit.exceptions']" name="managedName">PSPDFKit.Exceptions</attr>
 	<attr path="/api/package[@name='com.pspdfkit.forms']" name="managedName">PSPDFKit.Forms</attr>
+	<attr path="/api/package[@name='com.pspdfkit.forms.exceptions']" name="managedName">PSPDFKit.Forms.Exceptions</attr>
 	<attr path="/api/package[@name='com.pspdfkit.listeners']" name="managedName">PSPDFKit.Listeners</attr>
 	<attr path="/api/package[@name='com.pspdfkit.listeners.scrolling']" name="managedName">PSPDFKit.Listeners.Scrolling</attr>
 	<attr path="/api/package[@name='com.pspdfkit.media']" name="managedName">PSPDFKit.Media</attr>
 	<attr path="/api/package[@name='com.pspdfkit.preferences']" name="managedName">PSPDFKit.Preferences</attr>
 	<attr path="/api/package[@name='com.pspdfkit.signatures']" name="managedName">PSPDFKit.Signatures</attr>
+	<attr path="/api/package[@name='com.pspdfkit.signatures.provider']" name="managedName">PSPDFKit.Signatures.Provider</attr>
 	<attr path="/api/package[@name='com.pspdfkit.signatures.signers']" name="managedName">PSPDFKit.Signatures.Signers</attr>
 	<attr path="/api/package[@name='com.pspdfkit.ui']" name="managedName">PSPDFKit.UI</attr>
 	<attr path="/api/package[@name='com.pspdfkit.ui.actionmenu']" name="managedName">PSPDFKit.UI.ActionMenuSdk</attr>
@@ -110,6 +115,8 @@
 	<attr path="/api/package[@name='com.pspdfkit.ui.toolbar.grouping.presets']" name="managedName">PSPDFKit.UI.Toolbar.Grouping.Presets</attr>
 	<attr path="/api/package[@name='com.pspdfkit.ui.toolbar.rx']" name="managedName">PSPDFKit.UI.Toolbar.RX</attr>
 	<attr path="/api/package[@name='com.pspdfkit.ui.transition']" name="managedName">PSPDFKit.UI.Toolbar.Transition</attr>
+	<attr path="/api/package[@name='com.pspdfkit.undo']" name="managedName">PSPDFKit.Undo</attr>
+	<attr path="/api/package[@name='com.pspdfkit.undo.exceptions']" name="managedName">PSPDFKit.Undo.Exceptions</attr>
 	<attr path="/api/package[@name='com.pspdfkit.utils']" name="managedName">PSPDFKit.Utils</attr>
 
 <!-- Avoid colision in types -->
@@ -120,6 +127,8 @@
 	<attr path="/api/package[@name='com.pspdfkit.ui.toolbar']/class[@name='ContextualToolbar']/field[@name='dragButton']" name="managedName">DragButtonField</attr>
 	<attr path="/api/package[@name='com.pspdfkit.ui.toolbar']/class[@name='ToolbarCoordinatorLayout.LayoutParams']/field[@name='position']" name="managedName">PositionField</attr>
 	<attr path="/api/package[@name='com.pspdfkit.document.download']/class[@name='DownloadProgressFragment']/field[@name='dialog']" name="managedName">DialogField</attr>
+	<attr path="/api/package[@name='com.pspdfkit.forms']/class[@name='FormElementConfiguration']/field[@name='b']" name="managedName">BField</attr>
+	<attr path="/api/package[@name='com.pspdfkit.forms']/class[@name='FormElementConfiguration']/field[@name='c']" name="managedName">CField</attr>
 	<attr path="/api/package[@name='com.pspdfkit.document.datastore']/class[@name='DocumentDataStore.DocumentUid']/field[@name='documentUid']" name="managedName">DocUid</attr>
 
 <!-- Some API modifications -->
@@ -153,6 +162,8 @@
 	<attr path="/api/package[@name='com.pspdfkit.ui']/interface[@name='PdfActivityApi']" name="visibility">public</attr>
 	<attr path="/api/package[@name='com.pspdfkit.ui']/interface[@name='PdfActivityComponentsApi']" name="visibility">public</attr>
 	<attr path="/api/package[@name='com.pspdfkit.ui.thumbnail']/class[@name='ThumbnailAdapter.ThumbnailViewHolder']" name="visibility">public</attr>
+	<attr path="/api/package[@name='com.pspdfkit.forms']/class[@name='FormElementConfiguration']" name="visibility">public</attr>
+	<attr path="/api/package[@name='com.pspdfkit.signatures.signers']/class[@name='PrivateKeySigner']/method[@name='loadPrivateKey' and count(parameter)=3 and parameter[1][@type='java.lang.String'] and parameter[2][@type='com.pspdfkit.signatures.signers.InteractiveSigner.LoadingFeedbackListener'] and parameter[3][@type='com.pspdfkit.signatures.signers.PrivateKeySigner.OnPrivateKeyLoadedCallback']]" name="visibility">public</attr>
 
 	<attr path="/api/package[@name='com.pspdfkit.ui']/interface[@name='PSPDFKitViews.PSPDFView']/method[@name='hide' and count(parameter)=0]" name="managedName">HideView</attr>
 	<attr path="/api/package[@name='com.pspdfkit.ui']/interface[@name='PSPDFKitViews.PSPDFView']/method[@name='show' and count(parameter)=0]" name="managedName">ShowView</attr>
@@ -171,7 +182,6 @@
 	<attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='PdfSearchViewModular']/method[@name='hide' and count(parameter)=0]" name="managedName">HideView</attr>
 	<attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='PdfSearchViewModular']/method[@name='show' and count(parameter)=0]" name="managedName">ShowView</attr>
 
-<!--	<remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='Annotation']/method[@name='a' and count(parameter)=1 and parameter[1][@type='boolean']]" />-->
 	<remove-node path="/api/package[@name='com.pspdfkit.ui.special_mode.manager']/interface[@name='AnnotationManager.OnAnnotationUpdatedListener']" />
 	<remove-node path="/api/package[@name='com.pspdfkit.ui.special_mode.manager']/interface[@name='AnnotationManager']/method[@name='addOnAnnotationUpdatedListener' and count(parameter)=1 and parameter[1][@type='com.pspdfkit.ui.special_mode.manager.AnnotationManager.OnAnnotationUpdatedListener']]" />
 	<remove-node path="/api/package[@name='com.pspdfkit.ui.special_mode.manager']/interface[@name='AnnotationManager']/method[@name='removeOnAnnotationUpdatedListener' and count(parameter)=1 and parameter[1][@type='com.pspdfkit.ui.special_mode.manager.AnnotationManager.OnAnnotationUpdatedListener']]" />
@@ -179,8 +189,8 @@
 	<remove-node path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfFragment']/method[@name='addOnAnnotationUpdatedListener' and count(parameter)=1 and parameter[1][@type='com.pspdfkit.ui.special_mode.manager.AnnotationManager.OnAnnotationUpdatedListener']]" />
 	<remove-node path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfFragment']/method[@name='removeOnAnnotationUpdatedListener' and count(parameter)=1 and parameter[1][@type='com.pspdfkit.ui.special_mode.manager.AnnotationManager.OnAnnotationUpdatedListener']]" />
 
-	<remove-node path="/api/package[@name='com.pspdfkit.document']/class[@name='PdfDocument']/constructor[@name='PdfDocument' and count(parameter)=0]" />
 	<remove-node path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfActivity']/method[@name='createImplementation' and count(parameter)=0]" />
+	<remove-node path="/api/package[@name='com.pspdfkit.forms']/class[@name='FormElementConfiguration.BaseBuilder']/method[@name='build' and count(parameter)=0]" />
 
 <!-- Removes com.pspdfkit.bookmarks.Bookmark.OnBookmarkUpdatedListener from the public API -->
 	<remove-node path="/api/package[@name='com.pspdfkit.bookmarks']/interface[@name='Bookmark.OnBookmarkUpdatedListener']" />
