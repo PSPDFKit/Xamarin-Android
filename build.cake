@@ -5,7 +5,7 @@ var target = Argument ("target", "Default");
 // Nice online pom dependency explorer
 // https://jar-download.com/
 
-var PSPDFKIT_VERSION = "4.4.1";
+var PSPDFKIT_VERSION = "4.5.1";
 var RXANDROID_VERSION = "2.0.1";
 var RXJAVA_VERSION = "2.1.3"; // Check Reactive-Streams if updated.
 var REACTIVESTREAMS_VERSION = "1.0.1";

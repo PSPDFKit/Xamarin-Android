@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="pspdf_menu_custom" type="id"/>
+
+    <item name="instant_collaborate" type="id"/>
+    <item name="open_in_browser" type="id"/>
+    <item name="share_document_link" type="id"/>
+    <item name="share_document_code" type="id"/>
+
+    <item name="enable_annotation_overlay" type="id"/>
+    <item name="disable_annotation_overlay" type="id"/>
+    <item name="fire_low_memory_notification" type="id"/>
+</resources>

@@ -15,12 +15,12 @@
 
 <!-- Removes any "constructor" that any of its parameters uses
 	 any of the types contained in com.pspdfkit.framework.* -->
-	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.bd')]" />
-	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.bi')]" />
+	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.cb')]" />
+	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.db')]" />
+	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.cp')]" />
+	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.dc')]" />
 	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.bw')]" />
 	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.f')]" />
-	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.cj')]" />
-	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.ci')]" />
 	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.jni.NativeDocument')]" />
 	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.jni.NativeAnnotation')]" />
 	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.jni.NativeFormField')]" />
@@ -51,6 +51,7 @@
 	<attr path="/api/package[@name='com.pspdfkit.annotations.appearance']" name="managedName">PSPDFKit.Annotations.Appearance</attr>
 	<attr path="/api/package[@name='com.pspdfkit.annotations.defaults']" name="managedName">PSPDFKit.Annotations.Defaults</attr>
 	<attr path="/api/package[@name='com.pspdfkit.annotations.links']" name="managedName">PSPDFKit.Annotations.Links</attr>
+	<attr path="/api/package[@name='com.pspdfkit.annotations.note']" name="managedName">PSPDFKit.Annotations.Note</attr>
 	<attr path="/api/package[@name='com.pspdfkit.annotations.stamps']" name="managedName">PSPDFKit.Annotations.Stamps</attr>
 	<attr path="/api/package[@name='com.pspdfkit.annotations.xfdf']" name="managedName">PSPDFKit.Annotations.Xfdf</attr>
 	<attr path="/api/package[@name='com.pspdfkit.bookmarks']" name="managedName">PSPDFKit.Bookmarks</attr>

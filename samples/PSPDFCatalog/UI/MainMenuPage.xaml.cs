@@ -32,6 +32,11 @@ namespace PSPDFCatalog {
 					ExampleClass = typeof (BasicExample)
 				},
 				new Example {
+					Name = "Try Instant",
+					Description = "Downloads a document for collaborative editing.",
+					ExampleClass = typeof (InstantExample)
+				},
+				new Example {
 					Name = "Document Download Example",
 					Description = "How to download a PDF document from the web.",
 					ExampleClass = typeof (DocumentDownloadExample)

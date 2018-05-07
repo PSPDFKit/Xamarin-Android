@@ -22,4 +22,7 @@
 <!-- Manually bound in Additions/InstantPdfDocument.cs -->
 	<remove-node path="/api/package[@name='com.pspdfkit.instant.document']/class[@name='InstantPdfDocument']/method[@name='setAutomaticLinkGenerationEnabled' and count(parameter)=1 and parameter[1][@type='boolean']]" />
 	<remove-node path="/api/package[@name='com.pspdfkit.instant.document']/class[@name='InstantPdfDocument']/method[@name='getAnnotationProvider' and count(parameter)=0]" />
+
+<!-- Manually bound in Additions/IInstantAnnotationProvider.cs -->
+	<remove-node path="/api/package[@name='com.pspdfkit.instant.annotations']/interface[@name='InstantAnnotationProvider']" />
 </metadata>

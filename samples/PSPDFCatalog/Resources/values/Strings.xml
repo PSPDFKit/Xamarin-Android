@@ -2,4 +2,27 @@
 <resources>
 	<string name="app_name">PSPDFCatalog</string>
 	<string name="action_settings">Settings</string>
+
+	<!-- Instant example -->
+    <string name="instant_description">With PSPDFKit Instant, it’s easier than ever to add real-time collaboration features to your PSPDFKit-powered app, allowing your users to seamlessly share, edit and annotate PDF documents across iOS, Android and Web apps.\n\nThe PSPDFKit SDKs for Android, iOS and Web support Instant out of the box. Just connect your app to an Instant server and document management and syncing is taken care of.\n\nYou can try this right here, by getting a new copy of the document or entering a code for an existing document from pspdfkit.com/instant/try.</string>
+
+    <string name="instant_create_new_document">Create New Document</string>
+    <string name="instant_create_new_document_description">Get a new document code, then collaborate by entering it in PSPDFKit Catalog on another device, or opening the document link in a web browser.</string>
+    <string name="instant_creating">Creating…</string>
+
+    <string name="instant_edit_existing_document">Edit Existing Document</string>
+    <string name="instant_edit_existing_document_description">Enter the code from pspdfkit.com/instant/try to connect to the document shown in your browser.</string>
+    <string name="instant_enter_document_code">Enter document code</string>
+    <string name="instant_connecting">Connecting…</string>
+
+    <string name="instant_error_invalid_id">You entered an invalid code</string>
+    <string name="instant_error_server_error">Something went wrong on our end</string>
+    <string name="instant_error_no_connection">There is no connection currently</string>
+    <string name="instant_error_something_went_wrong">Something went wrong</string>
+    <string name="instant_error_connection_failed">Connection failed: %1$s</string>
+
+    <string name="instant_collaborate">Collaborate</string>
+    <string name="instant_open_in_browser">Open in Browser</string>
+    <string name="instant_share_document_link">Share Document Link</string>
+    <string name="instant_share_document_code">Share Document Code</string>
 </resources>
