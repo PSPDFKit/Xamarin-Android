@@ -22,7 +22,7 @@ PSPDFKit runs on Android devices running:
 * 32/64-bit ARM (armeabi-v7a with NEON/ arm64-v8a) or 32-bit Intel x86 CPU.
 * Projects using PSPDFKit.Android.dll **must** set [Target Framework](https://developer.xamarin.com/guides/android/application_fundamentals/understanding_android_api_levels/#framework) to API 26 (Android 8.0).
 
-### Step 1 - Get PSPDFKit .aar file
+### Step 1 - Get PSPDFKit .aar File
 
 1. Download PSPDFKit from your [customer portal](https://customers.pspdfkit.com) if you haven't done so already, or [request an evaluation version](https://pspdfkit.com/#trynow).
 2. Unzip the file you downloaded in step 1 and copy `pspdfkit-x.x.x.aar` to [`PSPDFKit.Android/Jars`](PSPDFKit.Android/Jars) folder and also copy `pspdfkit-instant-x.x.x.aar` into [`PSPDFKit.Android.Instant/Jars`](PSPDFKit.Android.Instant/Jars) folder.
@@ -43,14 +43,14 @@ You have two options to get it:
 3. Get the dlls from the `PSPDFKit.Android/bin` and `PSPDFKit.Android.Instant/bin` folders.
 4. Enjoy.
 
-#### Build from terminal
+#### Build from Terminal
 
 1. Just grab `PSPDFKit.Android.dll` and `PSPDFKit.Android.Instant.dll` from the root folder, if you successfuly followed **Step 1** both should be there.
 2. Enjoy.
 
 **💡 Note:** `PSPDFKit.Android.Instant.dll` is an **optional** dependency, you only need it if you are using [PSPDFKit Instant](https://pspdfkit.com/instant/) collaboration features in your application.
 
-## Integrating with your own project
+## Integrating with your own Project
 
 In order to use **PSPDFKit.Android.dll** and **PSPDFKit.Android.Instant.dll** with your own project you will need to add both as a reference to it. You can achieve this by doing the following:
 
@@ -78,7 +78,7 @@ Note that currently only local files are supported for PSPDFKit.
 
 In order to integrate ProGuard with Xamarin you can read the following [documentation on Xamarin's Site](https://developer.xamarin.com/guides/android/deployment,_testing,_and_metrics/proguard/).
 
-### Checking for compatibility
+### Checking for Compatibility
 
 You can include PSPDFKit into applications which will be distributed to devices not supported by PSPDFkit. In that case you can attempt initializing and catch PSPDFInitializationFailedException to check for device compatibility.
 
@@ -140,7 +140,7 @@ SupportFragmentManager.BeginTransaction().Replace(Resource.Id.Content, fragment)
 
 >Note that the Fragment extends Android.Support.V4.App.Fragment and not Android.App.Fragment.
 
-### Render page to a bitmap
+### Render Page to a Bitmap
 
 You can use PSPDFKit to render PDF to bitmaps without showing them in activities. To do that, use PSPDFKit and PSPDFDocument class calls.
 
@@ -183,9 +183,15 @@ And then it should be applied in AndroidManifest.xml:
 
 Other configuration options for UI elements (icons, element sizes) can be found in `PSPDFActivityConfiguration` class.
 
-### More information
+### More Information
 
 For more documentation about PSPDFKit check out [PSPDFKit online documentation](https://pspdfkit.com/guides/android/current) and bundled Javadoc.
+
+## Xamarin Forms
+
+Xamarin Forms does not support embedding Fragments, however you can show a new Activity, so fullscreen PDF display is possible. See [the provided XamarinForms example](https://github.com/PSPDFKit/Xamarin-iOS/tree/master/Examples/XamarinForms) for further details.
+
+Xamarin.Forms does not allow highjacking the `ContentPage`, so by default only fullscreen presentation is allowed. With the new [Xamarin.Forms embedding](https://blog.xamarin.com/unleashed-embedding-xamarin-forms-in-xamarin-native/), you can take any ContentPage and add it to your native applications.
 
 ### Known Issues
 
