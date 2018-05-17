@@ -210,7 +210,7 @@ You can find several sample projects in the `samples` folder, including a catalo
 1. Complete **Step 1** to download additional resources needed for the examples
 2. Open the `PSPDFKit.Android.sln` solution in Visual Studio
 3. Select the example project and device you want to run it on (alternatively you can also right-click on the project and select "Build `Project Name`")
-<img width="60%" src="Images/Project-setup.png"/>
+<img width="60%" src="Images/Project-setup"/>
 4. Tap on the triangle on the left to run the project
 
 ### PSPDFKit Instant Example
@@ -223,10 +223,10 @@ The PSPDFKit Instant example shows how easy and efficient Instant works. Just go
      <table>
   	    <tr>
       	    <td>
-             <img width="80%" src="Images/Instant-device.PNG"/>
+             <img width="80%" src="Images/Instant-device.png"/>
            </td>
            <td>
-             <img width="80%" src="Images/Instant-desktop.PNG"/>
+             <img width="80%" src="Images/Instant-desktop.png"/>
            </td>
        </tr>
     </table>
@@ -234,10 +234,10 @@ The PSPDFKit Instant example shows how easy and efficient Instant works. Just go
 
 
 ### PSPDFCatalog
-<img width="60%" src="Images/Catalog.png"/>
+<img width="60%" src="Images/Catalog"/>
 
 ### Xamarin.Forms
-<img width="50%" src="Images/XForms.png"/>
+<img width="50%" src="Images/XForms"/>
 
 ### AndroidSimple
 <img width="60%" src="Images/AndroidSimple.png"/>
