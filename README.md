@@ -223,10 +223,10 @@ The PSPDFKit Instant example shows how easy and efficient Instant works. Just go
      <table>
   	    <tr>
       	    <td>
-             <img width="80%" src="Images/Instant-device.png"/>
+             <img width="90%" src="Images/Instant-device.png"/>
            </td>
            <td>
-             <img width="80%" src="Images/Instant-desktop.png"/>
+             <img width="90%" src="Images/Instant-desktop.png"/>
            </td>
        </tr>
     </table>
@@ -234,13 +234,49 @@ The PSPDFKit Instant example shows how easy and efficient Instant works. Just go
 
 
 ### PSPDFCatalog
-<img width="60%" src="Images/Catalog"/>
+
+<div id="image-table">
+     <table>
+  	    <tr>
+      	    <td>
+             <img width="60%" src="Images/Catalog.png"/>
+           </td>
+           <td>
+             <img width="90%" src="Images/Catalog2.png"/>
+           </td>
+       </tr>
+    </table>
+</div>
 
 ### Xamarin.Forms
-<img width="50%" src="Images/XForms"/>
+
+<div id="image-table">
+     <table>
+  	    <tr>
+      	    <td>
+             <img width="90%" src="Images/XForms.png"/>
+           </td>
+           <td>
+             <img width="90%" src="Images/Catalog2.png"/>
+           </td>
+       </tr>
+    </table>
+</div>
 
 ### AndroidSimple
-<img width="60%" src="Images/AndroidSimple.png"/>
+
+<div id="image-table">
+     <table>
+  	    <tr>
+      	    <td>
+             <img width="90%" src="Images/AndroidSimple.png"/>
+           </td>
+           <td>
+             <img width="90%" src="Images/Catalog2.png"/>
+           </td>
+       </tr>
+    </table>
+</div>
 
 ### Known Issues
 
