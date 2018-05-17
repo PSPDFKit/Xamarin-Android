@@ -101,7 +101,7 @@ try {
 </application>
 ```
 
->You can use android:theme attribute to customize actionbar, background and other elements of the activity theme if you so desire. Note that if you want to use appcompat-v7 material themes, you'll have to use `PSPDFAppCompatActivity` instead of `PSPDFActivity`. 
+>You can use android:theme attribute to customize actionbar, background and other elements of the activity theme if you so desire. Note that if you want to use appcompat-v7 material themes, you'll have to use `PSPDFAppCompatActivity` instead of `PSPDFActivity`.
 
 * Make sure you have `android:largeHeap="true"` property in your `<application>` tag in **AndroidManifest.xml**. Rendering PDF files is memory intensive and this property will ensure your app has enough heap allocated to avoid out of memory errors.
 
@@ -189,9 +189,58 @@ For more documentation about PSPDFKit check out [PSPDFKit online documentation](
 
 ## Xamarin Forms
 
-Xamarin Forms does not support embedding Fragments, however you can show a new Activity, so fullscreen PDF display is possible. See [the provided XamarinForms example](https://github.com/PSPDFKit/Xamarin-iOS/tree/master/Examples/XamarinForms) for further details.
+Xamarin Forms does not support embedding Fragments, however you can show a new Activity, so fullscreen PDF display is possible. See [the provided Xamarin.Forms example](https://github.com/PSPDFKit/Xamarin-iOS/tree/master/Examples/XamarinForms) for further details.
 
 Xamarin.Forms does not allow highjacking the `ContentPage`, so by default only fullscreen presentation is allowed. With the new [Xamarin.Forms embedding](https://blog.xamarin.com/unleashed-embedding-xamarin-forms-in-xamarin-native/), you can take any ContentPage and add it to your native applications.
+
+# PSPDFKit Instant
+
+Support for Instant was added with the Xamarin.Android Bindings for PSPDFKit 4.5.1 for Android.
+
+With PSPDFKit Instant, it’s easier than ever to add real-time collaboration features to your PSPDFKit-powered app, allowing your users to seamlessly share, edit, and annotate PDF documents across iOS, Android, and web. With just a few lines of code, PSPDFKit Instant gives your users a massive productivity boost.
+
+For more information about Instant, please have a look at our [website](https://pspdfkit.com/instant/).
+
+# Examples
+
+You can find several sample projects in the `samples` folder, including a catalog and Xamarin.Forms example.
+
+## How to run the example projects
+
+1. Complete **Step 1** to download additional resources needed for the examples
+2. Open the `PSPDFKit.Android.sln` solution in Visual Studio
+3. Select the example project and device you want to run it on (alternatively you can also right-click on the project and select "Build `Project Name`")
+<img width="60%" src="Images/Project-setup.png"/>
+4. Tap on the triangle on the left to run the project
+
+### PSPDFKit Instant Example
+
+This example is included in the PSPDFCatalog example, but you can also find the code [here][Instant Example].
+
+The PSPDFKit Instant example shows how easy and efficient Instant works. Just go the [Instant demo page](https://pspdfkit.com/instant/demo/) and tap on `Instant on Android`, this will show a code at step three, which you have to enter in the example on your device. Afterwards you'll be connected to the server and you can start testing!
+
+<div id="image-table">
+     <table>
+  	    <tr>
+      	    <td>
+             <img width="80%" src="Images/Instant-device.PNG"/>
+           </td>
+           <td>
+             <img width="80%" src="Images/Instant-desktop.PNG"/>
+           </td>
+       </tr>
+    </table>
+</div>
+
+
+### PSPDFCatalog
+<img width="60%" src="Images/Catalog.png"/>
+
+### Xamarin.Forms
+<img width="50%" src="Images/XForms.png"/>
+
+### AndroidSimple
+<img width="60%" src="Images/AndroidSimple.png"/>
 
 ### Known Issues
 
@@ -202,5 +251,7 @@ Memory issues because of defective garbage collection.
 Source: [https://code.google.com/p/android/issues/detail?id=71073](https://code.google.com/p/android/issues/detail?id=71073)
 
 ### Contributing
-  
+
 Please ensure [you signed our CLA](https://pspdfkit.com/guides/web/current/miscellaneous/contributing/) so we can accept your contributions.
+
+[Instant Example]: https://github.com/PSPDFKit/Xamarin-Android/tree/master/samples/PSPDFCatalog/Catalog/Instant
