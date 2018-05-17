@@ -207,11 +207,11 @@ You can find several sample projects in the `samples` folder, including a catalo
 
 ## How to run the example projects
 
-1. Complete **Step 1** to download additional resources needed for the examples
-2. Open the `PSPDFKit.Android.sln` solution in Visual Studio
-3. Select the example project and device you want to run it on (alternatively you can also right-click on the project and select "Build `Project Name`")
+1. Complete **Step 1** to download additional resources needed for the examples.
+2. Open the `PSPDFKit.Android.sln` solution in Visual Studio.
+3. Select the example project and device you want to run it on (alternatively you can also right-click on the project and select "Build `Project Name`").
 <img width="60%" src="Images/Project-setup.png"/>
-4. Tap on the triangle on the left to run the project
+4. Tap on the triangle on the left to run the project.
 
 ### PSPDFKit Instant Example
 
@@ -237,41 +237,21 @@ The PSPDFKit Instant example shows how easy and efficient Instant works. Just go
 
 The `PSPSDFCatalog` project has various little example projects in it, including a basic example, which opens a demo document in PSPSDFKit, an example for automatically filling out forms, or one for creating a password protected PDF.
 
-<div id="image-table">
-     <table>
-  	    <tr>
-      	    <td>
-             <img width="90%" src="Images/Catalog.png"/>
-           </td>
-           <td>
-             <img width="90%" src="Images/Catalog2.png"/>
-           </td>
-       </tr>
-    </table>
-</div>
+<img width="80%" src="Images/Catalog.png"/>
+
 
 ### Xamarin.Forms
 
 `XFSample.Droid` is an example showcasing how to build an app with PSPDFKit using Xamarin.Forms.
 
-<div id="image-table">
-     <table>
-  	    <tr>
-      	    <td>
-             <img width="90%" src="Images/XForms.png"/>
-           </td>
-           <td>
-             <img width="90%" src="Images/Catalog2.png"/>
-           </td>
-       </tr>
-    </table>
-</div>
+<img width="80%" src="Images/XForms.png"/>
+
 
 ### AndroidSimple
 
 `AndroidSimple` is an example project showing showing how to open a preset document, or how to open a document from various file providers or the local file directory.
 
-<img width="60%" src="Images/AndroidSimple.png"/>
+<img width=55%" src="Images/AndroidSimple.png"/>
 
 
 ### Known Issues
