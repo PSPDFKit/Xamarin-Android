@@ -251,7 +251,7 @@ The `PSPSDFCatalog` project has various little example projects in it, including
 
 `AndroidSimple` is an example project showing showing how to open a preset document, or how to open a document from various file providers or the local file directory.
 
-<img width=55%" src="Images/AndroidSimple.png"/>
+<img width="55%" src="Images/AndroidSimple.png"/>
 
 
 ### Known Issues
