@@ -205,7 +205,7 @@ For more information about Instant, please have a look at our [website](https://
 
 You can find several sample projects in the `samples` folder, including a catalog and Xamarin.Forms example.
 
-## How to run the example projects
+## How to Run the Example Projects
 
 1. Complete **Step 1** to download additional resources needed for the examples.
 2. Open the `PSPDFKit.Android.sln` solution in Visual Studio.
@@ -249,7 +249,7 @@ The `PSPSDFCatalog` project has various little example projects in it, including
 
 ### AndroidSimple
 
-`AndroidSimple` is an example project showing showing how to open a preset document, or how to open a document from various file providers or the local file directory.
+`AndroidSimple` is an example project showing showing how to open and present document, or how to open a document from various file providers or the local file directory.
 
 <img width="55%" src="Images/AndroidSimple.png"/>
 
