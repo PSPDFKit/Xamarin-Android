@@ -33,7 +33,7 @@ namespace XFSample.Droid {
 	[Activity (Label = "XFSample.Droid", Icon = "@drawable/icon", Theme = "@style/MyTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
 	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity, IPdfService {
 
-		const string sampleDoc = "demo.pdf";
+		internal const string sampleDoc = "demo.pdf";
 
 		protected override void OnCreate (Bundle savedInstanceState)
 		{
@@ -42,6 +42,7 @@ namespace XFSample.Droid {
 
 			base.OnCreate (savedInstanceState);
 
+			CrossCurrentActivity.Current.Init (this, savedInstanceState);
 			global::Xamarin.Forms.Forms.Init (this, savedInstanceState);
 
 			LoadApplication (new App ());

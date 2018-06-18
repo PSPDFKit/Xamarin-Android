@@ -22,7 +22,8 @@ namespace PSPDFCatalog {
 		// Remove highlight from selected item
 		void ExamplesListView_ItemSelected (object sender, SelectedItemChangedEventArgs e) => ((ListView) sender).SelectedItem = null;
 
-		void ExamplesListView_ItemTapped (object sender, ItemTappedEventArgs e) => OptionSelected?.Invoke (this, new OptionSelectedEventArgs ((e.Item as Example).ExampleClass));
+		void ExamplesListView_ItemTapped (object sender, ItemTappedEventArgs e) => 
+		OptionSelected?.Invoke (this, new OptionSelectedEventArgs ((e.Item as Example).ExampleClass));
 
 		public static ObservableCollection<CatalogExamples> Examples = new ObservableCollection<CatalogExamples> {
 			new CatalogExamples ("OPENING DOCUMENTS") {
@@ -35,6 +36,11 @@ namespace PSPDFCatalog {
 					Name = "Try Instant",
 					Description = "Downloads a document for collaborative editing.",
 					ExampleClass = typeof (InstantExample)
+				},
+				new Example {
+					Name = "Fragment Example",
+					Description = "Shows how to create an activity using the PdfFragment.",
+					ExampleClass = typeof (FragmentExample)
 				},
 				new Example {
 					Name = "Document Download Example",

@@ -24,5 +24,5 @@
 	<remove-node path="/api/package[@name='com.pspdfkit.instant.document']/class[@name='InstantPdfDocument']/method[@name='getAnnotationProvider' and count(parameter)=0]" />
 
 <!-- Manually bound in Additions/IInstantAnnotationProvider.cs -->
-	<remove-node path="/api/package[@name='com.pspdfkit.instant.annotations']/interface[@name='InstantAnnotationProvider']" />
+<!--	<remove-node path="/api/package[@name='com.pspdfkit.instant.annotations']/interface[@name='InstantAnnotationProvider']" />-->
 </metadata>

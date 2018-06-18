@@ -3,6 +3,7 @@
 	<ContentPage.Content>
         <StackLayout>
             <Button x:Name="pdfviewerbutton" Text="Show PDF Viewer" Clicked="ShowPDF" VerticalOptions="CenterAndExpand" />
+            <Button x:Name="PdfShowFragment" Text="Show PDF Viewer Using PdfFragment" Clicked="ShowPDFFragment" VerticalOptions="CenterAndExpand" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

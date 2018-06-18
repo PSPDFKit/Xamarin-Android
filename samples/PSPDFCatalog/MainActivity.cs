@@ -6,7 +6,7 @@ using Android.OS;
 using Android.Support.V7.App;
 using Android.Support.V7.Widget;
 using Android.Views;
-
+using Plugin.CurrentActivity;
 using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
 
@@ -35,6 +35,8 @@ namespace PSPDFCatalog {
 		protected override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
+
+			CrossCurrentActivity.Current.Init (this, savedInstanceState);
 
 			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Main);
@@ -112,10 +114,10 @@ namespace PSPDFCatalog {
 
 		PdfActivityConfiguration.Builder GetConfiguration (Context ctx) => SettingsPage.GetConfiguration (ctx);
 
-		public override void OnRequestPermissionsResult (int requestCode, string [] permissions, Android.Content.PM.Permission [] grantResults)
+		public override void OnRequestPermissionsResult (int requestCode, string[] permissions, Android.Content.PM.Permission[] grantResults)
 		{
-			base.OnRequestPermissionsResult (requestCode, permissions, grantResults);
 			PermissionsImplementation.Current.OnRequestPermissionsResult (requestCode, permissions, grantResults);
+			base.OnRequestPermissionsResult (requestCode, permissions, grantResults);
 		}
 
 		public override bool OnCreateOptionsMenu (IMenu menu)

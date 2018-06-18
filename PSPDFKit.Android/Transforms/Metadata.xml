@@ -15,11 +15,11 @@
 
 <!-- Removes any "constructor" that any of its parameters uses
 	 any of the types contained in com.pspdfkit.framework.* -->
-	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.cb')]" />
-	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.db')]" />
-	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.cp')]" />
-	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.dc')]" />
-	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.bw')]" />
+	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.cg')]" />
+	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.dh')]" />
+	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.di')]" />
+	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.bz')]" />
+	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.cu')]" />
 	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.f')]" />
 	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.jni.NativeDocument')]" />
 	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.jni.NativeAnnotation')]" />
@@ -40,9 +40,6 @@
 	<remove-node path="//implements[contains(@name, 'java.lang.Comparable')]" />
 	<remove-node path="//implements[contains(@name, 'com.pspdfkit.framework')]" />
 
-<!-- Removes java.lang.Object build() -->
-	<remove-node path="//method[@return='java.lang.Object' and @name='build']" />
-
 <!-- C# friendly namespaces -->
 	<attr path="/api/package[@name='com.pspdfkit']" name="managedName">PSPDFKit</attr>
 	<attr path="/api/package[@name='com.pspdfkit.analytics']" name="managedName">PSPDFKit.AnalyticsSdk</attr>
@@ -58,6 +55,7 @@
 	<attr path="/api/package[@name='com.pspdfkit.configuration']" name="managedName">PSPDFKit.Configuration</attr>
 	<attr path="/api/package[@name='com.pspdfkit.configuration.activity']" name="managedName">PSPDFKit.Configuration.Activity</attr>
 	<attr path="/api/package[@name='com.pspdfkit.configuration.annotations']" name="managedName">PSPDFKit.Configuration.Annotations</attr>
+	<attr path="/api/package[@name='com.pspdfkit.configuration.forms']" name="managedName">PSPDFKit.Configuration.Forms</attr>
 	<attr path="/api/package[@name='com.pspdfkit.configuration.rendering']" name="managedName">PSPDFKit.Configuration.Rendering</attr>
 	<attr path="/api/package[@name='com.pspdfkit.configuration.search']" name="managedName">PSPDFKit.Configuration.Search</attr>
 	<attr path="/api/package[@name='com.pspdfkit.configuration.settings']" name="managedName">PSPDFKit.Configuration.Settings</attr>
@@ -72,6 +70,7 @@
 	<attr path="/api/package[@name='com.pspdfkit.document.download.source']" name="managedName">PSPDFKit.Document.Download.Source</attr>
 	<attr path="/api/package[@name='com.pspdfkit.document.editor']" name="managedName">PSPDFKit.Document.Editor</attr>
 	<attr path="/api/package[@name='com.pspdfkit.document.editor.page']" name="managedName">PSPDFKit.Document.Editor.Page</attr>
+	<attr path="/api/package[@name='com.pspdfkit.document.files']" name="managedName">PSPDFKit.Document.Files</attr>
 	<attr path="/api/package[@name='com.pspdfkit.document.formatters']" name="managedName">PSPDFKit.Document.Formatters</attr>
 	<attr path="/api/package[@name='com.pspdfkit.document.image']" name="managedName">PSPDFKit.Document.Image</attr>
 	<attr path="/api/package[@name='com.pspdfkit.document.library']" name="managedName">PSPDFKit.Document.Library</attr>
@@ -191,7 +190,23 @@
 	<remove-node path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfFragment']/method[@name='removeOnAnnotationUpdatedListener' and count(parameter)=1 and parameter[1][@type='com.pspdfkit.ui.special_mode.manager.AnnotationManager.OnAnnotationUpdatedListener']]" />
 
 	<remove-node path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfActivity']/method[@name='createImplementation' and count(parameter)=0]" />
+
 	<remove-node path="/api/package[@name='com.pspdfkit.forms']/class[@name='FormElementConfiguration.BaseBuilder']/method[@name='build' and count(parameter)=0]" />
+<!-- Unfortunatelly we hit a generator bug so we need to remove these members for now -->
+<!--	<attr path="/api/package[@name='com.pspdfkit.forms']/class[@name='CheckBoxFormConfiguration.Builder']/method[@name='build' and count(parameter)=0 and @return='com.pspdfkit.forms.FormElementConfiguration']" name="managedName">BuildConf</attr>-->
+<!--	<attr path="/api/package[@name='com.pspdfkit.forms']/class[@name='ComboBoxFormConfiguration.Builder']/method[@name='build' and count(parameter)=0 and @return='com.pspdfkit.forms.FormElementConfiguration']" name="managedName">BuildConf</attr>-->
+<!--	<attr path="/api/package[@name='com.pspdfkit.forms']/class[@name='ListBoxFormConfiguration.Builder']/method[@name='build' and count(parameter)=0 and @return='com.pspdfkit.forms.FormElementConfiguration']" name="managedName">BuildConf</attr>-->
+<!--	<attr path="/api/package[@name='com.pspdfkit.forms']/class[@name='PushButtonFormConfiguration.Builder']/method[@name='build' and count(parameter)=0 and @return='com.pspdfkit.forms.FormElementConfiguration']" name="managedName">BuildConf</attr>-->
+<!--	<attr path="/api/package[@name='com.pspdfkit.forms']/class[@name='SignatureFormConfiguration.Builder']/method[@name='build' and count(parameter)=0 and @return='com.pspdfkit.forms.FormElementConfiguration']" name="managedName">BuildConf</attr>-->
+<!--	<attr path="/api/package[@name='com.pspdfkit.forms']/class[@name='RadioButtonFormConfiguration.Builder']/method[@name='build' and count(parameter)=0 and @return='com.pspdfkit.forms.FormElementConfiguration']" name="managedName">BuildConf</attr>-->
+<!--	<attr path="/api/package[@name='com.pspdfkit.forms']/class[@name='TextFormConfiguration.Builder']/method[@name='build' and count(parameter)=0 and @return='com.pspdfkit.forms.FormElementConfiguration']" name="managedName">BuildConf</attr>-->
+	<remove-node path="/api/package[@name='com.pspdfkit.forms']/class[@name='CheckBoxFormConfiguration.Builder']/method[@name='build' and count(parameter)=0 and @return='com.pspdfkit.forms.FormElementConfiguration']" />
+	<remove-node path="/api/package[@name='com.pspdfkit.forms']/class[@name='ComboBoxFormConfiguration.Builder']/method[@name='build' and count(parameter)=0 and @return='com.pspdfkit.forms.FormElementConfiguration']" />
+	<remove-node path="/api/package[@name='com.pspdfkit.forms']/class[@name='ListBoxFormConfiguration.Builder']/method[@name='build' and count(parameter)=0 and @return='com.pspdfkit.forms.FormElementConfiguration']" />
+	<remove-node path="/api/package[@name='com.pspdfkit.forms']/class[@name='PushButtonFormConfiguration.Builder']/method[@name='build' and count(parameter)=0 and @return='com.pspdfkit.forms.FormElementConfiguration']" />
+	<remove-node path="/api/package[@name='com.pspdfkit.forms']/class[@name='SignatureFormConfiguration.Builder']/method[@name='build' and count(parameter)=0 and @return='com.pspdfkit.forms.FormElementConfiguration']" />
+	<remove-node path="/api/package[@name='com.pspdfkit.forms']/class[@name='RadioButtonFormConfiguration.Builder']/method[@name='build' and count(parameter)=0 and @return='com.pspdfkit.forms.FormElementConfiguration']" />
+	<remove-node path="/api/package[@name='com.pspdfkit.forms']/class[@name='TextFormConfiguration.Builder']/method[@name='build' and count(parameter)=0 and @return='com.pspdfkit.forms.FormElementConfiguration']" />
 
 <!-- Removes com.pspdfkit.bookmarks.Bookmark.OnBookmarkUpdatedListener from the public API -->
 	<remove-node path="/api/package[@name='com.pspdfkit.bookmarks']/interface[@name='Bookmark.OnBookmarkUpdatedListener']" />
