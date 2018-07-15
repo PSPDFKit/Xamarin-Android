@@ -55,7 +55,7 @@ namespace PSPDFCatalog {
 
 				foreach (var element in elements) {
 					if (element.Type == FormType.Text)
-						element.JavaCast<TextFormElement> ().Text = $"Example {element.Name}";
+						element.JavaCast<TextFormElement> ().SetText ($"Example {element.Name}");
 					else if (element.Type == FormType.Checkbox)
 						element.JavaCast<CheckBoxFormElement> ().ToggleSelection ();
 				}
@@ -105,13 +105,13 @@ namespace PSPDFCatalog {
 			Task.Factory.StartNew (() => {
 				var field = Document.FormProvider.GetFormElementWithName ("Name_Last");
 				var formElement = field.JavaCast<TextFormElement> ();
-				formElement.Text = "John";
+				formElement.SetText ("John");
 			});
 
 			Task.Factory.StartNew (() => {
 				var field = Document.FormProvider.GetFormElementWithName ("Name_First");
 				var formElement = field.JavaCast<TextFormElement> ();
-				formElement.Text = "Appleseed";
+				formElement.SetText ("Appleseed");
 			});
 
 			// Querying form elements by name can be slow. If you need to fill many form
@@ -131,7 +131,7 @@ namespace PSPDFCatalog {
 
 					var textFormElement = element.JavaCast<TextFormElement> ();
 					if (dict.TryGetValue (textFormElement.Name, out string val))
-						textFormElement.Text = val;
+						textFormElement.SetText (val);
 				}
 			});
 		}

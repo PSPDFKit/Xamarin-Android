@@ -114,7 +114,7 @@
     <EmbeddedReferenceJar Include="Jars\yearclass-2.0.0.jar" />
   </ItemGroup>
   <ItemGroup>
-    <LibraryProjectZip Include="Jars\pspdfkit-4.6.1.aar" />
+    <LibraryProjectZip Include="Jars\pspdfkit-4.7.0.aar" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedJar Include="Jars\YouTubeAndroidPlayerApi-1.2.2\libs\YouTubeAndroidPlayerApi.jar">
