@@ -15,11 +15,9 @@
 
 <!-- Removes any "constructor" that any of its parameters uses
 	 any of the types contained in com.pspdfkit.framework.* -->
-	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.dq')]" />
-	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.ev')]" />
-	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.ew')]" />
-	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.ef')]" />
-	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.cq')]" />
+	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.dx')]" />
+	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.cx')]" />
+	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.em')]" />
 	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.f')]" />
 	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.jni.NativeDocument')]" />
 	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.jni.NativeAnnotation')]" />
@@ -124,6 +122,7 @@
 <!-- Avoid colision in types -->
 	<attr path="/api/package[@name='com.pspdfkit']/class[@name='PSPDFKit']" name="managedName">PSPDFKitGlobal</attr>
 	<attr path="/api/package[@name='com.pspdfkit.annotations']/class[@name='Annotation']/field[@name='a']" name="managedName">AField</attr>
+	<attr path="/api/package[@name='com.pspdfkit.annotations.actions']/class[@name='ActionAccessors']/field[@name='Companion']" name="managedName">CompanionField</attr>
 	<attr path="/api/package[@name='com.pspdfkit.ui.toolbar']/class[@name='ContextualToolbar']/field[@name='closeButton']" name="managedName">CloseButtonField</attr>
 	<attr path="/api/package[@name='com.pspdfkit.ui.toolbar']/class[@name='ContextualToolbar']/field[@name='dragButton']" name="managedName">DragButtonField</attr>
 	<attr path="/api/package[@name='com.pspdfkit.ui.toolbar']/class[@name='ToolbarCoordinatorLayout.LayoutParams']/field[@name='position']" name="managedName">PositionField</attr>
@@ -196,6 +195,8 @@
 
 	<remove-node path="/api/package[@name='com.pspdfkit.forms']/class[@name='FormElementConfiguration.BaseBuilder']/method[@name='build' and count(parameter)=0]" />
 	<remove-node path="/api/package[@name='com.pspdfkit.forms']/class[@name='FormElementConfiguration.BaseBuilder']/method[@name='a' and count(parameter)=0]" />
+
+	<remove-node path="/api/package[@name='com.pspdfkit.annotations.actions']/class[@name='HideAction']/field[@name='a']" />
 
 <!-- Removes com.pspdfkit.bookmarks.Bookmark.OnBookmarkUpdatedListener from the public API -->
 	<remove-node path="/api/package[@name='com.pspdfkit.bookmarks']/interface[@name='Bookmark.OnBookmarkUpdatedListener']" />
