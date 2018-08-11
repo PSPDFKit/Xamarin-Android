@@ -25,7 +25,7 @@ using Xamarin.Forms.Platform.Android;
 
 namespace PSPDFCatalog {
 	// @style/PSPDFCatalog.Theme.Light
-	[Activity (Label = "PSPDFKit", MainLauncher = true, Theme = "@style/PSPDFCatalog.Theme.Light")]
+	[Activity (Label = "PSPDFKit", MainLauncher = true, Theme = "@style/PSPDFCatalog.Theme.Light", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
 	public class MainActivity : AppCompatActivity {
 
 		Toolbar toolbar;
