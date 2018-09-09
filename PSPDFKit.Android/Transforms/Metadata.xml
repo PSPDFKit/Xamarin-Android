@@ -15,9 +15,10 @@
 
 <!-- Removes any "constructor" that any of its parameters uses
 	 any of the types contained in com.pspdfkit.framework.* -->
-	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.dx')]" />
-	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.cx')]" />
-	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.em')]" />
+	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.eh')]" />
+	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.g')]" />
+	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.cz')]" />
+	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.ew')]" />
 	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.f')]" />
 	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.jni.NativeDocument')]" />
 	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.jni.NativeAnnotation')]" />
