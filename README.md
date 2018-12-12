@@ -191,9 +191,9 @@ For more documentation about PSPDFKit check out [PSPDFKit online documentation](
 
 You can use PSPDFKit SDK with Xamarin.Forms in 3 ways:
 
-1. Using a Custom PageRenderer and embedding a `PdfFragment`, see `PdfViewerPageRenderer.cs` and `PdfViewerPage.cs` inside our [provided Xamarin.Forms example](https://github.com/PSPDFKit/Xamarin-iOS/tree/master/Examples/XamarinForms).
-2. Showing a `PdfActivity`. See [the provided Xamarin.Forms example](https://github.com/PSPDFKit/Xamarin-iOS/tree/master/Examples/XamarinForms) for further details.
-3. Using [Xamarin.Forms embedding](https://blog.xamarin.com/unleashed-embedding-xamarin-forms-in-xamarin-native/), you can take any ContentPage and add it to your native applications.
+1. Using a Custom PageRenderer and embedding a `PdfFragment`, see `PdfViewerPageRenderer.cs` and `PdfViewerPage.cs` inside our [provided Xamarin.Forms example](https://github.com/PSPDFKit/Xamarin-Android/tree/master/samples/XamarinForms).
+2. Showing a `PdfActivity`. See [the provided Xamarin.Forms example](https://github.com/PSPDFKit/Xamarin-Android/tree/master/samples/XamarinForms) for further details.
+3. Using [Xamarin.Forms embedding](https://blog.xamarin.com/unleashed-embedding-xamarin-forms-in-xamarin-native/), you can take any ContentPage and add it to your native applications. This is also showcased by our [PSPDFCatalog example app](https://github.com/PSPDFKit/Xamarin-Android/tree/master/samples/PSPDFCatalog).
 
 # PSPDFKit Instant
 
