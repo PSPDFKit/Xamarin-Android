@@ -26,7 +26,7 @@
                     </ViewCell>
                     <SwitchCell Text="Scroll continuously" BindingContext="{Binding Settings}" On="{Binding ScrollMode}"/>
                     <SwitchCell Text="Fit page to width" BindingContext="{Binding Settings}" On="{Binding FitMode}"/>
-                    <SwitchCell Text="Resote last viewed page" BindingContext="{Binding Settings}" On="{Binding RestoreLastViewedPage}"/>
+                    <SwitchCell Text="Restore last viewed page" BindingContext="{Binding Settings}" On="{Binding RestoreLastViewedPage}"/>
                     <SwitchCell Text="Show page number overlay" BindingContext="{Binding Settings}" On="{Binding ShowPageNumberOverlay}"/>
                     <SwitchCell Text="Show page labels" BindingContext="{Binding Settings}" On="{Binding ShowPageLabels}"/>
                     <ViewCell>
