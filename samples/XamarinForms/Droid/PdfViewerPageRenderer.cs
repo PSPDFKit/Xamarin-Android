@@ -202,13 +202,13 @@ namespace XFSample.Droid {
 			fragment.AddAnnotationToPage (noteAnnotation, false);
 		}
 
-		public void OnDocumentLoaded (PdfDocument document)
+		public void OnDocumentLoaded (IPdfDocument document)
 		{
 			fragment.AddDocumentListener (modularSearchView?.JavaCast<IDocumentListener> ());
-			thumbnailBar.SetDocument (document, configuration, fragment.EventBus);
-			modularSearchView.SetDocument (document, configuration, fragment.EventBus);
-			pdfOutlineView.SetDocument (document, configuration, fragment.EventBus);
-			thumbnailGrid.SetDocument (document, configuration, fragment.EventBus);
+			thumbnailBar.SetDocument (document, configuration);
+			modularSearchView.SetDocument (document, configuration);
+			pdfOutlineView.SetDocument (document, configuration);
+			thumbnailGrid.SetDocument (document, configuration);
 
 			// Adding note annotation to populate Annotation section in PdfOutlineView
 			CreateNoteAnnotation (1);
@@ -218,24 +218,24 @@ namespace XFSample.Droid {
 		{
 		}
 
-		public bool OnDocumentSave (PdfDocument document, DocumentSaveOptions saveOptions)
+		public bool OnDocumentSave (IPdfDocument document, DocumentSaveOptions saveOptions)
 		{
 			return true;
 		}
 
-		public void OnDocumentSaved (PdfDocument document)
+		public void OnDocumentSaved (IPdfDocument document)
 		{
 		}
 
-		public void OnDocumentSaveFailed (PdfDocument document, Throwable exception)
+		public void OnDocumentSaveFailed (IPdfDocument document, Throwable exception)
 		{
 		}
 
-		public void OnDocumentSaveCancelled (PdfDocument document)
+		public void OnDocumentSaveCancelled (IPdfDocument document)
 		{
 		}
 
-		public bool OnPageClick (PdfDocument document, int pageIndex, MotionEvent @event, PointF pagePosition, Annotation pclickedAnnotation4)
+		public bool OnPageClick (IPdfDocument document, int pageIndex, MotionEvent @event, PointF pagePosition, Annotation pclickedAnnotation4)
 		{
 			return false;
 		}
@@ -245,19 +245,19 @@ namespace XFSample.Droid {
 			return false;
 		}
 
-		public void OnPageChanged (PdfDocument document, int pageIndex)
+		public void OnPageChanged (IPdfDocument document, int pageIndex)
 		{
 		}
 
-		public void OnDocumentZoomed (PdfDocument document, int pageIndex, float scaleFactor)
+		public void OnDocumentZoomed (IPdfDocument document, int pageIndex, float scaleFactor)
 		{
 		}
 
-		public void OnPageUpdated (PdfDocument document, int pageIndex)
+		public void OnPageUpdated (IPdfDocument document, int pageIndex)
 		{
 		}
 
-		public bool OnDocumentLongPress (PdfDocument document, int pageIndex, MotionEvent @event, PointF pagePosition, Annotation longPressedAnnotation)
+		public bool OnDocumentLongPress (IPdfDocument document, int pageIndex, MotionEvent @event, PointF pagePosition, Annotation longPressedAnnotation)
 		{
 			if (fragment.View != null)
 				fragment.View.PerformHapticFeedback (FeedbackConstants.LongPress);

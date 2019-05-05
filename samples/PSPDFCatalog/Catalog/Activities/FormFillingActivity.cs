@@ -18,7 +18,7 @@ namespace PSPDFCatalog {
 		const int resetFormMenuItemId = 1;
 		const int fillByFieldName = 2;
 
-		public override void OnDocumentLoaded (PdfDocument document)
+		public override void OnDocumentLoaded (IPdfDocument document)
 		{
 			base.OnDocumentLoaded (document);
 			FillAllFormFields ();

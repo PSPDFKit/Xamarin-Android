@@ -112,7 +112,7 @@ namespace PSPDFCatalog {
 		void ShowInstantDocument (InstantDocumentInfo documentInfo)
 		{
 			InstantClient.Create (this, documentInfo.ServerUrl).RemoveLocalStorage ();
-			var builder = InstantPdfActivityIntentBuilder.FromInstantDocument (this, documentInfo.ServerUrl, documentInfo.DocumentId, documentInfo.Jwt);
+			var builder = InstantPdfActivityIntentBuilder.FromInstantDocument (this, documentInfo.ServerUrl, documentInfo.Jwt);
 			var intent = builder
 				.Configuration (configuration)
 				.ActivityClass (Java.Lang.Class.FromType (typeof (InstantExampleActivity)))

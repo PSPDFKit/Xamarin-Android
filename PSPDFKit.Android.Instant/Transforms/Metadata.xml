@@ -9,20 +9,15 @@
 
 <!-- C# friendly namespaces -->
     <attr path="/api/package[@name='com.pspdfkit.instant']" name="managedName">PSPDFKit.Instant</attr>
-<!--    <attr path="/api/package[@name='com.pspdfkit.instant.annotations']" name="managedName">PSPDFKit.Instant</attr>-->
     <attr path="/api/package[@name='com.pspdfkit.instant.client']" name="managedName">PSPDFKit.Instant</attr>
     <attr path="/api/package[@name='com.pspdfkit.instant.document']" name="managedName">PSPDFKit.Instant</attr>
     <attr path="/api/package[@name='com.pspdfkit.instant.exceptions']" name="managedName">PSPDFKit.Instant</attr>
     <attr path="/api/package[@name='com.pspdfkit.instant.listeners']" name="managedName">PSPDFKit.Instant</attr>
     <attr path="/api/package[@name='com.pspdfkit.instant.ui']" name="managedName">PSPDFKit.Instant</attr>
-	
+    
+<!-- Manually bound in Additions/PSPDFKit.Instant.IInstantPdfDocument.cs -->
+    <remove-node path="/api/package[@name='com.pspdfkit.instant.document']/interface[@name='InstantPdfDocument']/method[@name='getAnnotationProvider' and count(parameter)=0]" />
+    
 <!-- Removed, seems not meant to be for consumer use.-->
-	<remove-node path="/api/package[@name='com.pspdfkit.instant.client']/class[@name='InstantDocumentDescriptor']/method[@name='getInternal' and count(parameter)=0]" />
-
-<!-- Manually bound in Additions/InstantPdfDocument.cs -->
-	<remove-node path="/api/package[@name='com.pspdfkit.instant.document']/class[@name='InstantPdfDocument']/method[@name='setAutomaticLinkGenerationEnabled' and count(parameter)=1 and parameter[1][@type='boolean']]" />
-	<remove-node path="/api/package[@name='com.pspdfkit.instant.document']/class[@name='InstantPdfDocument']/method[@name='getAnnotationProvider' and count(parameter)=0]" />
-
-<!-- Manually bound in Additions/IInstantAnnotationProvider.cs -->
-<!--	<remove-node path="/api/package[@name='com.pspdfkit.instant.annotations']/interface[@name='InstantAnnotationProvider']" />-->
+    <remove-node path="/api/package[@name='com.pspdfkit.instant.client']/class[@name='InstantDocumentDescriptor']/method[@name='getInternal' and count(parameter)=0]" />
 </metadata>

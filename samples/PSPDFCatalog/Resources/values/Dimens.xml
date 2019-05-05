@@ -3,7 +3,7 @@
   ~
   ~   PSPDFKit
   ~
-  ~   Copyright © 2017 PSPDFKit GmbH. All rights reserved.
+  ~   Copyright © 2017-2018 PSPDFKit GmbH. All rights reserved.
   ~
   ~   THIS SOURCE CODE AND ANY ACCOMPANYING DOCUMENTATION ARE PROTECTED BY INTERNATIONAL COPYRIGHT LAW
   ~   AND MAY NOT BE RESOLD OR REDISTRIBUTED. USAGE IS BOUND TO THE PSPDFKIT LICENSE AGREEMENT.
@@ -22,6 +22,7 @@
 
     <!-- Drawable padding for the ScreenReaderExample -->
     <dimen name="screenreaderexample_drawable_padding">4dp</dimen>
+
     <dimen name="custom_scrollbar_handle_size">48dp</dimen>
 
     <dimen name="kiosk_grid_column_width">116dp</dimen>
@@ -29,4 +30,5 @@
     <dimen name="kiosk_previewimage_height">143dp</dimen>
 
     <dimen name="thumbnail_bar_height">54dp</dimen>
+    <dimen name="thumbnail_bar_width">54dp</dimen>
 </resources>

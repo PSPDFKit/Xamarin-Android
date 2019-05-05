@@ -35,7 +35,7 @@ namespace PSPDFCatalog {
 			documentInfo = InstantDocumentInfo.FromJson (Intent.GetStringExtra (DocumentDescriptor));
 			if (documentInfo is null)
 				throw new InvalidOperationException ("InstantExampleActivity was not initialized with proper arguments: Missing document descriptor extra!");
-			var a = Theme.ObtainStyledAttributes (null, Resource.Styleable.pspdf__ActionBarIcons, Resource.Attribute.pspdf__actionBarIconsStyle, Resource.Style.pspdf__ActionBarIcons);
+			var a = Theme.ObtainStyledAttributes (null, Resource.Styleable.pspdf__ActionBarIcons, Resource.Attribute.pspdf__actionBarIconsStyle, Resource.Style.PSPDFKit_ActionBarIcons);
 			mainToolbarIconsColor = a.GetColor (Resource.Styleable.pspdf__ActionBarIcons_pspdf__iconsColor, ContextCompat.GetColor (this, Resource.Color.pspdf__color_white));
 			a.Recycle ();
 
