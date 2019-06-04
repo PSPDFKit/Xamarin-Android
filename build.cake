@@ -54,6 +54,16 @@ Task ("ExtractAars")
 	.IsDependentOn ("FetchDependencies")
 	.Does (() => {
 		Information ("Unzipping needed dependencies...");
+		var delDirSettings = new DeleteDirectorySettings { Recursive = true, Force = true };
+		if(DirectoryExists ($"./PSPDFKit.Android/Jars/YouTubeAndroidPlayerApi-{YOUTUBE_VERSION}")) {
+			DeleteDirectory ($"./PSPDFKit.Android/Jars/YouTubeAndroidPlayerApi-{YOUTUBE_VERSION}", delDirSettings);
+		}
+		if(DirectoryExists ($"./PSPDFKit.Android/Jars/rxandroid-{RXANDROID_VERSION}")) {
+			DeleteDirectory ($"./PSPDFKit.Android/Jars/rxandroid-{RXANDROID_VERSION}", delDirSettings);
+		}
+		if(DirectoryExists ($"./PSPDFKit.Android/Jars/relinker-{RELINKER_VERSION}")) {
+			DeleteDirectory ($"./PSPDFKit.Android/Jars/relinker-{RELINKER_VERSION}", delDirSettings);
+		}
 		Unzip ($"./PSPDFKit.Android/Jars/YouTubeAndroidPlayerApi-{YOUTUBE_VERSION}.zip", $"./PSPDFKit.Android/Jars/YouTubeAndroidPlayerApi-{YOUTUBE_VERSION}");
 		Unzip ($"./PSPDFKit.Android/Jars/rxandroid-{RXANDROID_VERSION}.aar", $"./PSPDFKit.Android/Jars/rxandroid-{RXANDROID_VERSION}");
 		Unzip ($"./PSPDFKit.Android/Jars/relinker-{RELINKER_VERSION}.aar", $"./PSPDFKit.Android/Jars/relinker-{RELINKER_VERSION}");
