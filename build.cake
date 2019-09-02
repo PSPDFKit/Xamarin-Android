@@ -5,14 +5,15 @@ var target = Argument ("target", "Default");
 // Nice online pom dependency explorer
 // https://jar-download.com/
 
-var PSPDFKIT_VERSION = "5.0.2";
+var PSPDFKIT_VERSION = "5.5.1";
 var RXANDROID_VERSION = "2.1.0";
-var RXJAVA_VERSION = "2.2.0"; // Check Reactive-Streams if updated.
+var RXJAVA_VERSION = "2.2.4"; // Check Reactive-Streams if updated.
 var REACTIVESTREAMS_VERSION = "1.0.2";
 var YOUTUBE_VERSION = "1.2.2";
-var RELINKER_VERSION = "1.2.2";
-var KOTLINSTDLIB_VERSION = "1.2.51"; // Check Annotations version if updated.
+var RELINKER_VERSION = "1.3.1";
+var KOTLINSTDLIB_VERSION = "1.3.31"; // Check Annotations version if updated.
 var KOTLIANNOTATIONS_VERSION = "13.0";
+var KOTLINSTDLIBCOMMON_VERSION = "1.3.31";
 var YEARCLASS_VERSION = "2.0.0";
 
 var OKHTTP3_VERSION = "3.9.0"; // Check OKIO version if updated.
@@ -28,6 +29,7 @@ var OKHTTP3URL = $"http://search.maven.org/remotecontent?filepath=com/squareup/o
 var OKHTTP3LOGGINGURL = $"https://search.maven.org/remotecontent?filepath=com/squareup/okhttp3/logging-interceptor/{OKHTTP3LOGGING_VERSION}/logging-interceptor-{OKHTTP3LOGGING_VERSION}.jar";
 var OKIOURL = $"http://search.maven.org/remotecontent?filepath=com/squareup/okio/okio/{OKIO_VERSION}/okio-{OKIO_VERSION}.jar";
 var KOTLINSTDLIBURL = $"http://search.maven.org/remotecontent?filepath=org/jetbrains/kotlin/kotlin-stdlib/{KOTLINSTDLIB_VERSION}/kotlin-stdlib-{KOTLINSTDLIB_VERSION}.jar";
+var KOTLINSTDLIBCOMMONURL = $"http://search.maven.org/remotecontent?filepath=org/jetbrains/kotlin/kotlin-stdlib-common/{KOTLINSTDLIBCOMMON_VERSION}/kotlin-stdlib-common-{KOTLINSTDLIBCOMMON_VERSION}.jar";
 var KOTLIANNOTATIONSURL = $"http://search.maven.org/remotecontent?filepath=org/jetbrains/annotations/{KOTLIANNOTATIONS_VERSION}/annotations-{KOTLIANNOTATIONS_VERSION}.jar";
 var YEARCLASSURL = $"http://search.maven.org/remotecontent?filepath=com/facebook/device/yearclass/yearclass/{YEARCLASS_VERSION}/yearclass-{YEARCLASS_VERSION}.jar";
 
@@ -41,6 +43,7 @@ Task ("FetchDependencies")
 		DownloadFile (YOUTUBEURL, $"./PSPDFKit.Android/Jars/YouTubeAndroidPlayerApi-{YOUTUBE_VERSION}.zip");
 		DownloadFile (RELINKERURL, $"./PSPDFKit.Android/Jars/relinker-{RELINKER_VERSION}.aar");
 		DownloadFile (KOTLINSTDLIBURL, $"./PSPDFKit.Android/Jars/kotlin-stdlib-{KOTLINSTDLIB_VERSION}.jar");
+		DownloadFile (KOTLINSTDLIBCOMMONURL, $"./PSPDFKit.Android/Jars/kotlin-stdlib-common-{KOTLINSTDLIBCOMMON_VERSION}.jar");
 		DownloadFile (KOTLIANNOTATIONSURL, $"./PSPDFKit.Android/Jars/annotations-{KOTLIANNOTATIONS_VERSION}.jar");
 		DownloadFile (YEARCLASSURL, $"./PSPDFKit.Android/Jars/yearclass-{YEARCLASS_VERSION}.jar");
 		
@@ -54,16 +57,15 @@ Task ("ExtractAars")
 	.IsDependentOn ("FetchDependencies")
 	.Does (() => {
 		Information ("Unzipping needed dependencies...");
+
 		var delDirSettings = new DeleteDirectorySettings { Recursive = true, Force = true };
-		if(DirectoryExists ($"./PSPDFKit.Android/Jars/YouTubeAndroidPlayerApi-{YOUTUBE_VERSION}")) {
+		if(DirectoryExists ($"./PSPDFKit.Android/Jars/YouTubeAndroidPlayerApi-{YOUTUBE_VERSION}"))
 			DeleteDirectory ($"./PSPDFKit.Android/Jars/YouTubeAndroidPlayerApi-{YOUTUBE_VERSION}", delDirSettings);
-		}
-		if(DirectoryExists ($"./PSPDFKit.Android/Jars/rxandroid-{RXANDROID_VERSION}")) {
+		if(DirectoryExists ($"./PSPDFKit.Android/Jars/rxandroid-{RXANDROID_VERSION}"))
 			DeleteDirectory ($"./PSPDFKit.Android/Jars/rxandroid-{RXANDROID_VERSION}", delDirSettings);
-		}
-		if(DirectoryExists ($"./PSPDFKit.Android/Jars/relinker-{RELINKER_VERSION}")) {
+		if(DirectoryExists ($"./PSPDFKit.Android/Jars/relinker-{RELINKER_VERSION}"))
 			DeleteDirectory ($"./PSPDFKit.Android/Jars/relinker-{RELINKER_VERSION}", delDirSettings);
-		}
+
 		Unzip ($"./PSPDFKit.Android/Jars/YouTubeAndroidPlayerApi-{YOUTUBE_VERSION}.zip", $"./PSPDFKit.Android/Jars/YouTubeAndroidPlayerApi-{YOUTUBE_VERSION}");
 		Unzip ($"./PSPDFKit.Android/Jars/rxandroid-{RXANDROID_VERSION}.aar", $"./PSPDFKit.Android/Jars/rxandroid-{RXANDROID_VERSION}");
 		Unzip ($"./PSPDFKit.Android/Jars/relinker-{RELINKER_VERSION}.aar", $"./PSPDFKit.Android/Jars/relinker-{RELINKER_VERSION}");

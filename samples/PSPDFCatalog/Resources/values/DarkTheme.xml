@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ dark_theme.xml
+  ~   Copyright © 2017-2019 PSPDFKit GmbH. All rights reserved.
   ~
-  ~   PSPDFKit
-  ~
-  ~   Copyright © 2017-2018 PSPDFKit GmbH. All rights reserved.
-  ~
-  ~   THIS SOURCE CODE AND ANY ACCOMPANYING DOCUMENTATION ARE PROTECTED BY INTERNATIONAL COPYRIGHT LAW
-  ~   AND MAY NOT BE RESOLD OR REDISTRIBUTED. USAGE IS BOUND TO THE PSPDFKIT LICENSE AGREEMENT.
-  ~   UNAUTHORIZED REPRODUCTION OR DISTRIBUTION IS SUBJECT TO CIVIL AND CRIMINAL PENALTIES.
-  ~   This notice may not be removed from this file.
+  ~   The PSPDFKit Sample applications are licensed with a modified BSD license.
+  ~   Please see License for details. This notice may not be removed from this file.
   -->
 
 <resources>
@@ -136,10 +130,12 @@
         <item name="pspdf__documentInfoGroupIconColor">@color/dark_accent</item>
         <item name="pspdf__documentInfoFabBackgroundColor">@color/color_primary</item>
         <item name="pspdf__documentInfoFabIconColor">@color/white</item>
+        <item name="pspdf__annotationsDeleteIconColor">@android:color/white</item>
     </style>
 
     <style name="PSPDFCatalog.ThumbnailGrid.Dark" parent="PSPDFKit.ThumbnailGrid">
         <item name="pspdf__backgroundColor">@color/dark_status_bar</item>
+        <item name="pspdf__itemRippleBackgroundColor">@color/pspdf__color_signature_yellow</item>
     </style>
 
     <style name="PSPDFCatalog.ToolbarCoordinator.Dark" parent="PSPDFKit.ToolbarCoordinatorLayout">

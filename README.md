@@ -1,8 +1,6 @@
 # Xamarin PSPDFKit.Android Bindings
 
-Xamarin.Android Bindings for PSPDFKit `v5.0.2`.
-
-We will update the bindings to latest [once Microsoft lands support for AndroidX](https://pspdfkit.com/guides/android/current/troubleshooting/androidx-migration/#xamarin-android).
+Xamarin.Android Bindings for PSPDFKit `v5.5.1`.
 
 Xamarin.iOS Bindings for PSPDFKit for iOS: [PSPDFKit/Xamarin-iOS](https://github.com/PSPDFKit/Xamarin-iOS)
 
@@ -18,11 +16,11 @@ The [PSPDFKit SDK](https://pspdfkit.com/) is a framework that allows you to view
 
 PSPDFKit runs on Android devices running:
 
-* **Xamarin.Android >= 9.2.3.0**
-* **64-bit version of JDK 1.8**
+* **Xamarin.Android >= 9.4.1.0**
+* **Microsoft Mobile OpenJDK 1.8.0**
 * Android **4.4** or newer / API level **19** or higher
-* 32/64-bit ARM (armeabi-v7a with NEON/ arm64-v8a) or 32-bit Intel x86 CPU.
-* Projects using PSPDFKit.Android.dll **must** set [Target Framework](https://developer.xamarin.com/guides/android/application_fundamentals/understanding_android_api_levels/#framework) to API 26 (Android 8.0).
+* 32/64-bit ARM (armeabi-v7a with NEON/ arm64-v8a) or 32/64-bit Intel x86 CPU.
+* Projects using PSPDFKit.Android.dll **must** set [Target Framework](https://developer.xamarin.com/guides/android/application_fundamentals/understanding_android_api_levels/#framework) to **API 28 (Android 9.0)**.
 
 ### Step 1 - Get PSPDFKit .aar File
 
@@ -62,11 +60,14 @@ In order to use **PSPDFKit.Android.dll** and **PSPDFKit.Android.Instant.dll** wi
 
 Once you have done this you will need to add some [NuGet](https://www.nuget.org/) packages to you project
 
-* [Xamarin Support Library v4](https://www.nuget.org/packages/Xamarin.Android.Support.v4/)
-* [Xamarin Support Library v7 AppCompat](https://www.nuget.org/packages/Xamarin.Android.Support.v7.AppCompat/)
-* [Xamarin Support Library v7 RecyclerView](https://www.nuget.org/packages/Xamarin.Android.Support.v7.RecyclerView/)
-* [Xamarin Support Library v7 CardView](https://www.nuget.org/packages/Xamarin.Android.Support.v7.CardView/)
-* [Xamarin Support Library Design](https://www.nuget.org/packages/Xamarin.Android.Support.Design/)
+* [Xamarin.AndroidX.Migration](https://www.nuget.org/packages/Xamarin.AndroidX.Migration)
+* [Xamarin Support Library v4](https://www.nuget.org/packages/Xamarin.Android.Support.v4)
+* [Xamarin AndroidX Legacy Support V4](https://www.nuget.org/packages/Xamarin.AndroidX.Legacy.Support.V4)
+* [Xamarin AndroidX AppCompat](https://www.nuget.org/packages/Xamarin.AndroidX.AppCompat)
+* [Xamarin AndroidX RecyclerView](https://www.nuget.org/packages/Xamarin.AndroidX.RecyclerView)
+* [Xamarin AndroidX CardView](https://www.nuget.org/packages/Xamarin.AndroidX.CardView)
+* [Xamarin AndroidX GridLayout](https://www.nuget.org/packages/Xamarin.AndroidX.GridLayout)
+* [Xamarin Google Android Material](https://www.nuget.org/packages/Xamarin.Google.Android.Material)
 
 If you need to know how to add NuGet packages to your Xamarin project please refer to [Walkthrough: Including a NuGet in your project](http://developer.xamarin.com/guides/cross-platform/application_fundamentals/nuget_walkthrough/) from Xamarin site.
 

@@ -60,7 +60,9 @@ namespace PSPDFCatalog {
 				fragment = PdfFragment.NewInstance (documentUri, configuration);
 				SupportFragmentManager
 					.BeginTransaction ()
-					.Replace (Resource.Id.fragmentContainer, fragment)
+					// We use a small hack JavaCast<T> because at build time we expect a 'Android.Support.V4.App.Fragment'
+					// but 'PdfFragment' extends 'AndroidX.Fragment.App.Fragment' but migration package should fix it for us at runtime.
+					.Replace (Resource.Id.fragmentContainer, fragment.JavaCast<Android.Support.V4.App.Fragment> ())
 					.Commit ();
 			}
 

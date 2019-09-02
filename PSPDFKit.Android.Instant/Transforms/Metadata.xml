@@ -17,6 +17,7 @@
     
 <!-- Manually bound in Additions/PSPDFKit.Instant.IInstantPdfDocument.cs -->
     <remove-node path="/api/package[@name='com.pspdfkit.instant.document']/interface[@name='InstantPdfDocument']/method[@name='getAnnotationProvider' and count(parameter)=0]" />
+    <remove-node path="/api/package[@name='com.pspdfkit.instant.ui']/class[@name='InstantPdfFragment']/method[@name='setOverlaidAnnotationTypes' and count(parameter)=1 and parameter[1][@type='java.util.EnumSet&lt;com.pspdfkit.annotations.AnnotationType&gt;']]" />
     
 <!-- Removed, seems not meant to be for consumer use.-->
     <remove-node path="/api/package[@name='com.pspdfkit.instant.client']/class[@name='InstantDocumentDescriptor']/method[@name='getInternal' and count(parameter)=0]" />

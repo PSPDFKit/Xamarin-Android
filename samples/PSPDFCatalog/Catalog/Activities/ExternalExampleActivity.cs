@@ -99,7 +99,9 @@ namespace PSPDFCatalog {
 					if (downloadFragment == null) {
 						var job = DownloadJob.StartDownload (new DownloadRequest.Builder (this).Uri (uri).Build ());
 						downloadFragment = new DownloadProgressFragment ();
-						downloadFragment.Show (SupportFragmentManager, downloadProgressFragment);
+
+						// We use a small hack JavaCast<T> because at build time we expect a 'AndroidX.Fragment.App.FragmentManager'
+						downloadFragment.Show (SupportFragmentManager.JavaCast<AndroidX.Fragment.App.FragmentManager> (), downloadProgressFragment);
 						downloadFragment.Job = job;
 					}
 

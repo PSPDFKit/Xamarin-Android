@@ -5,7 +5,7 @@ using Java.Interop;
 
 namespace PSPDFKit.Instant {
 
-	[Register ("com/pspdfkit/instant/document/InstantPdfDocument", DoNotGenerateAcw=true)]
+	[Register ("com/pspdfkit/instant/document/InstantPdfDocument", DoNotGenerateAcw = true)]
 	public abstract class InstantPdfDocument : Java.Lang.Object {
 
 		internal InstantPdfDocument ()
@@ -23,7 +23,7 @@ namespace PSPDFKit.Instant {
 		// The following are fields from: System.IDisposable
 	}
 
-	[Register ("com/pspdfkit/instant/document/InstantPdfDocument", DoNotGenerateAcw=true)]
+	[Register ("com/pspdfkit/instant/document/InstantPdfDocument", DoNotGenerateAcw = true)]
 	[global::System.Obsolete ("Use the 'InstantPdfDocument' type. This type will be removed in a future release.")]
 	public abstract class InstantPdfDocumentConsts : InstantPdfDocument {
 
@@ -38,29 +38,35 @@ namespace PSPDFKit.Instant {
 
 		long DelayForSyncingLocalChanges {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.pspdfkit.instant.document']/interface[@name='InstantPdfDocument']/method[@name='getDelayForSyncingLocalChanges' and count(parameter)=0]"
-			[Register ("getDelayForSyncingLocalChanges", "()J", "GetGetDelayForSyncingLocalChangesHandler:PSPDFKit.Instant.IInstantPdfDocumentInvoker, PSPDFKit.Android.Instant")] get;
+			[Register ("getDelayForSyncingLocalChanges", "()J", "GetGetDelayForSyncingLocalChangesHandler:PSPDFKit.Instant.IInstantPdfDocumentInvoker, PSPDFKit.Android.Instant")]
+			get;
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.pspdfkit.instant.document']/interface[@name='InstantPdfDocument']/method[@name='setDelayForSyncingLocalChanges' and count(parameter)=1 and parameter[1][@type='long']]"
-			[Register ("setDelayForSyncingLocalChanges", "(J)V", "GetSetDelayForSyncingLocalChanges_JHandler:PSPDFKit.Instant.IInstantPdfDocumentInvoker, PSPDFKit.Android.Instant")] set;
+			[Register ("setDelayForSyncingLocalChanges", "(J)V", "GetSetDelayForSyncingLocalChanges_JHandler:PSPDFKit.Instant.IInstantPdfDocumentInvoker, PSPDFKit.Android.Instant")]
+			set;
 		}
 
 		global::PSPDFKit.Instant.InstantDocumentState DocumentState {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.pspdfkit.instant.document']/interface[@name='InstantPdfDocument']/method[@name='getDocumentState' and count(parameter)=0]"
-			[Register ("getDocumentState", "()Lcom/pspdfkit/instant/document/InstantDocumentState;", "GetGetDocumentStateHandler:PSPDFKit.Instant.IInstantPdfDocumentInvoker, PSPDFKit.Android.Instant")] get;
+			[Register ("getDocumentState", "()Lcom/pspdfkit/instant/document/InstantDocumentState;", "GetGetDocumentStateHandler:PSPDFKit.Instant.IInstantPdfDocumentInvoker, PSPDFKit.Android.Instant")]
+			get;
 		}
 
 		global::PSPDFKit.Instant.InstantClient InstantClient {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.pspdfkit.instant.document']/interface[@name='InstantPdfDocument']/method[@name='getInstantClient' and count(parameter)=0]"
-			[Register ("getInstantClient", "()Lcom/pspdfkit/instant/client/InstantClient;", "GetGetInstantClientHandler:PSPDFKit.Instant.IInstantPdfDocumentInvoker, PSPDFKit.Android.Instant")] get;
+			[Register ("getInstantClient", "()Lcom/pspdfkit/instant/client/InstantClient;", "GetGetInstantClientHandler:PSPDFKit.Instant.IInstantPdfDocumentInvoker, PSPDFKit.Android.Instant")]
+			get;
 		}
 
 		global::PSPDFKit.Instant.InstantDocumentDescriptor InstantDocumentDescriptor {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.pspdfkit.instant.document']/interface[@name='InstantPdfDocument']/method[@name='getInstantDocumentDescriptor' and count(parameter)=0]"
-			[Register ("getInstantDocumentDescriptor", "()Lcom/pspdfkit/instant/client/InstantDocumentDescriptor;", "GetGetInstantDocumentDescriptorHandler:PSPDFKit.Instant.IInstantPdfDocumentInvoker, PSPDFKit.Android.Instant")] get;
+			[Register ("getInstantDocumentDescriptor", "()Lcom/pspdfkit/instant/client/InstantDocumentDescriptor;", "GetGetInstantDocumentDescriptorHandler:PSPDFKit.Instant.IInstantPdfDocumentInvoker, PSPDFKit.Android.Instant")]
+			get;
 		}
 
 		bool IsListeningToServerChanges {
 			// Metadata.xml XPath method reference: path="/api/package[@name='com.pspdfkit.instant.document']/interface[@name='InstantPdfDocument']/method[@name='isListeningToServerChanges' and count(parameter)=0]"
-			[Register ("isListeningToServerChanges", "()Z", "GetIsListeningToServerChangesHandler:PSPDFKit.Instant.IInstantPdfDocumentInvoker, PSPDFKit.Android.Instant")] get;
+			[Register ("isListeningToServerChanges", "()Z", "GetIsListeningToServerChangesHandler:PSPDFKit.Instant.IInstantPdfDocumentInvoker, PSPDFKit.Android.Instant")]
+			get;
 		}
 
 		// Metadata.xml XPath method reference: path="/api/package[@name='com.pspdfkit.instant.document']/interface[@name='InstantPdfDocument']/method[@name='addInstantDocumentListener' and count(parameter)=1 and parameter[1][@type='com.pspdfkit.instant.listeners.InstantDocumentListener']]"
@@ -93,10 +99,10 @@ namespace PSPDFKit.Instant {
 
 	}
 
-	[global::Android.Runtime.Register ("com/pspdfkit/instant/document/InstantPdfDocument", DoNotGenerateAcw=true)]
+	[global::Android.Runtime.Register ("com/pspdfkit/instant/document/InstantPdfDocument", DoNotGenerateAcw = true)]
 	internal class IInstantPdfDocumentInvoker : global::Java.Lang.Object, IInstantPdfDocument {
 
-		internal    new     static  readonly    JniPeerMembers  _members    = new JniPeerMembers ("com/pspdfkit/instant/document/InstantPdfDocument", typeof (IInstantPdfDocumentInvoker));
+		internal new static readonly JniPeerMembers _members = new JniPeerMembers ("com/pspdfkit/instant/document/InstantPdfDocument", typeof (IInstantPdfDocumentInvoker));
 
 		static IntPtr java_class_ref {
 			get { return _members.JniPeerType.PeerReference.Handle; }
@@ -305,7 +311,7 @@ namespace PSPDFKit.Instant {
 		static void n_AddInstantDocumentListener_Lcom_pspdfkit_instant_listeners_InstantDocumentListener_ (IntPtr jnienv, IntPtr native__this, IntPtr native_p0)
 		{
 			global::PSPDFKit.Instant.IInstantPdfDocument __this = global::Java.Lang.Object.GetObject<global::PSPDFKit.Instant.IInstantPdfDocument> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::PSPDFKit.Instant.IInstantDocumentListener p0 = (global::PSPDFKit.Instant.IInstantDocumentListener)global::Java.Lang.Object.GetObject<global::PSPDFKit.Instant.IInstantDocumentListener> (native_p0, JniHandleOwnership.DoNotTransfer);
+			global::PSPDFKit.Instant.IInstantDocumentListener p0 = (global::PSPDFKit.Instant.IInstantDocumentListener) global::Java.Lang.Object.GetObject<global::PSPDFKit.Instant.IInstantDocumentListener> (native_p0, JniHandleOwnership.DoNotTransfer);
 			__this.AddInstantDocumentListener (p0);
 		}
 #pragma warning restore 0169
@@ -387,7 +393,7 @@ namespace PSPDFKit.Instant {
 		static void n_RemoveInstantDocumentListener_Lcom_pspdfkit_instant_listeners_InstantDocumentListener_ (IntPtr jnienv, IntPtr native__this, IntPtr native_p0)
 		{
 			global::PSPDFKit.Instant.IInstantPdfDocument __this = global::Java.Lang.Object.GetObject<global::PSPDFKit.Instant.IInstantPdfDocument> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
-			global::PSPDFKit.Instant.IInstantDocumentListener p0 = (global::PSPDFKit.Instant.IInstantDocumentListener)global::Java.Lang.Object.GetObject<global::PSPDFKit.Instant.IInstantDocumentListener> (native_p0, JniHandleOwnership.DoNotTransfer);
+			global::PSPDFKit.Instant.IInstantDocumentListener p0 = (global::PSPDFKit.Instant.IInstantDocumentListener) global::Java.Lang.Object.GetObject<global::PSPDFKit.Instant.IInstantDocumentListener> (native_p0, JniHandleOwnership.DoNotTransfer);
 			__this.RemoveInstantDocumentListener (p0);
 		}
 #pragma warning restore 0169
@@ -726,6 +732,81 @@ namespace PSPDFKit.Instant {
 				if (id_getFormProvider == IntPtr.Zero)
 					id_getFormProvider = JNIEnv.GetMethodID (class_ref, "getFormProvider", "()Lcom/pspdfkit/forms/FormProvider;");
 				return global::Java.Lang.Object.GetObject<global::PSPDFKit.Forms.IFormProvider> (JNIEnv.CallObjectMethod (((global::Java.Lang.Object) this).Handle, id_getFormProvider), JniHandleOwnership.TransferLocalRef);
+			}
+		}
+
+		static Delegate cb_hasOutline;
+#pragma warning disable 0169
+		static Delegate GetHasOutlineHandler ()
+		{
+			if (cb_hasOutline == null)
+				cb_hasOutline = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, bool>) n_HasOutline);
+			return cb_hasOutline;
+		}
+
+		static bool n_HasOutline (IntPtr jnienv, IntPtr native__this)
+		{
+			global::PSPDFKit.Instant.IInstantPdfDocument __this = global::Java.Lang.Object.GetObject<global::PSPDFKit.Instant.IInstantPdfDocument> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			return __this.HasOutline;
+		}
+#pragma warning restore 0169
+
+		IntPtr id_hasOutline;
+		public unsafe bool HasOutline {
+			get {
+				if (id_hasOutline == IntPtr.Zero)
+					id_hasOutline = JNIEnv.GetMethodID (class_ref, "hasOutline", "()Z");
+				return JNIEnv.CallBooleanMethod (((global::Java.Lang.Object) this).Handle, id_hasOutline);
+			}
+		}
+
+		static Delegate cb_getPageBinding;
+#pragma warning disable 0169
+		static Delegate GetGetPageBindingHandler ()
+		{
+			if (cb_getPageBinding == null)
+				cb_getPageBinding = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr>) n_GetPageBinding);
+			return cb_getPageBinding;
+		}
+
+		static IntPtr n_GetPageBinding (IntPtr jnienv, IntPtr native__this)
+		{
+			global::PSPDFKit.Instant.IInstantPdfDocument __this = global::Java.Lang.Object.GetObject<global::PSPDFKit.Instant.IInstantPdfDocument> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			return JNIEnv.ToLocalJniHandle (__this.PageBinding);
+		}
+#pragma warning restore 0169
+
+		static Delegate cb_setPageBinding_Lcom_pspdfkit_document_PageBinding_;
+#pragma warning disable 0169
+		static Delegate GetSetPageBinding_Lcom_pspdfkit_document_PageBinding_Handler ()
+		{
+			if (cb_setPageBinding_Lcom_pspdfkit_document_PageBinding_ == null)
+				cb_setPageBinding_Lcom_pspdfkit_document_PageBinding_ = JNINativeWrapper.CreateDelegate ((Action<IntPtr, IntPtr, IntPtr>) n_SetPageBinding_Lcom_pspdfkit_document_PageBinding_);
+			return cb_setPageBinding_Lcom_pspdfkit_document_PageBinding_;
+		}
+
+		static void n_SetPageBinding_Lcom_pspdfkit_document_PageBinding_ (IntPtr jnienv, IntPtr native__this, IntPtr native_p0)
+		{
+			global::PSPDFKit.Instant.IInstantPdfDocument __this = global::Java.Lang.Object.GetObject<global::PSPDFKit.Instant.IInstantPdfDocument> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			global::PSPDFKit.Document.PageBinding p0 = global::Java.Lang.Object.GetObject<global::PSPDFKit.Document.PageBinding> (native_p0, JniHandleOwnership.DoNotTransfer);
+			__this.PageBinding = p0;
+		}
+#pragma warning restore 0169
+
+		IntPtr id_getPageBinding;
+		IntPtr id_setPageBinding_Lcom_pspdfkit_document_PageBinding_;
+		public unsafe global::PSPDFKit.Document.PageBinding PageBinding {
+			get {
+				if (id_getPageBinding == IntPtr.Zero)
+					id_getPageBinding = JNIEnv.GetMethodID (class_ref, "getPageBinding", "()Lcom/pspdfkit/document/PageBinding;");
+				return global::Java.Lang.Object.GetObject<global::PSPDFKit.Document.PageBinding> (JNIEnv.CallObjectMethod (((global::Java.Lang.Object) this).Handle, id_getPageBinding), JniHandleOwnership.TransferLocalRef);
+			}
+			set {
+				if (id_setPageBinding_Lcom_pspdfkit_document_PageBinding_ == IntPtr.Zero)
+					id_setPageBinding_Lcom_pspdfkit_document_PageBinding_ = JNIEnv.GetMethodID (class_ref, "setPageBinding", "(Lcom/pspdfkit/document/PageBinding;)V");
+				JValue* __args = stackalloc JValue [1];
+				__args [0] = new JValue ((value == null) ? IntPtr.Zero : ((global::Java.Lang.Object) value).Handle);
+				JNIEnv.CallVoidMethod (((global::Java.Lang.Object) this).Handle, id_setPageBinding_Lcom_pspdfkit_document_PageBinding_, __args);
 			}
 		}
 
@@ -1815,6 +1896,73 @@ namespace PSPDFKit.Instant {
 			if (id_wasModified == IntPtr.Zero)
 				id_wasModified = JNIEnv.GetMethodID (class_ref, "wasModified", "()Z");
 			return JNIEnv.CallBooleanMethod (((global::Java.Lang.Object) this).Handle, id_wasModified);
+		}
+
+		static Delegate cb_getHashForDocumentRange_ILjava_util_List_Lcom_pspdfkit_signatures_HashAlgorithm_;
+#pragma warning disable 0169
+		static Delegate GetGetHashForDocumentRange_ILjava_util_List_Lcom_pspdfkit_signatures_HashAlgorithm_Handler ()
+		{
+			if (cb_getHashForDocumentRange_ILjava_util_List_Lcom_pspdfkit_signatures_HashAlgorithm_ == null)
+				cb_getHashForDocumentRange_ILjava_util_List_Lcom_pspdfkit_signatures_HashAlgorithm_ = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, int, IntPtr, IntPtr, IntPtr>) n_GetHashForDocumentRange_ILjava_util_List_Lcom_pspdfkit_signatures_HashAlgorithm_);
+			return cb_getHashForDocumentRange_ILjava_util_List_Lcom_pspdfkit_signatures_HashAlgorithm_;
+		}
+
+		static IntPtr n_GetHashForDocumentRange_ILjava_util_List_Lcom_pspdfkit_signatures_HashAlgorithm_ (IntPtr jnienv, IntPtr native__this, int p0, IntPtr native_p1, IntPtr native_p2)
+		{
+			global::PSPDFKit.Instant.IInstantPdfDocument __this = global::Java.Lang.Object.GetObject<global::PSPDFKit.Instant.IInstantPdfDocument> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var p1 = global::Android.Runtime.JavaList<global::Java.Lang.Long>.FromJniHandle (native_p1, JniHandleOwnership.DoNotTransfer);
+			global::PSPDFKit.Signatures.HashAlgorithm p2 = global::Java.Lang.Object.GetObject<global::PSPDFKit.Signatures.HashAlgorithm> (native_p2, JniHandleOwnership.DoNotTransfer);
+			IntPtr __ret = JNIEnv.NewArray (__this.GetHashForDocumentRange (p0, p1, p2));
+			return __ret;
+		}
+#pragma warning restore 0169
+
+		IntPtr id_getHashForDocumentRange_ILjava_util_List_Lcom_pspdfkit_signatures_HashAlgorithm_;
+		public unsafe byte [] GetHashForDocumentRange (int p0, global::System.Collections.Generic.IList<global::Java.Lang.Long> p1, global::PSPDFKit.Signatures.HashAlgorithm p2)
+		{
+			if (id_getHashForDocumentRange_ILjava_util_List_Lcom_pspdfkit_signatures_HashAlgorithm_ == IntPtr.Zero)
+				id_getHashForDocumentRange_ILjava_util_List_Lcom_pspdfkit_signatures_HashAlgorithm_ = JNIEnv.GetMethodID (class_ref, "getHashForDocumentRange", "(ILjava/util/List;Lcom/pspdfkit/signatures/HashAlgorithm;)[B");
+			IntPtr native_p1 = global::Android.Runtime.JavaList<global::Java.Lang.Long>.ToLocalJniHandle (p1);
+			JValue* __args = stackalloc JValue [3];
+			__args [0] = new JValue (p0);
+			__args [1] = new JValue (native_p1);
+			__args [2] = new JValue ((p2 == null) ? IntPtr.Zero : ((global::Java.Lang.Object) p2).Handle);
+			byte [] __ret = (byte []) JNIEnv.GetArray (JNIEnv.CallObjectMethod (((global::Java.Lang.Object) this).Handle, id_getHashForDocumentRange_ILjava_util_List_Lcom_pspdfkit_signatures_HashAlgorithm_, __args), JniHandleOwnership.TransferLocalRef, typeof (byte));
+			JNIEnv.DeleteLocalRef (native_p1);
+			return __ret;
+		}
+
+		static Delegate cb_getHashForDocumentRange_Ljava_util_List_Lcom_pspdfkit_signatures_HashAlgorithm_;
+#pragma warning disable 0169
+		static Delegate GetGetHashForDocumentRange_Ljava_util_List_Lcom_pspdfkit_signatures_HashAlgorithm_Handler ()
+		{
+			if (cb_getHashForDocumentRange_Ljava_util_List_Lcom_pspdfkit_signatures_HashAlgorithm_ == null)
+				cb_getHashForDocumentRange_Ljava_util_List_Lcom_pspdfkit_signatures_HashAlgorithm_ = JNINativeWrapper.CreateDelegate ((Func<IntPtr, IntPtr, IntPtr, IntPtr, IntPtr>) n_GetHashForDocumentRange_Ljava_util_List_Lcom_pspdfkit_signatures_HashAlgorithm_);
+			return cb_getHashForDocumentRange_Ljava_util_List_Lcom_pspdfkit_signatures_HashAlgorithm_;
+		}
+
+		static IntPtr n_GetHashForDocumentRange_Ljava_util_List_Lcom_pspdfkit_signatures_HashAlgorithm_ (IntPtr jnienv, IntPtr native__this, IntPtr native_p0, IntPtr native_p1)
+		{
+			global::PSPDFKit.Instant.IInstantPdfDocument __this = global::Java.Lang.Object.GetObject<global::PSPDFKit.Instant.IInstantPdfDocument> (jnienv, native__this, JniHandleOwnership.DoNotTransfer);
+			var p0 = global::Android.Runtime.JavaList<global::Java.Lang.Long>.FromJniHandle (native_p0, JniHandleOwnership.DoNotTransfer);
+			global::PSPDFKit.Signatures.HashAlgorithm p1 = global::Java.Lang.Object.GetObject<global::PSPDFKit.Signatures.HashAlgorithm> (native_p1, JniHandleOwnership.DoNotTransfer);
+			IntPtr __ret = JNIEnv.NewArray (__this.GetHashForDocumentRange (p0, p1));
+			return __ret;
+		}
+#pragma warning restore 0169
+
+		IntPtr id_getHashForDocumentRange_Ljava_util_List_Lcom_pspdfkit_signatures_HashAlgorithm_;
+		public unsafe byte [] GetHashForDocumentRange (global::System.Collections.Generic.IList<global::Java.Lang.Long> p0, global::PSPDFKit.Signatures.HashAlgorithm p1)
+		{
+			if (id_getHashForDocumentRange_Ljava_util_List_Lcom_pspdfkit_signatures_HashAlgorithm_ == IntPtr.Zero)
+				id_getHashForDocumentRange_Ljava_util_List_Lcom_pspdfkit_signatures_HashAlgorithm_ = JNIEnv.GetMethodID (class_ref, "getHashForDocumentRange", "(Ljava/util/List;Lcom/pspdfkit/signatures/HashAlgorithm;)[B");
+			IntPtr native_p0 = global::Android.Runtime.JavaList<global::Java.Lang.Long>.ToLocalJniHandle (p0);
+			JValue* __args = stackalloc JValue [2];
+			__args [0] = new JValue (native_p0);
+			__args [1] = new JValue ((p1 == null) ? IntPtr.Zero : ((global::Java.Lang.Object) p1).Handle);
+			byte [] __ret = (byte []) JNIEnv.GetArray (JNIEnv.CallObjectMethod (((global::Java.Lang.Object) this).Handle, id_getHashForDocumentRange_Ljava_util_List_Lcom_pspdfkit_signatures_HashAlgorithm_, __args), JniHandleOwnership.TransferLocalRef, typeof (byte));
+			JNIEnv.DeleteLocalRef (native_p0);
+			return __ret;
 		}
 
 	}
