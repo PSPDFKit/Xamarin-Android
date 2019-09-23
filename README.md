@@ -70,6 +70,7 @@ Once you have done this you will need to add some [NuGet](https://www.nuget.org/
 * [Xamarin AndroidX RecyclerView](https://www.nuget.org/packages/Xamarin.AndroidX.RecyclerView)
 * [Xamarin AndroidX CardView](https://www.nuget.org/packages/Xamarin.AndroidX.CardView)
 * [Xamarin AndroidX GridLayout](https://www.nuget.org/packages/Xamarin.AndroidX.GridLayout)
+* [Xamarin.AndroidX.Palette](https://www.nuget.org/packages/Xamarin.AndroidX.Palette)
 * [Xamarin Google Android Material](https://www.nuget.org/packages/Xamarin.Google.Android.Material)
 
 If you need to know how to add NuGet packages to your Xamarin project please refer to [Walkthrough: Including a NuGet in your project](http://developer.xamarin.com/guides/cross-platform/application_fundamentals/nuget_walkthrough/) from Xamarin site.
