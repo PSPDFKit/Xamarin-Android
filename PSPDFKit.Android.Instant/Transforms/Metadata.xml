@@ -1,24 +1,23 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
-<!-- Remove non public Api namespaces -->
-    <remove-node path="/api/package[contains(@name, 'com.pspdfkit.instant.framework')]" />
+  <!-- Remove non public Api namespaces -->
+  <remove-node path="/api/package[contains(@name, 'com.pspdfkit.instant.framework')]" />
 
-<!-- Removes any "subclass name" that ends with *Impl.* since it should not be public
-     This matches for example "PSPDFKitActivityImpl.1" -->
-    <remove-node path="//class['Impl' = substring(substring-before(@name,'.') , string-length(substring-before(@name,'.')) - 3)]" />
+  <!-- Removes any "subclass name" that ends with *Impl.* since it should not be public. This matches for example "PSPDFKitActivityImpl.1" -->
+  <remove-node path="//class['Impl' = substring(substring-before(@name,'.') , string-length(substring-before(@name,'.')) - 3)]" />
 
-<!-- C# friendly namespaces -->
-    <attr path="/api/package[@name='com.pspdfkit.instant']" name="managedName">PSPDFKit.Instant</attr>
-    <attr path="/api/package[@name='com.pspdfkit.instant.client']" name="managedName">PSPDFKit.Instant</attr>
-    <attr path="/api/package[@name='com.pspdfkit.instant.document']" name="managedName">PSPDFKit.Instant</attr>
-    <attr path="/api/package[@name='com.pspdfkit.instant.exceptions']" name="managedName">PSPDFKit.Instant</attr>
-    <attr path="/api/package[@name='com.pspdfkit.instant.listeners']" name="managedName">PSPDFKit.Instant</attr>
-    <attr path="/api/package[@name='com.pspdfkit.instant.ui']" name="managedName">PSPDFKit.Instant</attr>
-    
-<!-- Manually bound in Additions/PSPDFKit.Instant.IInstantPdfDocument.cs -->
-    <remove-node path="/api/package[@name='com.pspdfkit.instant.document']/interface[@name='InstantPdfDocument']/method[@name='getAnnotationProvider' and count(parameter)=0]" />
-    <remove-node path="/api/package[@name='com.pspdfkit.instant.ui']/class[@name='InstantPdfFragment']/method[@name='setOverlaidAnnotationTypes' and count(parameter)=1 and parameter[1][@type='java.util.EnumSet&lt;com.pspdfkit.annotations.AnnotationType&gt;']]" />
-    
-<!-- Removed, seems not meant to be for consumer use.-->
-    <remove-node path="/api/package[@name='com.pspdfkit.instant.client']/class[@name='InstantDocumentDescriptor']/method[@name='getInternal' and count(parameter)=0]" />
+  <!-- C# friendly namespaces -->
+  <attr path="/api/package[@name='com.pspdfkit.instant']" name="managedName">PSPDFKit.Instant</attr>
+  <attr path="/api/package[@name='com.pspdfkit.instant.client']" name="managedName">PSPDFKit.Instant</attr>
+  <attr path="/api/package[@name='com.pspdfkit.instant.document']" name="managedName">PSPDFKit.Instant</attr>
+  <attr path="/api/package[@name='com.pspdfkit.instant.exceptions']" name="managedName">PSPDFKit.Instant</attr>
+  <attr path="/api/package[@name='com.pspdfkit.instant.listeners']" name="managedName">PSPDFKit.Instant</attr>
+  <attr path="/api/package[@name='com.pspdfkit.instant.ui']" name="managedName">PSPDFKit.Instant</attr>
+
+  <!-- Manually bound in Additions/PSPDFKit.Instant.IInstantPdfDocument.cs -->
+  <remove-node path="/api/package[@name='com.pspdfkit.instant.document']/interface[@name='InstantPdfDocument']/method[@name='getAnnotationProvider' and count(parameter)=0]" />
+  <remove-node path="/api/package[@name='com.pspdfkit.instant.ui']/class[@name='InstantPdfFragment']/method[@name='setOverlaidAnnotationTypes' and count(parameter)=1 and parameter[1][@type='java.util.EnumSet&lt;com.pspdfkit.annotations.AnnotationType&gt;']]" />
+
+  <!-- Removed, seems not meant to be for consumer use.-->
+  <remove-node path="/api/package[@name='com.pspdfkit.instant.client']/class[@name='InstantDocumentDescriptor']/method[@name='getInternal' and count(parameter)=0]" />
 </metadata>
