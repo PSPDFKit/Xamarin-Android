@@ -5,15 +5,15 @@ var target = Argument ("target", "Default");
 // Nice online pom dependency explorer
 // https://jar-download.com/
 
-var PSPDFKIT_VERSION = "5.5.1";
+var PSPDFKIT_VERSION = "6.0.3";
 var RXANDROID_VERSION = "2.1.0";
 var RXJAVA_VERSION = "2.2.4"; // Check Reactive-Streams if updated.
 var REACTIVESTREAMS_VERSION = "1.0.2";
 var YOUTUBE_VERSION = "1.2.2";
 var RELINKER_VERSION = "1.3.1";
-var KOTLINSTDLIB_VERSION = "1.3.31"; // Check Annotations version if updated.
+var KOTLINSTDLIB_VERSION = "1.3.50"; // Check Annotations version if updated.
 var KOTLIANNOTATIONS_VERSION = "13.0";
-var KOTLINSTDLIBCOMMON_VERSION = "1.3.31";
+var KOTLINSTDLIBCOMMON_VERSION = "1.3.50";
 var YEARCLASS_VERSION = "2.0.0";
 
 var OKHTTP3_VERSION = "3.9.0"; // Check OKIO version if updated.
@@ -46,11 +46,9 @@ Task ("FetchDependencies")
 		DownloadFile (KOTLINSTDLIBCOMMONURL, $"./PSPDFKit.Android/Jars/kotlin-stdlib-common-{KOTLINSTDLIBCOMMON_VERSION}.jar");
 		DownloadFile (KOTLIANNOTATIONSURL, $"./PSPDFKit.Android/Jars/annotations-{KOTLIANNOTATIONS_VERSION}.jar");
 		DownloadFile (YEARCLASSURL, $"./PSPDFKit.Android/Jars/yearclass-{YEARCLASS_VERSION}.jar");
-		
-		// PSPDFKit.Android.Instant
-		DownloadFile (OKHTTP3URL, $"./PSPDFKit.Android.Instant/Jars/okhttp-{OKHTTP3_VERSION}.jar");
-		DownloadFile (OKHTTP3LOGGINGURL, $"./PSPDFKit.Android.Instant/Jars/logging-interceptor-{OKHTTP3LOGGING_VERSION}.jar");
-		DownloadFile (OKIOURL, $"./PSPDFKit.Android.Instant/Jars/okio-{OKIO_VERSION}.jar");
+		DownloadFile (OKHTTP3URL, $"./PSPDFKit.Android/Jars/okhttp-{OKHTTP3_VERSION}.jar");
+		DownloadFile (OKHTTP3LOGGINGURL, $"./PSPDFKit.Android/Jars/logging-interceptor-{OKHTTP3LOGGING_VERSION}.jar");
+		DownloadFile (OKIOURL, $"./PSPDFKit.Android/Jars/okio-{OKIO_VERSION}.jar");
 });
 
 Task ("ExtractAars")
@@ -95,27 +93,10 @@ Task ("BuildPSPDFKit")
 		}
 });
 
-Task ("BuildInstant")
-	.Does (() => {
-		if (FileExists ($"./PSPDFKit.Android.Instant/Jars/pspdfkit-instant-{PSPDFKIT_VERSION}.aar")) {
-			Information ("Building PSPDFKit.Android.Instant.dll");
-			Information ("PLEASE WAIT, it might take a few minutes to build...");
-			MSBuild ("./PSPDFKit.Android.Instant/PSPDFKit.Android.Instant.csproj", new MSBuildSettings ()
-				.SetConfiguration ("Release")
-			);
-			if (FileExists ("./PSPDFKit.Android.Instant/bin/Release/PSPDFKit.Android.Instant.dll"))
-				CopyFile ("./PSPDFKit.Android.Instant/bin/Release/PSPDFKit.Android.Instant.dll", "./PSPDFKit.Android.Instant.dll");
-		} else {
-			Warning ($"./PSPDFKit.Android.Instant/Jars/pspdfkit-instant-{PSPDFKIT_VERSION}.aar file not found.");
-			Warning ($"PSPDFKit.Android.Instant.dll was not built.");
-		}
-});
-
 Task ("Default")
 	.IsDependentOn ("ExtractAars")
 	.IsDependentOn ("RestoreNugets")
 	.IsDependentOn ("BuildPSPDFKit")
-	.IsDependentOn ("BuildInstant")
 	.Does (() => {
 		Information ("Build Done!");
 });
@@ -124,9 +105,6 @@ Task ("Clean")
 	.Does (() => {
 		if (FileExists ("./PSPDFKit.Android.dll"))
 			DeleteFile ("./PSPDFKit.Android.dll");
-
-		if (FileExists ("./PSPDFKit.Android.Instant.dll"))
-			DeleteFile ("./PSPDFKit.Android.Instant.dll");
 
 		var delDirSettings = new DeleteDirectorySettings { Recursive = true, Force = true };
 
@@ -143,17 +121,6 @@ Task ("Clean")
 			DeleteDirectory ("./PSPDFKit.Android/Jars", delDirSettings);
 			GitCheckout ("./", new FilePath [] { "./PSPDFKit.Android/Jars" });
 		}
-
-		if (DirectoryExists ("./PSPDFKit.Android.Instant/bin/"))
-			DeleteDirectory ("./PSPDFKit.Android.Instant/bin", delDirSettings);
-
-		if (DirectoryExists ("./PSPDFKit.Android.Instant/obj/"))
-			DeleteDirectory ("./PSPDFKit.Android.Instant/obj", delDirSettings);
-
-		if (DirectoryExists ("./PSPDFKit.Android.Instant/Jars/")) {
-			DeleteDirectory ("./PSPDFKit.Android.Instant/Jars", delDirSettings);
-			GitCheckout ("./", new FilePath [] { "./PSPDFKit.Android.Instant/Jars" });
-		}
 });
 
 Task ("Clean-obj-bin")
@@ -162,7 +129,6 @@ Task ("Clean-obj-bin")
 
 		var dirs = new [] {
 			"./PSPDFKit.Android",
-			"./PSPDFKit.Android.Instant",
 			"./samples/AndroidSample/AndroidSample",
 			"./samples/PSPDFCatalog",
 			"./samples/XamarinForms/Droid",

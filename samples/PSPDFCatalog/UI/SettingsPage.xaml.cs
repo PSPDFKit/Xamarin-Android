@@ -75,10 +75,10 @@ namespace PSPDFCatalog {
 			else
 				conf.DisableFormEditing ();
 
-			if (Settings.Current.ShowShareAction)
-				conf.EnableShare ();
-			else
-				conf.DisableShare ();
+			//if (Settings.Current.ShowShareAction)
+			//	conf.SetEnabledShareFeatures ()
+			//else
+			//	conf.DisableShare ();
 
 			if (Settings.Current.ShowPrintAction)
 				conf.EnablePrinting ();

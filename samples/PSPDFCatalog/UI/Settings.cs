@@ -156,7 +156,7 @@ namespace PSPDFCatalog {
 		}
 
 		const string ThumbnailsBarModeKey = "ThumbnailsBarMode";
-		static readonly string ThumbnailsBarModeDefault = ThumbnailBarMode.ThumbnailBarModeDefault.Name ();
+		static readonly string ThumbnailsBarModeDefault = ThumbnailBarMode.ThumbnailBarModeFloating.Name ();
 		public string ThumbnailsBarMode {
 			get => AppSettings.GetValueOrDefault (ThumbnailsBarModeKey, ThumbnailsBarModeDefault);
 			set {
