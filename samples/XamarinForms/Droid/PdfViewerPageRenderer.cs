@@ -92,6 +92,24 @@ namespace XFSample.Droid {
 			AddView (view);
 		}
 
+		protected override void Dispose(bool disposing)
+		{
+			// Unregister this renderer as listener to avoid leaking it.
+			fragment.RemoveDocumentListener(this);
+
+			// When the renderer is detached from the page, trigger a cleanup by removing the fragment from the host.
+			// This will free resources and also invoke auto-saving if enabled.
+			activity.SupportFragmentManager
+				.BeginTransaction()
+				.Remove(fragment.JavaCast<Android.Support.V4.App.Fragment>())
+				.Commit();
+
+			fragment = null;
+			activity = null;
+
+			base.Dispose(disposing);
+		}
+
 		public bool OnBackPressed ()
 		{
 			if (modularSearchView.IsDisplayed) {
