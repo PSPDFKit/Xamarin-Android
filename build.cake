@@ -1,11 +1,12 @@
-#addin nuget:?package=Cake.Git
+#addin nuget:?package=Cake.Git&version=0.21.0
 
 var target = Argument ("target", "Default");
 
 // Nice online pom dependency explorer
 // https://jar-download.com/
 
-var PSPDFKIT_VERSION = "6.0.3";
+var PSPDFKIT_VERSION = "6.1.0";
+var SERVICERELEASE_VERSION = "0"; // This is combined with the PSPDFKIT_VERSION variable for the NuGet Package version
 var RXANDROID_VERSION = "2.1.0";
 var RXJAVA_VERSION = "2.2.4"; // Check Reactive-Streams if updated.
 var REACTIVESTREAMS_VERSION = "1.0.2";
@@ -40,15 +41,15 @@ Task ("FetchDependencies")
 		DownloadFile (RXANDROIDURL, $"./PSPDFKit.Android/Jars/rxandroid-{RXANDROID_VERSION}.aar");
 		DownloadFile (RXJAVAURL, $"./PSPDFKit.Android/Jars/rxjava-{RXJAVA_VERSION}.jar");
 		DownloadFile (REACTIVESTREAMSURL, $"./PSPDFKit.Android/Jars/reactive-streams-{REACTIVESTREAMS_VERSION}.jar");
-		DownloadFile (YOUTUBEURL, $"./PSPDFKit.Android/Jars/YouTubeAndroidPlayerApi-{YOUTUBE_VERSION}.zip");
+		// DownloadFile (YOUTUBEURL, $"./PSPDFKit.Android/Jars/YouTubeAndroidPlayerApi-{YOUTUBE_VERSION}.zip");
 		DownloadFile (RELINKERURL, $"./PSPDFKit.Android/Jars/relinker-{RELINKER_VERSION}.aar");
-		DownloadFile (KOTLINSTDLIBURL, $"./PSPDFKit.Android/Jars/kotlin-stdlib-{KOTLINSTDLIB_VERSION}.jar");
-		DownloadFile (KOTLINSTDLIBCOMMONURL, $"./PSPDFKit.Android/Jars/kotlin-stdlib-common-{KOTLINSTDLIBCOMMON_VERSION}.jar");
-		DownloadFile (KOTLIANNOTATIONSURL, $"./PSPDFKit.Android/Jars/annotations-{KOTLIANNOTATIONS_VERSION}.jar");
+		//DownloadFile (KOTLINSTDLIBURL, $"./PSPDFKit.Android/Jars/kotlin-stdlib-{KOTLINSTDLIB_VERSION}.jar");
+		//DownloadFile (KOTLINSTDLIBCOMMONURL, $"./PSPDFKit.Android/Jars/kotlin-stdlib-common-{KOTLINSTDLIBCOMMON_VERSION}.jar");
+		//DownloadFile (KOTLIANNOTATIONSURL, $"./PSPDFKit.Android/Jars/annotations-{KOTLIANNOTATIONS_VERSION}.jar");
 		DownloadFile (YEARCLASSURL, $"./PSPDFKit.Android/Jars/yearclass-{YEARCLASS_VERSION}.jar");
-		DownloadFile (OKHTTP3URL, $"./PSPDFKit.Android/Jars/okhttp-{OKHTTP3_VERSION}.jar");
-		DownloadFile (OKHTTP3LOGGINGURL, $"./PSPDFKit.Android/Jars/logging-interceptor-{OKHTTP3LOGGING_VERSION}.jar");
-		DownloadFile (OKIOURL, $"./PSPDFKit.Android/Jars/okio-{OKIO_VERSION}.jar");
+		//DownloadFile (OKHTTP3URL, $"./PSPDFKit.Android/Jars/okhttp-{OKHTTP3_VERSION}.jar");
+		//DownloadFile (OKHTTP3LOGGINGURL, $"./PSPDFKit.Android/Jars/logging-interceptor-{OKHTTP3LOGGING_VERSION}.jar");
+		//DownloadFile (OKIOURL, $"./PSPDFKit.Android/Jars/okio-{OKIO_VERSION}.jar");
 });
 
 Task ("ExtractAars")
@@ -64,7 +65,7 @@ Task ("ExtractAars")
 		if(DirectoryExists ($"./PSPDFKit.Android/Jars/relinker-{RELINKER_VERSION}"))
 			DeleteDirectory ($"./PSPDFKit.Android/Jars/relinker-{RELINKER_VERSION}", delDirSettings);
 
-		Unzip ($"./PSPDFKit.Android/Jars/YouTubeAndroidPlayerApi-{YOUTUBE_VERSION}.zip", $"./PSPDFKit.Android/Jars/YouTubeAndroidPlayerApi-{YOUTUBE_VERSION}");
+		// Unzip ($"./PSPDFKit.Android/Jars/YouTubeAndroidPlayerApi-{YOUTUBE_VERSION}.zip", $"./PSPDFKit.Android/Jars/YouTubeAndroidPlayerApi-{YOUTUBE_VERSION}");
 		Unzip ($"./PSPDFKit.Android/Jars/rxandroid-{RXANDROID_VERSION}.aar", $"./PSPDFKit.Android/Jars/rxandroid-{RXANDROID_VERSION}");
 		Unzip ($"./PSPDFKit.Android/Jars/relinker-{RELINKER_VERSION}.aar", $"./PSPDFKit.Android/Jars/relinker-{RELINKER_VERSION}");
 		CopyFile ($"./PSPDFKit.Android/Jars/rxandroid-{RXANDROID_VERSION}/classes.jar", $"./PSPDFKit.Android/Jars/rxandroid-{RXANDROID_VERSION}.jar");
@@ -99,6 +100,22 @@ Task ("Default")
 	.IsDependentOn ("BuildPSPDFKit")
 	.Does (() => {
 		Information ("Build Done!");
+});
+
+Task ("NuGet")
+	.IsDependentOn("Default")
+	.Does (() =>
+{
+	if(!DirectoryExists("./nuget/pkgs/"))
+		CreateDirectory("./nuget/pkgs");
+
+	var head = GitLogTip("./");
+	var commit = head.Sha.Substring (0,7);
+	NuGetPack ("./nuget/pspdfkit-android.nuspec", new NuGetPackSettings {
+		Version = $"{PSPDFKIT_VERSION}.{SERVICERELEASE_VERSION}+sha.{commit}",
+		OutputDirectory = "./nuget/pkgs/",
+		BasePath = "./"
+	});
 });
 
 Task ("Clean")

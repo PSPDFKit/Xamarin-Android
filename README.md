@@ -1,6 +1,6 @@
 # Xamarin PSPDFKit.Android Bindings
 
-Xamarin.Android Bindings for PSPDFKit `v6.0.3`.
+Xamarin.Android Bindings for PSPDFKit `v6.1.0`.
 
 #### PSPDFKit
 
@@ -29,10 +29,10 @@ PSPDFKit runs on Android devices running:
 ### Step 1 - Get PSPDFKit .aar File
 
 1. Download PSPDFKit from your [customer portal](https://customers.pspdfkit.com) if you haven't done so already, or [request an evaluation version](https://pspdfkit.com/#trynow).
-2. Unzip the file you downloaded in step 1 and copy `pspdfkit-x.x.x.aar` to [`PSPDFKit.Android/Jars`](PSPDFKit.Android/Jars) folder and also copy `pspdfkit-instant-x.x.x.aar` into [`PSPDFKit.Android.Instant/Jars`](PSPDFKit.Android.Instant/Jars) folder.
+2. Unzip the file you downloaded in step 1 and copy `pspdfkit-x.x.x.aar` to [`PSPDFKit.Android/Jars`](PSPDFKit.Android/Jars) folder.
 3. run `./build.sh` (on macOS) or `./build.ps1` (on Windows, PowerShell) command from root directory. This will download additional resources needed by the binding. Note that running this will require you to have [Xamarin](https://www.xamarin.com/platform) already installed on your computer.
 
-**💡 Note:** Ensure the files are really named `pspdfkit-x.x.x.aar` and `pspdfkit-instant-x.x.x.aar` so there is no hidden `.zip` file ending. OS X likes to add these things and doesn't show them by default. Use the Inspector to be sure.
+**💡 Note:** Ensure the files are really named `pspdfkit-x.x.x.aar` so there is no hidden `.zip` file ending. OS X likes to add these things and doesn't show them by default. Use the Inspector to be sure.
 
 Visual Studio will use the default Java, but this can be customized in Preferences -> SDK Locations -> Java SDK (JDK).
 
@@ -44,35 +44,42 @@ You have two options to get it:
 
 1. Open `PSPDFKit.Android.sln` in `Visual Studio`.
 2. Build the project.
-3. Get the dlls from the `PSPDFKit.Android/bin` and `PSPDFKit.Android.Instant/bin` folders.
+3. Get the dll from the `PSPDFKit.Android/bin` folder.
 4. Enjoy.
 
 #### Build from Terminal
 
-1. Just grab `PSPDFKit.Android.dll` and `PSPDFKit.Android.Instant.dll` from the root folder, if you successfuly followed **Step 1** both should be there.
+1. Just grab `PSPDFKit.Android.dll` from the root folder, if you successfuly followed **Step 1** it should be there.
 2. Enjoy.
-
-**💡 Note:** `PSPDFKit.Android.Instant.dll` is an **optional** dependency, you only need it if you are using [PSPDFKit Instant](https://pspdfkit.com/instant/) collaboration features in your application.
 
 ## Integrating with your own Project
 
-In order to use **PSPDFKit.Android.dll** and **PSPDFKit.Android.Instant.dll** with your own project you will need to add both as a reference to it. You can achieve this by doing the following:
+In order to use **PSPDFKit.Android.dll** with your own project you will need to add the dll as a reference to your project. You can achieve this by doing the following:
 
 1. Right click in your **References** folder from your project and select **Edit References...**
 2. Select **.Net Assembly** tab and click **Browse**
-3. Locate your **PSPDFKit.Android.dll** and **PSPDFKit.Android.Instant.dll** copies.
+3. Locate your **PSPDFKit.Android.dll** copy.
+4. Add the [pspdfkit-proguard.cfg](samples/AndroidSample/AndroidSample/pspdfkit-proguard.cfg) file to your project, see [Xamarin Android and ProGuard](#xamarin-android-and-proguard) section.
+
+**💡 Note:** If you do not add the [pspdfkit-proguard.cfg](samples/AndroidSample/AndroidSample/pspdfkit-proguard.cfg) file to your project you will run into errors
 
 Once you have done this you will need to add some [NuGet](https://www.nuget.org/) packages to you project
 
 * [Xamarin.AndroidX.Migration](https://www.nuget.org/packages/Xamarin.AndroidX.Migration)
-* [Xamarin Support Library v4](https://www.nuget.org/packages/Xamarin.Android.Support.v4)
-* [Xamarin AndroidX Legacy Support V4](https://www.nuget.org/packages/Xamarin.AndroidX.Legacy.Support.V4)
-* [Xamarin AndroidX AppCompat](https://www.nuget.org/packages/Xamarin.AndroidX.AppCompat)
-* [Xamarin AndroidX RecyclerView](https://www.nuget.org/packages/Xamarin.AndroidX.RecyclerView)
-* [Xamarin AndroidX CardView](https://www.nuget.org/packages/Xamarin.AndroidX.CardView)
-* [Xamarin AndroidX GridLayout](https://www.nuget.org/packages/Xamarin.AndroidX.GridLayout)
+* [Xamarin.Android.Support.v4](https://www.nuget.org/packages/Xamarin.Android.Support.v4)
+* [Xamarin.AndroidX.Legacy.Support.V4](https://www.nuget.org/packages/Xamarin.AndroidX.Legacy.Support.V4)
+* [Xamarin.AndroidX.AppCompat](https://www.nuget.org/packages/Xamarin.AndroidX.AppCompat)
+* [Xamarin.AndroidX.RecyclerView](https://www.nuget.org/packages/Xamarin.AndroidX.RecyclerView)
+* [Xamarin.AndroidX.CardView](https://www.nuget.org/packages/Xamarin.AndroidX.CardView)
+* [Xamarin.AndroidX.GridLayout](https://www.nuget.org/packages/Xamarin.AndroidX.GridLayout)
 * [Xamarin.AndroidX.Palette](https://www.nuget.org/packages/Xamarin.AndroidX.Palette)
-* [Xamarin Google Android Material](https://www.nuget.org/packages/Xamarin.Google.Android.Material)
+* [Xamarin.AndroidX.MultiDex](https://www.nuget.org/packages/Xamarin.AndroidX.MultiDex)
+* [Xamarin.AndroidX.Lifecycle.LiveData](https://www.nuget.org/packages/Xamarin.AndroidX.Lifecycle.LiveData)
+* [Xamarin.AndroidX.Browser](https://www.nuget.org/packages/Xamarin.AndroidX.Browser)
+* [Xamarin.Google.Android.Material](https://www.nuget.org/packages/Xamarin.Google.Android.Material)
+* [Square.OkHttp3](https://www.nuget.org/packages/Square.OkHttp3)
+* [Xamarin.Kotlin.StdLib](https://www.nuget.org/packages/Xamarin.Kotlin.StdLib)
+* [Xamarin.YouTube.Player.Android](https://www.nuget.org/packages/Xamarin.YouTube.Player.Android)
 
 If you need to know how to add NuGet packages to your Xamarin project please refer to [Walkthrough: Including a NuGet in your project](http://developer.xamarin.com/guides/cross-platform/application_fundamentals/nuget_walkthrough/) from Xamarin site.
 
@@ -82,9 +89,43 @@ PSPDFKit can display documents either in a new Activity or a Fragment you includ
 
 Note that currently only local files are supported for PSPDFKit.
 
-### Xamarin.Android and ProGuard
+### Xamarin Android and ProGuard
 
 In order to integrate ProGuard with Xamarin you can read the following [documentation on Xamarin's Site](https://developer.xamarin.com/guides/android/deployment,_testing,_and_metrics/proguard/).
+
+Starting PSPDFKit v6.1.0 you will need to add the [pspdfkit-proguard.cfg](samples/AndroidSample/AndroidSample/pspdfkit-proguard.cfg) file to your project's root directory and then add two entries in your project's csproj as follows:
+
+First, inside your [DEBUG configuration](https://github.com/PSPDFKit/Xamarin-Android/blob/master/samples/AndroidSample/AndroidSample/AndroidSample.csproj#L35) property group:
+
+```xml
+<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  ...
+  <AndroidR8ExtraArguments>--pg-conf "$(MSBuildProjectDirectory)\pspdfkit-proguard.cfg"</AndroidR8ExtraArguments>
+</PropertyGroup>
+```
+
+The above assumes that the [pspdfkit-proguard.cfg](samples/AndroidSample/AndroidSample/pspdfkit-proguard.cfg) file is in your root project directory, if not adjust the value file path to match your own scenario.
+
+Second, add the [pspdfkit-proguard.cfg](samples/AndroidSample/AndroidSample/pspdfkit-proguard.cfg) file via the following item group to your csproj as shown [here](https://github.com/PSPDFKit/Xamarin-Android/blob/master/samples/AndroidSample/AndroidSample/AndroidSample.csproj#L137):
+
+```xml
+<ItemGroup>
+  <ProguardConfiguration Include="pspdfkit-proguard.cfg" />
+</ItemGroup>
+```
+
+Again the above assumes that the [pspdfkit-proguard.cfg](samples/AndroidSample/AndroidSample/pspdfkit-proguard.cfg) file is in your root project directory, if not adjust the value file path to match your own scenario.
+
+**💡 Note:** If you do not add the [pspdfkit-proguard.cfg](samples/AndroidSample/AndroidSample/pspdfkit-proguard.cfg) file to your project you will run into errors like the following:
+
+```
+R8 : warning : Missing class: org.conscrypt.ConscryptHostnameVerifier
+R8 : warning : Missing class: com.android.tools.lint.detector.api.Detector
+R8 : warning : Missing class: com.android.tools.lint.detector.api.Detector$UastScanner
+R8 : warning : Missing class: com.android.tools.lint.client.api.UElementHandler
+R8 : warning : Missing class: com.android.tools.lint.client.api.IssueRegistry
+R8 : error : Compilation can't be completed because some library classes are missing.
+```
 
 ### Checking for Compatibility
 

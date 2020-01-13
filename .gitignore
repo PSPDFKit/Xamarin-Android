@@ -19,3 +19,4 @@ Resource.designer.cs
 *.zip
 tools/
 .vs/
+nuget/pkgs/
