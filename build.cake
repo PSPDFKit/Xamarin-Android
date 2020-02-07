@@ -34,6 +34,8 @@ var KOTLINSTDLIBCOMMONURL = $"http://search.maven.org/remotecontent?filepath=org
 var KOTLIANNOTATIONSURL = $"http://search.maven.org/remotecontent?filepath=org/jetbrains/annotations/{KOTLIANNOTATIONS_VERSION}/annotations-{KOTLIANNOTATIONS_VERSION}.jar";
 var YEARCLASSURL = $"http://search.maven.org/remotecontent?filepath=com/facebook/device/yearclass/yearclass/{YEARCLASS_VERSION}/yearclass-{YEARCLASS_VERSION}.jar";
 
+var NUGET_API_KEY = EnvironmentVariable("NUGET_API_KEY");
+
 Task ("FetchDependencies")
 	.Does (() => {
 		// PSPDFKit.Android
@@ -115,6 +117,17 @@ Task ("NuGet")
 		Version = $"{PSPDFKIT_VERSION}.{SERVICERELEASE_VERSION}+sha.{commit}",
 		OutputDirectory = "./nuget/pkgs/",
 		BasePath = "./"
+	});
+});
+
+Task ("NuGet-Push")
+	.IsDependentOn("Nuget")
+	.Does (() =>
+{
+	var package = "./nuget/pkgs/PSPDFKit.Android." + PSPDFKIT_VERSION +".nupkg";
+	NuGetPush(package, new NuGetPushSettings {
+			Source = "https://api.nuget.org/v3/index.json",
+			ApiKey = NUGET_API_KEY
 	});
 });
 

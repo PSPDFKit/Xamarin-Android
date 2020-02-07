@@ -1,0 +1,14 @@
+steps:
+  - label: 'Build Nuget Packages'
+    command: '( ./build.sh --Target=Nuget )'
+    agents:
+      macos: true
+
+  - wait
+
+  - block: ':rocket: Release'
+
+  - label: 'Upload Nuget Packages'
+    command: '( ./build.sh --Target=Nuget-Push)'
+    agents:
+      macos: true
