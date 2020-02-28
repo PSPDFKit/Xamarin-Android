@@ -13,9 +13,7 @@ The [PSPDFKit SDK](https://pspdfkit.com/) is a framework that allows you to view
 - Xamarin.iOS Bindings for PSPDFKit for iOS: [PSPDFKit/Xamarin-iOS](https://github.com/PSPDFKit/Xamarin-iOS)
 - Xamarin Bindings for PSPDFKit for Windows UWP: [PSPDFKit/Xamarin-UWP](https://github.com/PSPDFKit/Xamarin-UWP)
 
-## Building PSPDFKit.Android.dll
-
-### Requirements
+## Requirements
 
 PSPDFKit runs on Android devices running:
 
@@ -26,17 +24,34 @@ PSPDFKit runs on Android devices running:
 * Projects using PSPDFKit.Android.dll **must** set [Target Framework](https://developer.xamarin.com/guides/android/application_fundamentals/understanding_android_api_levels/#framework) to **API 28 (Android 9.0)**.
 * In your Android Options select `d8` as your `Dex compiler`. Otherwise you will get errors about default interface methods not being supported.
 
-### Step 1 - Get PSPDFKit .aar File
+## Integrating PSPDFKit
+
+There's 2 ways to integrate PSPDFKit into your project. We highly recommend using our nuget packages from nuget.org in Visual Studio as it requires less work for the customer and also eliminates the possibility of build errors, which can happen from time to time.
+
+### Integrating PSPDFKit via Nuget (Recommended)
+
+1. Right-Click on your project in Visual Studio and select "Manage Nuget Packages…"
+2. In the `Browse` section for "nuget.org" search for "PSPDFKit"
+<img width="500" src="https://user-images.githubusercontent.com/21023299/75026406-38564d00-549d-11ea-8229-34f91362f3d7.png"> 
+
+3. Select the `PSPDFKit.Android` package.
+4.  Tap on "Add Package" to add the nuget package to your project.
+
+Now you are done and can skip to [Adding additional resources!](https://github.com/PSPDFKit/Xamarin-Android#adding-additional-resources)
+
+### Integrating PSPDFKit via DLLs (Advanced)
+
+#### Step 1 - Get PSPDFKit .aar File
 
 1. Download PSPDFKit from your [customer portal](https://customers.pspdfkit.com) if you haven't done so already, or [request an evaluation version](https://pspdfkit.com/#trynow).
-2. Unzip the file you downloaded in step 1 and copy `pspdfkit-x.x.x.aar` to [`PSPDFKit.Android/Jars`](PSPDFKit.Android/Jars) folder.
+2. Unzip the file you downloaded above and copy `pspdfkit-x.x.x.aar` to [`PSPDFKit.Android/Jars`](PSPDFKit.Android/Jars) folder.
 3. run `./build.sh` (on macOS) or `./build.ps1` (on Windows, PowerShell) command from root directory. This will download additional resources needed by the binding. Note that running this will require you to have [Xamarin](https://www.xamarin.com/platform) already installed on your computer.
 
 **💡 Note:** Ensure the files are really named `pspdfkit-x.x.x.aar` so there is no hidden `.zip` file ending. OS X likes to add these things and doesn't show them by default. Use the Inspector to be sure.
 
 Visual Studio will use the default Java, but this can be customized in Preferences -> SDK Locations -> Java SDK (JDK).
 
-### Step 2 - Get your Dlls
+#### Step 2 - Get your Dlls
 
 You have two options to get it:
 
@@ -52,14 +67,17 @@ You have two options to get it:
 1. Just grab `PSPDFKit.Android.dll` from the root folder, if you successfuly followed **Step 1** it should be there.
 2. Enjoy.
 
-## Integrating with your own Project
+#### Integrating the dlls into your own Project
 
 In order to use **PSPDFKit.Android.dll** with your own project you will need to add the dll as a reference to your project. You can achieve this by doing the following:
 
 1. Right click in your **References** folder from your project and select **Edit References...**
 2. Select **.Net Assembly** tab and click **Browse**
-3. Locate your **PSPDFKit.Android.dll** copy.
-4. Add the [pspdfkit-proguard.cfg](samples/AndroidSample/AndroidSample/pspdfkit-proguard.cfg) file to your project, see [Xamarin Android and ProGuard](#xamarin-android-and-proguard) section.
+3. Locate your **PSPDFKit.Android.dll** copy and add it.
+
+### Adding additional resources
+
+First you need to add the [pspdfkit-proguard.cfg](samples/AndroidSample/AndroidSample/pspdfkit-proguard.cfg) file to your project, see [Xamarin Android and ProGuard](#xamarin-android-and-proguard) section.
 
 **💡 Note:** If you do not add the [pspdfkit-proguard.cfg](samples/AndroidSample/AndroidSample/pspdfkit-proguard.cfg) file to your project you will run into errors
 
