@@ -45,7 +45,7 @@ Now you are done and can skip to [Adding additional resources!](https://github.c
 
 1. Download PSPDFKit from your [customer portal](https://customers.pspdfkit.com) if you haven't done so already, or [request an evaluation version](https://pspdfkit.com/#trynow).
 2. Unzip the file you downloaded above and copy `pspdfkit-x.x.x.aar` to [`PSPDFKit.Android/Jars`](PSPDFKit.Android/Jars) folder.
-3. run `./build.sh` (on macOS) or `./build.ps1` (on Windows, PowerShell) command from root directory. This will download additional resources needed by the binding. Note that running this will require you to have [Xamarin](https://www.xamarin.com/platform) already installed on your computer.
+3. Run `./build.sh` (on macOS) or `./build.ps1` (on Windows, PowerShell) command from root directory. This will download additional resources needed by the binding. Note that running this will require you to have [Xamarin](https://www.xamarin.com/platform) already installed on your computer.
 
 **💡 Note:** Ensure the files are really named `pspdfkit-x.x.x.aar` so there is no hidden `.zip` file ending. OS X likes to add these things and doesn't show them by default. Use the Inspector to be sure.
 
@@ -276,7 +276,7 @@ You can find several sample projects in the `samples` folder, including a catalo
 
 ## How to Run the Example Projects
 
-1. Complete **Step 1** to download additional resources needed for the examples.
+1. Run `./build.sh` (on macOS) or `./build.ps1` (on Windows, PowerShell) command from the Xamarin-Android root directory to download additional resources.
 2. Open the `PSPDFKit.Android.sln` solution in Visual Studio.
 3. Select the example project and device you want to run it on (alternatively you can also right-click on the project and select "Build `Project Name`").
 <img width="60%" src="Images/Project-setup.png"/>
