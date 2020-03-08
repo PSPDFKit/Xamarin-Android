@@ -60,10 +60,10 @@ namespace PSPDFCatalog {
 			global::Xamarin.Forms.Forms.Init (this, savedInstanceState);
 			var page = new MainMenuPage ();
 			page.OptionSelected += Page_OptionSelected;
-			var frag = page.CreateFragment (this);
+			var frag = page.CreateSupportFragment (this);
 
-			if (FragmentManager.FindFragmentById (Resource.Id.menu_list_fragment_frame_layout) == null) {
-				FragmentManager
+			if (SupportFragmentManager.FindFragmentById (Resource.Id.menu_list_fragment_frame_layout) == null) {
+				SupportFragmentManager
 					.BeginTransaction ()
 					.Replace (Resource.Id.menu_list_fragment_frame_layout, frag, "main")
 					.Commit ();
@@ -74,11 +74,11 @@ namespace PSPDFCatalog {
 				Utils.SetProperNavigationDrawerWidth (settingsDrawer);
 
 				var settingsPage = new SettingsPage ();
-				var fragx = settingsPage.CreateFragment (this);
+				var fragx = settingsPage.CreateSupportFragment (this);
 
 				// Add the preferences to the drawer
-				if (FragmentManager.FindFragmentById (Resource.Id.settings_drawer) == null) {
-					FragmentManager
+				if (SupportFragmentManager.FindFragmentById (Resource.Id.settings_drawer) == null) {
+					SupportFragmentManager
 						.BeginTransaction ()
 						.Replace (Resource.Id.settings_drawer, fragx)
 						.Commit ();

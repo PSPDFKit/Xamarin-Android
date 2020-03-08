@@ -5,7 +5,7 @@ var target = Argument ("target", "Default");
 // Nice online pom dependency explorer
 // https://jar-download.com/
 
-var PSPDFKIT_VERSION = "6.1.1";
+var PSPDFKIT_VERSION = "6.2.0";
 var SERVICERELEASE_VERSION = "0"; // This is combined with the PSPDFKIT_VERSION variable for the NuGet Package version
 var RXANDROID_VERSION = "2.1.0";
 var RXJAVA_VERSION = "2.2.4"; // Check Reactive-Streams if updated.
@@ -40,9 +40,9 @@ Task ("FetchDependencies")
 	.Does (() => {
 		// PSPDFKit.Android
 		Information ("Downloading all the dependencies...");
-		DownloadFile (RXANDROIDURL, $"./PSPDFKit.Android/Jars/rxandroid-{RXANDROID_VERSION}.aar");
-		DownloadFile (RXJAVAURL, $"./PSPDFKit.Android/Jars/rxjava-{RXJAVA_VERSION}.jar");
-		DownloadFile (REACTIVESTREAMSURL, $"./PSPDFKit.Android/Jars/reactive-streams-{REACTIVESTREAMS_VERSION}.jar");
+		// DownloadFile (RXANDROIDURL, $"./PSPDFKit.Android/Jars/rxandroid-{RXANDROID_VERSION}.aar");
+		// DownloadFile (RXJAVAURL, $"./PSPDFKit.Android/Jars/rxjava-{RXJAVA_VERSION}.jar");
+		// DownloadFile (REACTIVESTREAMSURL, $"./PSPDFKit.Android/Jars/reactive-streams-{REACTIVESTREAMS_VERSION}.jar");
 		// DownloadFile (YOUTUBEURL, $"./PSPDFKit.Android/Jars/YouTubeAndroidPlayerApi-{YOUTUBE_VERSION}.zip");
 		DownloadFile (RELINKERURL, $"./PSPDFKit.Android/Jars/relinker-{RELINKER_VERSION}.aar");
 		//DownloadFile (KOTLINSTDLIBURL, $"./PSPDFKit.Android/Jars/kotlin-stdlib-{KOTLINSTDLIB_VERSION}.jar");

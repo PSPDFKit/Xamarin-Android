@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
   <!-- Remove non public Api namespaces -->
-  <remove-node path="/api/package[contains(@name, 'com.pspdfkit.framework')]" />
-  <remove-node path="/api/package[contains(@name, 'com.pspdfkit.instant.framework')]" />
+  <remove-node path="/api/package[contains(@name, 'com.pspdfkit.internal')]" />
+  <remove-node path="/api/package[contains(@name, 'com.pspdfkit.instant.internal')]" />
   <remove-node path="/api/package[contains(@name, 'com.pspdfkit.lint')]" />
 
   <!-- Removes any class that ends with *Impl since it should not be public. This matches for example "PSPDFKitActivityImpl" -->
@@ -11,26 +11,26 @@
   <!-- Removes any "subclass name" that ends with *Impl.* since it should not be public. This matches for example "PSPDFKitActivityImpl.1" -->
   <remove-node path="//class['Impl' = substring(substring-before(@name,'.') , string-length(substring-before(@name,'.')) - 3)]" />
 
-  <!-- Removes any "constructor" that any of its parameters uses any of the types contained in com.pspdfkit.framework.* -->
-  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.h')]" />
-  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.y8')]" />
-  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.f')]" />
-  <!--	<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.jni.NativeDocument')]" />-->
-  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.jni.NativeAnnotation')]" />
-  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework.jni.NativeFormField')]" />
+  <!-- Removes any "constructor" that any of its parameters uses any of the types contained in com.pspdfkit.internal.* -->
+  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.aa')]" />
+  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.k0')]" />
+  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.jb')]" />
+  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.i8')]" />
+  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.jni.NativeAnnotation')]" />
+  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.jni.NativeFormField')]" />
   <!-- Not creating a general rule to avoid bug reported by David -->
-  <!-- <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.framework')]" />-->
+  <!-- <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal')]" />-->
 
-  <!-- Removes any "method" that any of its parameters uses any of the types contained in com.pspdfkit.framework.* -->
-  <remove-node path="//method/parameter[contains(@type, 'com.pspdfkit.framework')]" />
-  <remove-node path="//method[contains(@return, 'com.pspdfkit.framework')]" />
+  <!-- Removes any "method" that any of its parameters uses any of the types contained in com.pspdfkit.internal.* -->
+  <remove-node path="//method/parameter[contains(@type, 'com.pspdfkit.internal')]" />
+  <remove-node path="//method[contains(@return, 'com.pspdfkit.internal')]" />
 
-  <!-- Removes any "field" of type com.pspdfkit.framework.* -->
-  <remove-node path="//field[contains(@type, 'com.pspdfkit.framework')]" />
+  <!-- Removes any "field" of type com.pspdfkit.internal.* -->
+  <remove-node path="//field[contains(@type, 'com.pspdfkit.internal')]" />
 
   <!-- Removes any "interface" of type java.lang.Comparable -->
   <remove-node path="//implements[contains(@name, 'java.lang.Comparable')]" />
-  <remove-node path="//implements[contains(@name, 'com.pspdfkit.framework')]" />
+  <remove-node path="//implements[contains(@name, 'com.pspdfkit.internal')]" />
 
   <!-- C# friendly namespaces -->
   <attr path="/api/package[@name='com.pspdfkit']" name="managedName">PSPDFKit</attr>
@@ -66,6 +66,7 @@
   <attr path="/api/package[@name='com.pspdfkit.document.editor.page']" name="managedName">PSPDFKit.Document.Editor.Page</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.files']" name="managedName">PSPDFKit.Document.Files</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.formatters']" name="managedName">PSPDFKit.Document.Formatters</attr>
+  <attr path="/api/package[@name='com.pspdfkit.document.html']" name="managedName">PSPDFKit.Document.Html</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.image']" name="managedName">PSPDFKit.Document.Image</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.library']" name="managedName">PSPDFKit.Document.Library</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.metadata']" name="managedName">PSPDFKit.Document.Metadata</attr>
@@ -217,8 +218,6 @@
   <remove-node path="/api/package[@name='com.pspdfkit.annotations.configuration']/interface[@name='AnnotationFillColorConfiguration']/method[@name='customColorPickerEnabled']" />
   <remove-node path="/api/package[@name='com.pspdfkit.annotations.configuration']/interface[@name='AnnotationOutlineColorConfiguration']/method[@name='customColorPickerEnabled']" />
 
-  <remove-node path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfActivity']/method[@name='createImplementation' and count(parameter)=0]" />
-
   <remove-node path="/api/package[@name='com.pspdfkit.forms']/class[@name='FormElementConfiguration.BaseBuilder']/method[@name='build' and count(parameter)=0]" />
   <remove-node path="/api/package[@name='com.pspdfkit.forms']/class[@name='FormElementConfiguration.BaseBuilder']/method[@name='a' and count(parameter)=0]" />
 
@@ -228,6 +227,7 @@
   <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='RedactionAnnotation']/constructor[@name='RedactionAnnotation' and count(parameter)=0]" />
 
   <remove-node path="/api/package[@name='com.pspdfkit.document.image']/class[@name='BaseImagePickerFragment']/field[@name='lastActivityResult']" />
+  <remove-node path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfActivity']/field[@name='internalPdfUi']" />
   
   <attr path="/api/package[@name='com.pspdfkit.ui.overlay']/class[@name='OverlayLayoutParams']/field[@name='layoutPosition']" name="managedName">LayoutPositionField</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.overlay']/class[@name='OverlayLayoutParams']/field[@name='sizingMode']" name="managedName">SizingModeField</attr>
@@ -235,9 +235,6 @@
   <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='BasePdfUiBuilder']" name="visibility">public</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfActivityIntentBuilder']" name="extends">java.lang.Object</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfUiFragmentBuilder']" name="extends">java.lang.Object</attr>
-  <remove-node path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfActivity']/method[@name='getImplementation' and count(parameter)=0]" />
-  <remove-node path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfUiFragment']/method[@name='getImplementation' and count(parameter)=0]" />
-  <remove-node path="/api/package[@name='com.pspdfkit.ui']/interface[@name='PdfUi']/method[@name='getImplementation' and count(parameter)=0]" />
   <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='BasePdfUiBuilder']/method[@name='configuration' and @return='T']" name="return">java.lang.Object</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='BasePdfUiBuilder']/method[@name='passwords' and @return='T']" name="return">java.lang.Object</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='BasePdfUiBuilder']/method[@name='contentSignatures' and @return='T']" name="return">java.lang.Object</attr>
@@ -295,12 +292,9 @@
       <parameter name="obj" type="java.lang.Object"></parameter>
     </method>
   </add-node>
- 
+
   <add-node path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfUiFragment']">
-    <implements name="com.pspdfkit.ui.PdfUi" name-generic-aware="com.pspdfkit.ui.PdfUi" jni-type="Lcom/pspdfkit/ui/PdfUi;">
-    </implements>
-    <method abstract="false" deprecated="not deprecated" final="false" name="getPropertyInspectorCoordinator" jni-signature="()Lcom/pspdfkit/ui/inspector/PropertyInspectorCoordinatorLayout;" bridge="false" native="false" return="com.pspdfkit.ui.inspector.PropertyInspectorCoordinatorLayout" jni-return="Lcom/pspdfkit/ui/inspector/PropertyInspectorCoordinatorLayout;" static="false" synchronized="false" synthetic="false" visibility="public">
-    </method>
+    <method abstract="false" deprecated="not deprecated" final="false" name="getPropertyInspectorCoordinator" jni-signature="()Lcom/pspdfkit/ui/inspector/PropertyInspectorCoordinatorLayout;" bridge="false" native="false" return="com.pspdfkit.ui.inspector.PropertyInspectorCoordinatorLayout" jni-return="Lcom/pspdfkit/ui/inspector/PropertyInspectorCoordinatorLayout;" static="false" synchronized="false" synthetic="false" visibility="public" />
     
 <!--  From com.pspdfkit.ui.PdfUi, unfortunately indirect implementation of this interface fails for us so we need to manually expose it  -->
     <method abstract="false" deprecated="not deprecated" final="false" name="addPropertyInspectorLifecycleListener" jni-signature="(Lcom/pspdfkit/ui/inspector/PropertyInspectorCoordinatorLayoutController$PropertyInspectorLifecycleListener;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
@@ -310,8 +304,6 @@
     <method abstract="false" deprecated="not deprecated" final="false" name="getDocument" jni-signature="()Lcom/pspdfkit/document/PdfDocument;" bridge="false" native="false" return="com.pspdfkit.document.PdfDocument" jni-return="Lcom/pspdfkit/document/PdfDocument;" static="false" synchronized="false" synthetic="false" visibility="public">
     </method>
     <method abstract="false" deprecated="not deprecated" final="false" name="getDocumentCoordinator" jni-signature="()Lcom/pspdfkit/ui/DocumentCoordinator;" bridge="false" native="false" return="com.pspdfkit.ui.DocumentCoordinator" jni-return="Lcom/pspdfkit/ui/DocumentCoordinator;" static="false" synchronized="false" synthetic="false" visibility="public">
-    </method>
-    <method abstract="false" deprecated="not deprecated" final="false" name="getImplementation" jni-signature="()Lcom/pspdfkit/ui/PdfUiImpl;" bridge="false" native="false" return="com.pspdfkit.ui.PdfUiImpl" jni-return="Lcom/pspdfkit/ui/PdfUiImpl;" static="false" synchronized="false" synthetic="false" visibility="public">
     </method>
     <method abstract="false" deprecated="not deprecated" final="false" name="getPSPDFKitViews" jni-signature="()Lcom/pspdfkit/ui/PSPDFKitViews;" bridge="false" native="false" return="com.pspdfkit.ui.PSPDFKitViews" jni-return="Lcom/pspdfkit/ui/PSPDFKitViews;" static="false" synchronized="false" synthetic="false" visibility="public">
     </method>
@@ -448,62 +440,12 @@
   </add-node>
 
   <add-node path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfActivity']">
-    <implements name="com.pspdfkit.ui.PdfUi" name-generic-aware="com.pspdfkit.ui.PdfUi" jni-type="Lcom/pspdfkit/ui/PdfUi;">
-    </implements>
-    <method abstract="false" deprecated="not deprecated" final="false" name="getPropertyInspectorCoordinator" jni-signature="()Lcom/pspdfkit/ui/inspector/PropertyInspectorCoordinatorLayout;" bridge="false" native="false" return="com.pspdfkit.ui.inspector.PropertyInspectorCoordinatorLayout" jni-return="Lcom/pspdfkit/ui/inspector/PropertyInspectorCoordinatorLayout;" static="false" synchronized="false" synthetic="false" visibility="public">
-    </method>
-    <method abstract="false" deprecated="not deprecated" final="false" name="removePropertyInspectorLifecycleListener" jni-signature="(Lcom/pspdfkit/ui/inspector/PropertyInspectorCoordinatorLayoutController$PropertyInspectorLifecycleListener;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
-      <parameter name="p0" type="com.pspdfkit.ui.inspector.PropertyInspectorCoordinatorLayoutController.PropertyInspectorLifecycleListener" jni-type="Lcom/pspdfkit/ui/inspector/PropertyInspectorCoordinatorLayoutController$PropertyInspectorLifecycleListener;">
-      </parameter>
-    </method>
-    <method abstract="false" deprecated="not deprecated" final="false" name="setAnnotationCreationInspectorController" jni-signature="(Lcom/pspdfkit/ui/inspector/annotation/AnnotationCreationInspectorController;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
-      <parameter name="p0" type="com.pspdfkit.ui.inspector.annotation.AnnotationCreationInspectorController" jni-type="Lcom/pspdfkit/ui/inspector/annotation/AnnotationCreationInspectorController;">
-      </parameter>
-    </method>
-    <method abstract="false" deprecated="not deprecated" final="false" name="setAnnotationEditingInspectorController" jni-signature="(Lcom/pspdfkit/ui/inspector/annotation/AnnotationEditingInspectorController;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
-      <parameter name="p0" type="com.pspdfkit.ui.inspector.annotation.AnnotationEditingInspectorController" jni-type="Lcom/pspdfkit/ui/inspector/annotation/AnnotationEditingInspectorController;">
-      </parameter>
-    </method>
-    <method abstract="false" deprecated="not deprecated" final="false" name="setDocumentPrintDialogFactory" jni-signature="(Lcom/pspdfkit/ui/dialog/DocumentPrintDialogFactory;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
-      <parameter name="p0" type="com.pspdfkit.ui.dialog.DocumentPrintDialogFactory" jni-type="Lcom/pspdfkit/ui/dialog/DocumentPrintDialogFactory;">
-      </parameter>
-    </method>
-    <method abstract="false" deprecated="not deprecated" final="false" name="setDocumentSharingDialogFactory" jni-signature="(Lcom/pspdfkit/ui/dialog/DocumentSharingDialogFactory;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
-      <parameter name="p0" type="com.pspdfkit.ui.dialog.DocumentSharingDialogFactory" jni-type="Lcom/pspdfkit/ui/dialog/DocumentSharingDialogFactory;">
-      </parameter>
-    </method>
-    <method abstract="false" deprecated="not deprecated" final="false" name="setOnContextualToolbarLifecycleListener" jni-signature="(Lcom/pspdfkit/ui/toolbar/ToolbarCoordinatorLayout$OnContextualToolbarLifecycleListener;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
-      <parameter name="p0" type="com.pspdfkit.ui.toolbar.ToolbarCoordinatorLayout.OnContextualToolbarLifecycleListener" jni-type="Lcom/pspdfkit/ui/toolbar/ToolbarCoordinatorLayout$OnContextualToolbarLifecycleListener;">
-      </parameter>
-    </method>
-    <method abstract="false" deprecated="not deprecated" final="false" name="setOnContextualToolbarMovementListener" jni-signature="(Lcom/pspdfkit/ui/toolbar/ToolbarCoordinatorLayout$OnContextualToolbarMovementListener;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
-      <parameter name="p0" type="com.pspdfkit.ui.toolbar.ToolbarCoordinatorLayout.OnContextualToolbarMovementListener" jni-type="Lcom/pspdfkit/ui/toolbar/ToolbarCoordinatorLayout$OnContextualToolbarMovementListener;">
-      </parameter>
-    </method>
-    <method abstract="false" deprecated="not deprecated" final="false" name="setOnContextualToolbarPositionListener" jni-signature="(Lcom/pspdfkit/ui/toolbar/ToolbarCoordinatorLayout$OnContextualToolbarPositionListener;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
-      <parameter name="p0" type="com.pspdfkit.ui.toolbar.ToolbarCoordinatorLayout.OnContextualToolbarPositionListener" jni-type="Lcom/pspdfkit/ui/toolbar/ToolbarCoordinatorLayout$OnContextualToolbarPositionListener;">
-      </parameter>
-    </method>
-    <method abstract="false" deprecated="not deprecated" final="false" name="setPrintOptionsProvider" jni-signature="(Lcom/pspdfkit/document/printing/PrintOptionsProvider;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
-      <parameter name="p0" type="com.pspdfkit.document.printing.PrintOptionsProvider" jni-type="Lcom/pspdfkit/document/printing/PrintOptionsProvider;">
-      </parameter>
-    </method>
-    <method abstract="false" deprecated="not deprecated" final="false" name="setSharingActionMenuListener" jni-signature="(Lcom/pspdfkit/ui/actionmenu/ActionMenuListener;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
-      <parameter name="p0" type="com.pspdfkit.ui.actionmenu.ActionMenuListener" jni-type="Lcom/pspdfkit/ui/actionmenu/ActionMenuListener;">
-      </parameter>
-    </method>
-    <method abstract="false" deprecated="not deprecated" final="false" name="setSharingOptionsProvider" jni-signature="(Lcom/pspdfkit/document/sharing/SharingOptionsProvider;)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
-      <parameter name="p0" type="com.pspdfkit.document.sharing.SharingOptionsProvider" jni-type="Lcom/pspdfkit/document/sharing/SharingOptionsProvider;">
-      </parameter>
-    </method>
+    <method abstract="false" deprecated="not deprecated" final="false" name="getPropertyInspectorCoordinator" jni-signature="()Lcom/pspdfkit/ui/inspector/PropertyInspectorCoordinatorLayout;" bridge="false" native="false" return="com.pspdfkit.ui.inspector.PropertyInspectorCoordinatorLayout" jni-return="Lcom/pspdfkit/ui/inspector/PropertyInspectorCoordinatorLayout;" static="false" synchronized="false" synthetic="false" visibility="public" />
     
 <!--  From com.pspdfkit.ui.PdfUi, unfortunately indirect implementation of this interface fails for us so we need to manually expose it -->
-
     <method abstract="false" deprecated="not deprecated" final="false" name="getDocument" jni-signature="()Lcom/pspdfkit/document/PdfDocument;" bridge="false" native="false" return="com.pspdfkit.document.PdfDocument" jni-return="Lcom/pspdfkit/document/PdfDocument;" static="false" synchronized="false" synthetic="false" visibility="public">
     </method>
     <method abstract="false" deprecated="not deprecated" final="false" name="getDocumentCoordinator" jni-signature="()Lcom/pspdfkit/ui/DocumentCoordinator;" bridge="false" native="false" return="com.pspdfkit.ui.DocumentCoordinator" jni-return="Lcom/pspdfkit/ui/DocumentCoordinator;" static="false" synchronized="false" synthetic="false" visibility="public">
-    </method>
-    <method abstract="true" deprecated="not deprecated" final="false" name="getImplementation" jni-signature="()Lcom/pspdfkit/ui/PdfUiImpl;" bridge="false" native="false" return="com.pspdfkit.ui.PdfUiImpl" jni-return="Lcom/pspdfkit/ui/PdfUiImpl;" static="false" synchronized="false" synthetic="false" visibility="public">
     </method>
     <method abstract="false" deprecated="not deprecated" final="false" name="getPSPDFKitViews" jni-signature="()Lcom/pspdfkit/ui/PSPDFKitViews;" bridge="false" native="false" return="com.pspdfkit.ui.PSPDFKitViews" jni-return="Lcom/pspdfkit/ui/PSPDFKitViews;" static="false" synchronized="false" synthetic="false" visibility="public">
     </method>
