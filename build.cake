@@ -68,9 +68,9 @@ Task ("ExtractAars")
 			DeleteDirectory ($"./PSPDFKit.Android/Jars/relinker-{RELINKER_VERSION}", delDirSettings);
 
 		// Unzip ($"./PSPDFKit.Android/Jars/YouTubeAndroidPlayerApi-{YOUTUBE_VERSION}.zip", $"./PSPDFKit.Android/Jars/YouTubeAndroidPlayerApi-{YOUTUBE_VERSION}");
-	  // Unzip ($"./PSPDFKit.Android/Jars/rxandroid-{RXANDROID_VERSION}.aar", $"./PSPDFKit.Android/Jars/rxandroid-{RXANDROID_VERSION}");
+	 	// Unzip ($"./PSPDFKit.Android/Jars/rxandroid-{RXANDROID_VERSION}.aar", $"./PSPDFKit.Android/Jars/rxandroid-{RXANDROID_VERSION}");
 		Unzip ($"./PSPDFKit.Android/Jars/relinker-{RELINKER_VERSION}.aar", $"./PSPDFKit.Android/Jars/relinker-{RELINKER_VERSION}");
-  	// CopyFile ($"./PSPDFKit.Android/Jars/rxandroid-{RXANDROID_VERSION}/classes.jar", $"./PSPDFKit.Android/Jars/rxandroid-{RXANDROID_VERSION}.jar");
+  		// CopyFile ($"./PSPDFKit.Android/Jars/rxandroid-{RXANDROID_VERSION}/classes.jar", $"./PSPDFKit.Android/Jars/rxandroid-{RXANDROID_VERSION}.jar");
 		CopyFile ($"./PSPDFKit.Android/Jars/relinker-{RELINKER_VERSION}/classes.jar", $"./PSPDFKit.Android/Jars/relinker-{RELINKER_VERSION}.jar");
 });
 
