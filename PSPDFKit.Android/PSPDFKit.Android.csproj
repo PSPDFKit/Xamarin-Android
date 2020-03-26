@@ -12,7 +12,7 @@
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <AssemblyName>PSPDFKit.Android</AssemblyName>
-    <TargetFrameworkVersion>v10.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
     <JavaOptions>$(JavaOptions) -noverify </JavaOptions>
     <AndroidClassParser>class-parse</AndroidClassParser>
     <AndroidCodeGenTarget>XAJavaInterop1</AndroidCodeGenTarget>

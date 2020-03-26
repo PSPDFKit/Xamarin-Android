@@ -16,7 +16,7 @@
     <AndroidApplication>True</AndroidApplication>
     <AssemblyName>AndroidSample</AssemblyName>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
-    <TargetFrameworkVersion>v10.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
     <AndroidDexTool>d8</AndroidDexTool>
     <AndroidEnableMultiDex>true</AndroidEnableMultiDex>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
