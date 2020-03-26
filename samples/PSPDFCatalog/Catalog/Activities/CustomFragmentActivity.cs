@@ -9,9 +9,7 @@ using Android.Graphics;
 using Android.Graphics.Drawables;
 using Android.OS;
 using Android.Runtime;
-using Android.Support.V4.Content;
-using Android.Support.V4.Graphics.Drawable;
-using Android.Support.V7.App;
+using AndroidX.AppCompat.App;
 using Android.Views;
 using Android.Widget;
 using Java.Lang;
@@ -25,6 +23,8 @@ using PSPDFKit.UI;
 using PSPDFKit.UI.Outline;
 using PSPDFKit.UI.Search;
 using PSPDFKit.Utils;
+using AndroidX.Core.Content;
+using AndroidX.Core.Graphics.Drawable;
 
 namespace PSPDFCatalog {
 
@@ -62,7 +62,7 @@ namespace PSPDFCatalog {
 					.BeginTransaction ()
 					// We use a small hack JavaCast<T> because at build time we expect a 'Android.Support.V4.App.Fragment'
 					// but 'PdfFragment' extends 'AndroidX.Fragment.App.Fragment' but migration package should fix it for us at runtime.
-					.Replace (Resource.Id.fragmentContainer, fragment.JavaCast<Android.Support.V4.App.Fragment> ())
+					.Replace (Resource.Id.fragmentContainer, fragment.JavaCast<AndroidX.Fragment.App.Fragment> ())
 					.Commit ();
 			}
 
