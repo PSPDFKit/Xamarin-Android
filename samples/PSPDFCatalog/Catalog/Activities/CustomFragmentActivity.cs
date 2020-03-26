@@ -9,9 +9,11 @@ using Android.Graphics;
 using Android.Graphics.Drawables;
 using Android.OS;
 using Android.Runtime;
-using AndroidX.AppCompat.App;
 using Android.Views;
 using Android.Widget;
+using AndroidX.AppCompat.App;
+using AndroidX.Core.Content;
+using AndroidX.Core.Graphics.Drawable;
 using Java.Lang;
 
 using PSPDFKit.Annotations;
@@ -23,8 +25,6 @@ using PSPDFKit.UI;
 using PSPDFKit.UI.Outline;
 using PSPDFKit.UI.Search;
 using PSPDFKit.Utils;
-using AndroidX.Core.Content;
-using AndroidX.Core.Graphics.Drawable;
 
 namespace PSPDFCatalog {
 

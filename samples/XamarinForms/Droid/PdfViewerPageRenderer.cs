@@ -8,9 +8,9 @@ using Android.OS;
 using Android.Runtime;
 using Android.Support.V4.Content;
 using Android.Support.V4.Graphics.Drawable;
-using AndroidX.AppCompat.App;
 using Android.Views;
 using Android.Widget;
+using AndroidX.AppCompat.App;
 using Java.Lang;
 
 using PSPDFKit.Annotations;
