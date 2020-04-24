@@ -149,12 +149,12 @@ R8 : error : Compilation can't be completed because some library classes are mis
 
 ### Checking for Compatibility
 
-You can include PSPDFKit into applications which will be distributed to devices not supported by PSPDFkit. In that case you can attempt initializing and catch PSPDFInitializationFailedException to check for device compatibility.
+You can include PSPDFKit into applications which will be distributed to devices not supported by PSPDFkit. In that case you can attempt initializing and catch `PSPDFKitInitializationFailedException` to check for device compatibility.
 
 ```csharp
 try {
 	PSPDFKitGlobal.Initialize(this, "<YOUR LICENSE>");
-} catch (PSPDFInitializationFailedException ex) {
+} catch (PSPDFKitInitializationFailedException ex) {
 	Console.WriteLine ("Current device is not compatible with PSPDFKit: {0}", ex.Message);
 }
 ```
@@ -165,21 +165,21 @@ try {
 
 ```xml
 <application android:largeHeap="true">
-    <activity android:name="com.pspdfkit.ui.PSPDFActivity"
+    <activity android:name="com.pspdfkit.ui.PdfActivity"
               android:windowSoftInputMode="adjustNothing" />
 </application>
 ```
 
->You can use android:theme attribute to customize actionbar, background and other elements of the activity theme if you so desire. Note that if you want to use appcompat-v7 material themes, you'll have to use `PSPDFAppCompatActivity` instead of `PSPDFActivity`.
+>You can use android:theme attribute to customize actionbar, background and other elements of the activity theme if you so desire.
 
 * Make sure you have `android:largeHeap="true"` property in your `<application>` tag in **AndroidManifest.xml**. Rendering PDF files is memory intensive and this property will ensure your app has enough heap allocated to avoid out of memory errors.
 
-* Create `PSPDFActivityConfiguration` object and then call `PSPDFActivity.ShowDocument()` to display the document. Document location is expressed with an Uri object.
+* Create `PdfActivityConfiguration` object and then call `PdfActivity.ShowDocument()` to display the document. Document location is expressed with an Uri object.
 
 ```csharp
 var pdfDocument = Android.Net.Uri.FromFile (new Java.IO.File (Android.OS.Environment.ExternalStorageDirectory, "document.pdf"));
-var configuration = new PSPDFActivityConfiguration.Builder("<YOUR_LICENSE>").Build();
-PSPDFActivity.ShowDocument(this, pdfDocument, configuration);
+var configuration = new PdfActivityConfiguration.Builder("<YOUR_LICENSE>").Build();
+PdfActivity.ShowDocument(this, pdfDocument, configuration);
 ```
 
 >You can create an Uri object from file using `Android.Net.Uri.FromFile(File)` call or you can pass in Uri returned by [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider.html). For all configuration options refer to included JavaDoc.
@@ -194,24 +194,24 @@ PSPDFActivity.ShowDocument(this, pdfDocument, configuration);
 </application>
 ```
 
-* Create `PSPDFConfiguration` object and then call `PSPDFFragment.NewInstance()` to create a new Fragment instance for a document.
-* Attach Fragment to your view hiearchy. Remember that fragments are retained over configuration changes, so do not recreate fragment if it's already attached - that will lead to bugs and out of memory errors.
+* Create `PdfConfiguration` object and then call `PdfFragment.NewInstance()` to create a new `PdfFragment` instance for a document.
+* Attach the fragment to your view hierarchy. Remember that fragments are retained over configuration changes, so do not recreate fragment if it's already attached - that will lead to bugs and out of memory errors.
 
 ```csharp
 var pdfDocument = Android.Net.Uri.FromFile (new Java.IO.File (Android.OS.Environment.ExternalStorageDirectory, "document.pdf"));
-var configuration = new PSPDFConfiguration.Builder("<YOUR_LICENSE>")
+var configuration = new PdfConfiguration.Builder("<YOUR_LICENSE>")
 	.ScrollDirection (PageScrollDirection.Horizontal)
 	.Build();
 
-var fragment = PSPDFFragment.NewInstance(pdfDocument, configuration);
+var fragment = PdfFragment.NewInstance(pdfDocument, configuration);
 SupportFragmentManager.BeginTransaction().Replace(Resource.Id.Content, fragment).Commit();
 ```
 
->Note that the Fragment extends Android.Support.V4.App.Fragment and not Android.App.Fragment.
+>Note that the `PdfFragment` extends `Android.Support.V4.App.Fragment` and not `Android.App.Fragment`.
 
 ### Render Page to a Bitmap
 
-You can use PSPDFKit to render PDF to bitmaps without showing them in activities. To do that, use PSPDFKit and PSPDFDocument class calls.
+You can use PSPDFKit to render PDF to bitmaps without showing them in activities. To do that, use `PSPDFKitGlobal` and `PdfDocument` class calls.
 
 Example:
 
@@ -232,7 +232,7 @@ try {
 
 ### Customization
 
-To customize PSPDFKit Activity UI elements use standard Android themes. When using AppCompat, PSPDFKit will color actionbar and other elements according to colorPrimary and colorAccent attributes. Example theme definition:
+To customize `PdfActivity` UI elements, use theme based on `Theme.AppCompat`. PSPDFKit will color actionbar and other elements according to `colorPrimary` and `colorAccent` attributes. Example theme definition:
 
 ```xml
 <style name="MyApplicationTheme.Theme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -245,12 +245,12 @@ To customize PSPDFKit Activity UI elements use standard Android themes. When usi
 And then it should be applied in AndroidManifest.xml:
 
 ```xml
-<activity android:name="com.pspdfkit.ui.PSPDFAppCompatActivity"
+<activity android:name="com.pspdfkit.ui.PdfActivity"
       android:windowSoftInputMode="adjustNothing"
       android:theme="@style/MyApplicationTheme.Theme" />
 ```
 
-Other configuration options for UI elements (icons, element sizes) can be found in `PSPDFActivityConfiguration` class.
+Other configuration options for UI elements (icons, element sizes) can be found in `PdfActivityConfiguration` class.
 
 ### More Information
 
