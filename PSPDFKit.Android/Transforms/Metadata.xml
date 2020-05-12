@@ -12,10 +12,9 @@
   <remove-node path="//class['Impl' = substring(substring-before(@name,'.') , string-length(substring-before(@name,'.')) - 3)]" />
 
   <!-- Removes any "constructor" that any of its parameters uses any of the types contained in com.pspdfkit.internal.* -->
-  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.aa')]" />
-  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.k0')]" />
-  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.jb')]" />
-  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.i8')]" />
+  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.j0')]" />
+  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.pb')]" />
+  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.m8')]" />
   <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.jni.NativeAnnotation')]" />
   <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.jni.NativeFormField')]" />
   <!-- Not creating a general rule to avoid bug reported by David -->
@@ -185,21 +184,13 @@
   <attr path="/api/package[@name='com.pspdfkit.signatures.signers']/interface[@name='PrivateKeySigner.OnPrivateKeyLoadedCallback']" name="visibility">public</attr>
 
   <attr path="/api/package[@name='com.pspdfkit.ui']/interface[@name='PSPDFKitViews.PSPDFView']/method[@name='hide' and count(parameter)=0]" name="managedName">HideView</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui']/interface[@name='PSPDFKitViews.PSPDFView']/method[@name='show' and count(parameter)=0]" name="managedName">ShowView</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfOutlineView']/method[@name='hide' and count(parameter)=0]" name="managedName">HideView</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfOutlineView']/method[@name='show' and count(parameter)=0]" name="managedName">ShowView</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfThumbnailBar']/method[@name='hide' and count(parameter)=0]" name="managedName">HideView</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfThumbnailBar']/method[@name='show' and count(parameter)=0]" name="managedName">ShowView</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfThumbnailGrid']/method[@name='hide' and count(parameter)=0]" name="managedName">HideView</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfThumbnailGrid']/method[@name='show' and count(parameter)=0]" name="managedName">ShowView</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.thumbnail']/class[@name='PdfStaticThumbnailBar']/method[@name='hide' and count(parameter)=0]" name="managedName">HideView</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui.thumbnail']/class[@name='PdfStaticThumbnailBar']/method[@name='show' and count(parameter)=0]" name="managedName">ShowView</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.thumbnail']/class[@name='PdfScrollableThumbnailBar']/method[@name='hide' and count(parameter)=0]" name="managedName">HideView</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui.thumbnail']/class[@name='PdfScrollableThumbnailBar']/method[@name='show' and count(parameter)=0]" name="managedName">ShowView</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='PdfSearchViewInline']/method[@name='hide' and count(parameter)=0]" name="managedName">HideView</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='PdfSearchViewInline']/method[@name='show' and count(parameter)=0]" name="managedName">ShowView</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='PdfSearchViewModular']/method[@name='hide' and count(parameter)=0]" name="managedName">HideView</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='PdfSearchViewModular']/method[@name='show' and count(parameter)=0]" name="managedName">ShowView</attr>
 
   <attr path="/api/package[@name='com.pspdfkit.annotations.configuration']/interface[@name='StampAnnotationConfiguration.Builder']/method[@name='build']" name="managedReturn">PSPDFKit.Annotations.Configuration.IAnnotationConfiguration</attr>
   <attr path="/api/package[@name='com.pspdfkit.annotations.configuration']/interface[@name='FileAnnotationConfiguration.Builder']/method[@name='build']" name="managedReturn">PSPDFKit.Annotations.Configuration.IAnnotationConfiguration</attr>
@@ -222,9 +213,6 @@
   <remove-node path="/api/package[@name='com.pspdfkit.forms']/class[@name='FormElementConfiguration.BaseBuilder']/method[@name='a' and count(parameter)=0]" />
 
   <remove-node path="/api/package[@name='com.pspdfkit.forms']/class[@name='FormElementConfiguration']/field[@name='a']" />
-
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='BaseRectsAnnotation']/constructor[@name='BaseRectsAnnotation' and count(parameter)=0]" />
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='RedactionAnnotation']/constructor[@name='RedactionAnnotation' and count(parameter)=0]" />
 
   <remove-node path="/api/package[@name='com.pspdfkit.document.image']/class[@name='BaseImagePickerFragment']/field[@name='lastActivityResult']" />
   <remove-node path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfActivity']/field[@name='internalPdfUi']" />
@@ -497,25 +485,7 @@
   <remove-node path="/api/package[@name='com.pspdfkit.datastructures']/class[@name='ImmutableDate']/method[@name='setSeconds' and count(parameter)=1 and parameter[1][@type='int']]" />
   <remove-node path="/api/package[@name='com.pspdfkit.datastructures']/class[@name='ImmutableDate']/method[@name='setTime' and count(parameter)=1 and parameter[1][@type='long']]" />
   <remove-node path="/api/package[@name='com.pspdfkit.datastructures']/class[@name='ImmutableDate']/method[@name='setYear' and count(parameter)=1 and parameter[1][@type='int']]" /> -->
-
-  <!-- Remove duplicated ctors, generator bug -->
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='BaseLineAnnotation']/constructor[@name='BaseLineAnnotation' and count(parameter)=0]" />
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='CircleAnnotation']/constructor[@name='CircleAnnotation' and count(parameter)=0]" />
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='FreeTextAnnotation']/constructor[@name='FreeTextAnnotation' and count(parameter)=0]" />
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='Annotation']/constructor[@name='Annotation' and count(parameter)=0]" />
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='HighlightAnnotation']/constructor[@name='HighlightAnnotation' and count(parameter)=0]" />
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='InkAnnotation']/constructor[@name='InkAnnotation' and count(parameter)=0]" />
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='LineAnnotation']/constructor[@name='LineAnnotation' and count(parameter)=0]" />
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='LinkAnnotation']/constructor[@name='LinkAnnotation' and count(parameter)=0]" />
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='ShapeAnnotation']/constructor[@name='ShapeAnnotation' and count(parameter)=0]" />
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='NoteAnnotation']/constructor[@name='NoteAnnotation' and count(parameter)=0]" />
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='SquareAnnotation']/constructor[@name='SquareAnnotation' and count(parameter)=0]" />
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='SquigglyAnnotation']/constructor[@name='SquigglyAnnotation' and count(parameter)=0]" />
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='PolygonAnnotation']/constructor[@name='PolygonAnnotation' and count(parameter)=0]" />
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='PolylineAnnotation']/constructor[@name='PolylineAnnotation' and count(parameter)=0]" />
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='StrikeOutAnnotation']/constructor[@name='StrikeOutAnnotation' and count(parameter)=0]" />
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='TextMarkupAnnotation']/constructor[@name='TextMarkupAnnotation' and count(parameter)=0]" />
-  <remove-node path="/api/package[@name='com.pspdfkit.annotations']/class[@name='UnderlineAnnotation']/constructor[@name='UnderlineAnnotation' and count(parameter)=0]" />
+  
 
   <!-- Youtube API Fixes-->
   <!-- <remove-node path="/api/package[@name='com.google.android.youtube.player']/class[@name='YouTubeThumbnailView']/method[@name='finalize' and count(parameter)=0]" />
@@ -524,8 +494,6 @@
   <!-- We need to fake these two methods in order to satisfy C# interface implementation and generator -->
   <add-node path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='PdfSearchViewLazy']">
     <method abstract="false" deprecated="not deprecated" final="false" name="hideView" native="false" return="void" static="false" synchronized="false" visibility="public">
-    </method>
-    <method abstract="false" deprecated="not deprecated" final="false" name="showView" native="false" return="void" static="false" synchronized="false" visibility="public">
     </method>
   </add-node>
 </metadata>

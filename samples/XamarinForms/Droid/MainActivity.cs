@@ -1,21 +1,13 @@
-﻿using System;
-using Android;
-using Android.App;
+﻿using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.OS;
-using Android.Runtime;
-using Android.Support.V4.App;
-using Android.Support.V4.Content;
-using Android.Views;
-using Android.Widget;
 using Plugin.CurrentActivity;
 using Plugin.Permissions;
 using PSPDFKit;
 using PSPDFKit.Configuration.Activity;
 using PSPDFKit.Configuration.Page;
 using PSPDFKit.UI;
-using Xamarin.Forms;
 using XFSample.Droid;
 using SampleTools;
 
@@ -43,6 +35,7 @@ namespace XFSample.Droid {
 			base.OnCreate (savedInstanceState);
 
 			CrossCurrentActivity.Current.Init (this, savedInstanceState);
+			Xamarin.Essentials.Platform.Init (this, savedInstanceState);
 			global::Xamarin.Forms.Forms.Init (this, savedInstanceState);
 
 			LoadApplication (new App ());
@@ -58,7 +51,7 @@ namespace XFSample.Droid {
 		public void ShowPdfActivity ()
 		{
 			// Extract the pdf from assets if not already extracted
-			var docUri = Utils.ExtractAsset (this, sampleDoc);
+			var docUri = Utils.ExtractAsset (CrossCurrentActivity.Current.Activity, sampleDoc);
 
 			// Show Document using PSPDFKit activity
 			var pspdfkitConfiguration = new PdfActivityConfiguration.Builder (CrossCurrentActivity.Current.Activity)

@@ -1,14 +1,10 @@
-﻿using System;
-using System.Linq;
-using Android.App;
+﻿using System.Linq;
 using Android.Content;
 using Android.Graphics;
 using Android.Graphics.Drawables;
-using Android.OS;
 using Android.Runtime;
-using Android.Support.V4.Content;
-using Android.Support.V4.Graphics.Drawable;
-using Android.Support.V7.App;
+using AndroidX.Core.Content;
+using AndroidX.Core.Graphics.Drawable;
 using Android.Views;
 using Android.Widget;
 using Java.Lang;
@@ -70,9 +66,7 @@ namespace XFSample.Droid {
 			fragment = PdfFragment.NewInstance (documentUri, configuration);
 			activity.SupportFragmentManager
 				.BeginTransaction ()
-				// We use a small hack JavaCast<T> because at build time we expect a 'Android.Support.V4.App.Fragment'
-				// but 'PdfFragment' extends 'AndroidX.Fragment.App.Fragment' but migration package should fix it for us at runtime.
-				.Replace (Resource.Id.fragmentContainer, fragment.JavaCast<Android.Support.V4.App.Fragment> ())
+				.Replace (Resource.Id.fragmentContainer, fragment)
 				.Commit ();
 
 			InitModularSearchViewAndButton ();
@@ -136,7 +130,7 @@ namespace XFSample.Droid {
 
 			// The thumbnail grid is hidden by default. Set up a click listener to show it.
 			var openTumbnailGridButton = view.FindViewById<ImageView> (Resource.Id.openThumbnailGridButton);
-			openTumbnailGridButton.Click += (sender, e) => thumbnailGrid.ShowView ();
+			openTumbnailGridButton.Click += (sender, e) => thumbnailGrid.Show ();
 			openTumbnailGridButton.SetImageDrawable (TintDrawable (openTumbnailGridButton.Drawable, ContextCompat.GetColor (Context, Resource.Color.pspdf__color_white)));
 		}
 
@@ -161,7 +155,7 @@ namespace XFSample.Droid {
 			pdfOutlineView.SetBookmarkAdapter (new DefaultBookmarkAdapter (fragment));
 
 			var openOutlineButton = view.FindViewById<ImageView> (Resource.Id.openOutlineButton);
-			openOutlineButton.Click += (sender, e) => pdfOutlineView.ShowView ();
+			openOutlineButton.Click += (sender, e) => pdfOutlineView.Show ();
 			openOutlineButton.SetImageDrawable (TintDrawable (openOutlineButton.Drawable, ContextCompat.GetColor (Context, Resource.Color.pspdf__color_white)));
 		}
 
@@ -187,7 +181,7 @@ namespace XFSample.Droid {
 			// The search view is hidden by default (see layout). Set up a click listener that will show the view once pressed.
 			var openSearchButton = view.FindViewById<ImageView> (Resource.Id.openSearchButton);
 			openSearchButton.SetImageDrawable (TintDrawable (openSearchButton.Drawable, ContextCompat.GetColor (Context, Resource.Color.pspdf__color_white)));
-			openSearchButton.Click += (sender, e) => modularSearchView.ShowView ();
+			openSearchButton.Click += (sender, e) => modularSearchView.Show ();
 		}
 
 		void CreateNoteAnnotation (int pageIndex)

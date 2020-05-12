@@ -3,9 +3,9 @@
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Support.V7.App;
-using Android.Support.V7.Widget;
 using Android.Views;
+using AndroidX.AppCompat.App;
+using AndroidX.AppCompat.Widget;
 using Plugin.CurrentActivity;
 using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
@@ -37,6 +37,7 @@ namespace PSPDFCatalog {
 			base.OnCreate (savedInstanceState);
 
 			CrossCurrentActivity.Current.Init (this, savedInstanceState);
+			Xamarin.Essentials.Platform.Init (this, savedInstanceState);
 
 			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Main);
@@ -91,15 +92,12 @@ namespace PSPDFCatalog {
 			var page = sender as MainMenuPage;
 
 			// We need storage permission, we can use Permissions Plugin to help here
-			var status = await CrossPermissions.Current.CheckPermissionStatusAsync (Permission.Storage);
+			var status = await CrossPermissions.Current.CheckPermissionStatusAsync<StoragePermission> ();
 			if (status != PermissionStatus.Granted) {
 				if (await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync (Permission.Storage))
 					await page.DisplayAlert ("Need Storage Permission", "Need access to store yor PDF documents", "OK");
 
-				var results = await CrossPermissions.Current.RequestPermissionsAsync (Permission.Storage);
-				//Best practice to always check that the key exists
-				if (results.ContainsKey (Permission.Storage))
-					status = results [Permission.Storage];
+				status = await CrossPermissions.Current.RequestPermissionAsync <StoragePermission> ();
 			}
 
 			if (status == PermissionStatus.Granted) {

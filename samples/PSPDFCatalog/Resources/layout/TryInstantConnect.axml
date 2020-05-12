@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,25 +10,25 @@
         android:layout_height="wrap_content"
         android:focusable="true"
         android:focusableInTouchMode="true" />
-    <android.support.design.widget.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-        <android.support.v7.widget.Toolbar
+        <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             popupTheme="@style/ThemeOverlay.AppCompat.Light"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
             android:layout_alignParentTop="true"
             android:background="?colorPrimary" />
-    </android.support.design.widget.AppBarLayout>
-    <android.support.v4.widget.NestedScrollView
+    </com.google.android.material.appbar.AppBarLayout>
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center_horizontal|top"
         android:isScrollContainer="true"
-        app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
                 android:autoLink="web"
                 android:layout_marginBottom="32dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
-            <android.support.v7.widget.AppCompatButton
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button_new_document"
                 style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="fill_parent"
@@ -56,7 +56,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="16dp" />
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <EditText
@@ -66,8 +66,8 @@
                     android:hint="@string/instant_enter_document_code"
                     android:imeOptions="actionGo"
                     android:inputType="text" />
-            </android.support.design.widget.TextInputLayout>
-            <android.support.v7.widget.AppCompatButton
+            </com.google.android.material.textfield.TextInputLayout>
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button_edit_document"
                 style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="fill_parent"
@@ -81,5 +81,5 @@
                 android:text="@string/instant_edit_existing_document_description"
                 android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
         </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
-</android.support.design.widget.CoordinatorLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

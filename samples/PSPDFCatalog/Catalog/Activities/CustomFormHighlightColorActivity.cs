@@ -2,8 +2,8 @@
 
 using Android.App;
 using Android.Graphics;
-using Android.Support.V4.Content;
-using Android.Support.V4.Graphics.Drawable;
+using AndroidX.Core.Content;
+using AndroidX.Core.Graphics.Drawable;
 using Android.Views;
 
 using PSPDFKit.Configuration.Activity;

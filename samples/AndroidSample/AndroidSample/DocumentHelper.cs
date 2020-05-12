@@ -3,8 +3,6 @@ using System.Globalization;
 using System.IO;
 using System.Threading.Tasks;
 using Android.Content;
-using Android.OS;
-using Android.Views;
 
 namespace SampleTools {
 	public static partial class Utils {
@@ -12,7 +10,7 @@ namespace SampleTools {
 
 		public static Android.Net.Uri ExtractAsset (Context ctx, string assetName)
 		{
-			var docPath = Path.Combine (Android.OS.Environment.ExternalStorageDirectory.ToString (), assetName);
+			var docPath = Path.Combine (ctx.GetExternalFilesDir (null).AbsolutePath, assetName);
 			if (!File.Exists (docPath)) {
 				using (var br = new BinaryReader (ctx.Assets.Open (assetName))) {
 					using (var bw = new BinaryWriter (new FileStream (docPath, FileMode.Create))) {

@@ -9,11 +9,11 @@ using Android.Graphics;
 using Android.Graphics.Drawables;
 using Android.OS;
 using Android.Runtime;
-using Android.Support.V4.Content;
-using Android.Support.V4.Graphics.Drawable;
-using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
+using AndroidX.AppCompat.App;
+using AndroidX.Core.Content;
+using AndroidX.Core.Graphics.Drawable;
 using Java.Lang;
 
 using PSPDFKit.Annotations;
@@ -60,9 +60,7 @@ namespace PSPDFCatalog {
 				fragment = PdfFragment.NewInstance (documentUri, configuration);
 				SupportFragmentManager
 					.BeginTransaction ()
-					// We use a small hack JavaCast<T> because at build time we expect a 'Android.Support.V4.App.Fragment'
-					// but 'PdfFragment' extends 'AndroidX.Fragment.App.Fragment' but migration package should fix it for us at runtime.
-					.Replace (Resource.Id.fragmentContainer, fragment.JavaCast<Android.Support.V4.App.Fragment> ())
+					.Replace (Resource.Id.fragmentContainer, fragment)
 					.Commit ();
 			}
 
@@ -92,7 +90,7 @@ namespace PSPDFCatalog {
 
 			// The thumbnail grid is hidden by default. Set up a click listener to show it.
 			var openTumbnailGridButton = FindViewById<ImageView> (Resource.Id.openThumbnailGridButton);
-			openTumbnailGridButton.Click += (sender, e) => thumbnailGrid.ShowView ();
+			openTumbnailGridButton.Click += (sender, e) => thumbnailGrid.Show ();
 			openTumbnailGridButton.SetImageDrawable (TintDrawable (openTumbnailGridButton.Drawable, ContextCompat.GetColor (this, Resource.Color.pspdf__color_white)));
 		}
 
@@ -117,7 +115,7 @@ namespace PSPDFCatalog {
 			pdfOutlineView.SetBookmarkAdapter (new DefaultBookmarkAdapter (fragment));
 
 			var openOutlineButton = FindViewById<ImageView> (Resource.Id.openOutlineButton);
-			openOutlineButton.Click += (sender, e) => pdfOutlineView.ShowView ();
+			openOutlineButton.Click += (sender, e) => pdfOutlineView.Show ();
 			openOutlineButton.SetImageDrawable (TintDrawable (openOutlineButton.Drawable, ContextCompat.GetColor (this, Resource.Color.pspdf__color_white)));
 		}
 
@@ -143,7 +141,7 @@ namespace PSPDFCatalog {
 			// The search view is hidden by default (see layout). Set up a click listener that will show the view once pressed.
 			var openSearchButton = FindViewById<ImageView> (Resource.Id.openSearchButton);
 			openSearchButton.SetImageDrawable (TintDrawable (openSearchButton.Drawable, ContextCompat.GetColor (this, Resource.Color.pspdf__color_white)));
-			openSearchButton.Click += (sender, e) => modularSearchView.ShowView ();
+			openSearchButton.Click += (sender, e) => modularSearchView.Show ();
 		}
 
 		void CreateNoteAnnotation (int pageIndex)

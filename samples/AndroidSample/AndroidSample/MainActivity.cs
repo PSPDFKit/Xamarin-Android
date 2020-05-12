@@ -6,8 +6,8 @@ using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.OS;
-using Android.Support.V4.App;
-using Android.Support.V4.Content;
+using AndroidX.Core.App;
+using AndroidX.Core.Content;
 using Android.Widget;
 
 using PSPDFKit;
@@ -15,6 +15,7 @@ using PSPDFKit.Configuration.Activity;
 using PSPDFKit.Configuration.Page;
 using PSPDFKit.UI;
 using SampleTools;
+using AndroidHUD;
 
 // This will add your license key into AndroidManifest.xml at build time. For more info on how this Attribute works see:
 // https://developer.xamarin.com/guides/android/advanced_topics/working_with_androidmanifest.xml/
@@ -51,12 +52,12 @@ namespace AndroidSample {
 			openDemoDocumentButton.Click += (sender, e) => {
 				// On Marshmallow devices the user must grant write permission to the extrnal storage.
 				const string permission = Manifest.Permission.WriteExternalStorage;
-				if (ContextCompat.CheckSelfPermission(this, permission) == (int)Permission.Granted) {
+				if (ContextCompat.CheckSelfPermission (this, permission) == (int) Permission.Granted) {
 					ShowDocumentFromAssets ();
 					return;
 				}
 
-				ActivityCompat.RequestPermissions(this, PermissionsExternalStorage, RequestWritePermission);
+				ActivityCompat.RequestPermissions (this, PermissionsExternalStorage, RequestWritePermission);
 			};
 
 			// Opens a document from Android document provider
@@ -99,14 +100,13 @@ namespace AndroidSample {
 				// Only document accessible as files are openable directly with PSPDFKit so we have to
 				// transfer other documents to application cache
 				if (!PSPDFKitGlobal.IsOpenableUri (this, data.Data)) {
-					var dialog = SetUpProgressDialog ("Downloading", "Downloading file....", false, ProgressDialogStyle.Horizontal);
-					dialog.Show ();
+					AndHUD.Shared.Show (this, "Downloading file", 0);
 
 					var docPath = Path.Combine (ApplicationContext.CacheDir.ToString (), DateTime.Now.Ticks.ToString () + ".pdf");
 					var progressReporter = new Progress<DownloadBytesProgress> ();
-					progressReporter.ProgressChanged += (s, args) => dialog.Progress = (int)(100 * args.PercentComplete);
+					progressReporter.ProgressChanged += (s, args) => AndHUD.Shared.Show (this, "Downloading file", (int)(100 * args.PercentComplete));
 					var docUri = await Utils.DownloadDocument (this, data.Data, docPath, progressReporter);
-					dialog.Hide ();
+					AndHUD.Shared.Dismiss (this);
 					ShowPdfDocument (docUri);
 				} else
 					ShowPdfDocument (data.Data);
@@ -115,7 +115,7 @@ namespace AndroidSample {
 			
 		public override void OnRequestPermissionsResult (int requestCode, string[] permissions, Permission[] grantResults)
 		{
-			if(requestCode == RequestWritePermission && grantResults[0] == Permission.Granted)
+			if (requestCode == RequestWritePermission && grantResults[0] == Permission.Granted)
 				ShowDocumentFromAssets ();
 		}
 
@@ -139,22 +139,8 @@ namespace AndroidSample {
 			}
 
 			RunOnUiThread (() => {
-				alert.Show();
+				alert.Show ();
 			});
-		}
-
-		ProgressDialog SetUpProgressDialog (string title, string message, bool indeterminate, ProgressDialogStyle style)
-		{
-			var dialog = new ProgressDialog (this) {
-				Indeterminate = indeterminate,
-				Max = 100,
-				Progress = 0
-			};
-
-			dialog.SetTitle (title);
-			dialog.SetMessage (message);
-			dialog.SetProgressStyle (style);
-			return dialog;
 		}
 	}
 }

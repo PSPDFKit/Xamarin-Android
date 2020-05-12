@@ -35,7 +35,7 @@ namespace PSPDFCatalog {
 			int resId;
 
 			// The size of the raw resource. This will be cached after the first call to 'Size ()'.
-			long size = DataProvider.FileSizeUnknown;
+			long size = IDataProvider.FileSizeUnknown;
 
 			public RawResourceDataProvider (int resId) => this.resId = resId;
 
@@ -46,7 +46,7 @@ namespace PSPDFCatalog {
 			// accessing the resources.
 			public override long Size {
 				get {
-					if (size != DataProvider.FileSizeUnknown)
+					if (size != IDataProvider.FileSizeUnknown)
 						return size;
 
 					try {
@@ -64,8 +64,8 @@ namespace PSPDFCatalog {
 							size = ms.Length;
 						}
 						return size;
-					} catch (System.Exception) {
-						return DataProvider.FileSizeUnknown;
+					} catch (Exception) {
+						return IDataProvider.FileSizeUnknown;
 					}
 				}
 			}

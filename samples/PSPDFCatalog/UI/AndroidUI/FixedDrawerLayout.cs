@@ -1,6 +1,6 @@
 ﻿using System;
 using Android.Content;
-using Android.Support.V4.Widget;
+using AndroidX.DrawerLayout.Widget;
 using Android.Util;
 
 namespace PSPDFCatalog {
