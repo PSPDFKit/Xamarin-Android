@@ -83,8 +83,6 @@ First you need to add the [pspdfkit-proguard.cfg](samples/AndroidSample/AndroidS
 
 Once you have done this you will need to add some [NuGet](https://www.nuget.org/) packages to you project
 
-* [Xamarin.AndroidX.Migration](https://www.nuget.org/packages/Xamarin.AndroidX.Migration)
-* [Xamarin.Android.Support.v4](https://www.nuget.org/packages/Xamarin.Android.Support.v4)
 * [Xamarin.AndroidX.Legacy.Support.V4](https://www.nuget.org/packages/Xamarin.AndroidX.Legacy.Support.V4)
 * [Xamarin.AndroidX.AppCompat](https://www.nuget.org/packages/Xamarin.AndroidX.AppCompat)
 * [Xamarin.AndroidX.RecyclerView](https://www.nuget.org/packages/Xamarin.AndroidX.RecyclerView)
@@ -99,7 +97,6 @@ Once you have done this you will need to add some [NuGet](https://www.nuget.org/
 * [Xamarin.Kotlin.StdLib](https://www.nuget.org/packages/Xamarin.Kotlin.StdLib)
 * [Xamarin.Android.ReactiveX.RxAndroid](https://www.nuget.org/packages/Xamarin.Android.ReactiveX.RxAndroid)
 * [Xamarin.Android.ReactiveX.RxJava](https://www.nuget.org/packages/Xamarin.Android.ReactiveX.RxJava)
-* [Xamarin.YouTube.Player.Android](https://www.nuget.org/packages/Xamarin.YouTube.Player.Android)
 
 If you need to know how to add NuGet packages to your Xamarin project please refer to [Walkthrough: Including a NuGet in your project](http://developer.xamarin.com/guides/cross-platform/application_fundamentals/nuget_walkthrough/) from Xamarin site.
 
