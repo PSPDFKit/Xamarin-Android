@@ -13,6 +13,13 @@ The [PSPDFKit SDK](https://pspdfkit.com/) is a framework that allows you to view
 - Xamarin.iOS Bindings for PSPDFKit for iOS: [PSPDFKit/Xamarin-iOS](https://github.com/PSPDFKit/Xamarin-iOS)
 - Xamarin Bindings for PSPDFKit for Windows UWP: [PSPDFKit/Xamarin-UWP](https://github.com/PSPDFKit/Xamarin-UWP)
 
+## Support, Issues and License Questions
+
+PSPDFKit offers support for customers with an active SDK license via https://pspdfkit.com/support/request/
+
+Are you evaluating our SDK? That's great, we're happy to help out!
+To make sure this is fast, please use a work email and have someone from your company fill out our sales form: https://pspdfkit.com/sales/
+
 ## Requirements
 
 PSPDFKit runs on Android devices running:
@@ -23,13 +30,6 @@ PSPDFKit runs on Android devices running:
 * 32/64-bit ARM (armeabi-v7a with NEON/ arm64-v8a) or 32/64-bit Intel x86 CPU.
 * Projects using PSPDFKit.Android.dll **must** set [Target Framework](https://developer.xamarin.com/guides/android/application_fundamentals/understanding_android_api_levels/#framework) to **API 28 (Android 9.0)**.
 * In your Android Options select `d8` as your `Dex compiler`. Otherwise you will get errors about default interface methods not being supported.
-
-## Support, Issues and License Questions
-
-PSPDFKit offers support for customers with an active SDK license via https://pspdfkit.com/support/request/
-
-Are you evaluating our SDK? That's great, we're happy to help out!
-To make sure this is fast, please us a work email and have someone from your company fill out our sales form: https://pspdfkit.com/sales/
 
 ## Integrating PSPDFKit
 
