@@ -24,6 +24,13 @@ PSPDFKit runs on Android devices running:
 * Projects using PSPDFKit.Android.dll **must** set [Target Framework](https://developer.xamarin.com/guides/android/application_fundamentals/understanding_android_api_levels/#framework) to **API 28 (Android 9.0)**.
 * In your Android Options select `d8` as your `Dex compiler`. Otherwise you will get errors about default interface methods not being supported.
 
+## Support, Issues and License Questions
+
+PSPDFKit offers support for customers with an active SDK license via https://pspdfkit.com/support/request/
+
+Are you evaluating our SDK? That's great, we're happy to help out!
+To make sure this is fast, please us a work email and have someone from your company fill out our sales form: https://pspdfkit.com/sales/
+
 ## Integrating PSPDFKit
 
 There's 2 ways to integrate PSPDFKit into your project. We highly recommend using our nuget packages from nuget.org in Visual Studio as it requires less work for the customer and also eliminates the possibility of build errors, which can happen from time to time.
