@@ -85,7 +85,7 @@ namespace PSPDFCatalog {
 
 			thumbnailGrid.PageClick += (sender, e) => {
 				fragment.PageIndex = e.P1;
-				(sender as PdfThumbnailGrid)?.HideView ();
+				(sender as PdfThumbnailGrid)?.Hide ();
 			};
 
 			// The thumbnail grid is hidden by default. Set up a click listener to show it.
@@ -161,15 +161,15 @@ namespace PSPDFCatalog {
 		public override void OnBackPressed ()
 		{
 			if (modularSearchView.IsDisplayed) {
-				modularSearchView.HideView ();
+				modularSearchView.Hide ();
 				return;
 			}
 			if (thumbnailGrid.IsDisplayed) {
-				thumbnailGrid.HideView ();
+				thumbnailGrid.Hide ();
 				return;
 			}
 			if (pdfOutlineView.IsDisplayed) {
-				pdfOutlineView.HideView ();
+				pdfOutlineView.Hide ();
 				return;
 			}
 

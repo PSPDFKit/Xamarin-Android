@@ -89,17 +89,17 @@ namespace XFSample.Droid {
 		public bool OnBackPressed ()
 		{
 			if (modularSearchView.IsDisplayed) {
-				modularSearchView.HideView ();
+				modularSearchView.Hide ();
 				return true;
 			}
 
 			if (thumbnailGrid.IsDisplayed) {
-				thumbnailGrid.HideView ();
+				thumbnailGrid.Hide ();
 				return true;
 			}
 
 			if (pdfOutlineView.IsDisplayed) {
-				pdfOutlineView.HideView ();
+				pdfOutlineView.Hide ();
 				return true;
 			}
 
@@ -125,7 +125,7 @@ namespace XFSample.Droid {
 
 			thumbnailGrid.PageClick += (sender, e) => {
 				fragment.PageIndex = e.P1;
-				(sender as PdfThumbnailGrid)?.HideView ();
+				(sender as PdfThumbnailGrid)?.Hide ();
 			};
 
 			// The thumbnail grid is hidden by default. Set up a click listener to show it.

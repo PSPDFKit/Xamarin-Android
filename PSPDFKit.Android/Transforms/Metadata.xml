@@ -13,7 +13,7 @@
 
   <!-- Removes any "constructor" that any of its parameters uses any of the types contained in com.pspdfkit.internal.* -->
   <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.j0')]" />
-  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.pb')]" />
+  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.sb')]" />
   <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.m8')]" />
   <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.jni.NativeAnnotation')]" />
   <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.jni.NativeFormField')]" />
@@ -69,6 +69,7 @@
   <attr path="/api/package[@name='com.pspdfkit.document.image']" name="managedName">PSPDFKit.Document.Image</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.library']" name="managedName">PSPDFKit.Document.Library</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.metadata']" name="managedName">PSPDFKit.Document.Metadata</attr>
+  <attr path="/api/package[@name='com.pspdfkit.document.office']" name="managedName">PSPDFKit.Document.Office</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.printing']" name="managedName">PSPDFKit.Document.Printing</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.providers']" name="managedName">PSPDFKit.Document.Providers</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.processor']" name="managedName">PSPDFKit.Document.Processor</attr>
@@ -147,6 +148,8 @@
   <attr path="/api/package[@name='com.pspdfkit.listeners']/interface[@name='DocumentListener']/method[@name='onDocumentLoaded']" name="argsType">OnDocumentLoadedEventArgs</attr>
 
   <attr path="/api/package[@name='com.pspdfkit.ui.redaction']/class[@name='RedactionView']/method[@name='setListener']" name="eventName">OnRedactionView</attr>
+  <attr path="/api/package[@name='com.pspdfkit.listeners']/interface[@name='OnVisibilityChangedListener']/method[@name='onHide']" name="eventName">ViewDidHide</attr>
+  <attr path="/api/package[@name='com.pspdfkit.listeners']/interface[@name='OnVisibilityChangedListener']/method[@name='onShow']" name="eventName">ViewDidShow</attr>
 
   <attr path="/api/package[@name='com.pspdfkit.listeners']/interface[@name='LocalizationListener']/method[@name='getLocalizedString' and count(parameter)=5 and parameter[1][@type='android.content.Context'] and parameter[2][@type='int'] and parameter[3][@type='java.util.Locale'] and parameter[4][@type='android.view.View'] and parameter[5][@type='java.lang.Object...']]" name="managedName">GetLocalizedStr</attr>
   <attr path="/api/package[@name='com.pspdfkit.listeners']/class[@name='DefaultLocalizationListener']/method[@name='getLocalizedString' and count(parameter)=5 and parameter[1][@type='android.content.Context'] and parameter[2][@type='int'] and parameter[3][@type='java.util.Locale'] and parameter[4][@type='android.view.View'] and parameter[5][@type='java.lang.Object...']]" name="managedName">GetLocalizedStr</attr>
@@ -182,15 +185,6 @@
   <attr path="/api/package[@name='com.pspdfkit.forms']/class[@name='FormElementConfiguration']" name="visibility">public</attr>
   <attr path="/api/package[@name='com.pspdfkit.signatures.signers']/class[@name='PrivateKeySigner']/method[@name='loadPrivateKey' and count(parameter)=3 and parameter[1][@type='java.lang.String'] and parameter[2][@type='com.pspdfkit.signatures.signers.InteractiveSigner.LoadingFeedbackListener'] and parameter[3][@type='com.pspdfkit.signatures.signers.PrivateKeySigner.OnPrivateKeyLoadedCallback']]" name="visibility">public</attr>
   <attr path="/api/package[@name='com.pspdfkit.signatures.signers']/interface[@name='PrivateKeySigner.OnPrivateKeyLoadedCallback']" name="visibility">public</attr>
-
-  <attr path="/api/package[@name='com.pspdfkit.ui']/interface[@name='PSPDFKitViews.PSPDFView']/method[@name='hide' and count(parameter)=0]" name="managedName">HideView</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfOutlineView']/method[@name='hide' and count(parameter)=0]" name="managedName">HideView</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfThumbnailBar']/method[@name='hide' and count(parameter)=0]" name="managedName">HideView</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfThumbnailGrid']/method[@name='hide' and count(parameter)=0]" name="managedName">HideView</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui.thumbnail']/class[@name='PdfStaticThumbnailBar']/method[@name='hide' and count(parameter)=0]" name="managedName">HideView</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui.thumbnail']/class[@name='PdfScrollableThumbnailBar']/method[@name='hide' and count(parameter)=0]" name="managedName">HideView</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='PdfSearchViewInline']/method[@name='hide' and count(parameter)=0]" name="managedName">HideView</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='PdfSearchViewModular']/method[@name='hide' and count(parameter)=0]" name="managedName">HideView</attr>
 
   <attr path="/api/package[@name='com.pspdfkit.annotations.configuration']/interface[@name='StampAnnotationConfiguration.Builder']/method[@name='build']" name="managedReturn">PSPDFKit.Annotations.Configuration.IAnnotationConfiguration</attr>
   <attr path="/api/package[@name='com.pspdfkit.annotations.configuration']/interface[@name='FileAnnotationConfiguration.Builder']/method[@name='build']" name="managedReturn">PSPDFKit.Annotations.Configuration.IAnnotationConfiguration</attr>
@@ -492,8 +486,8 @@
   <attr path="/api/package[@name='com.google.android.youtube.player']" name="managedName">Google.YouTube.Player</attr> -->
 
   <!-- We need to fake these two methods in order to satisfy C# interface implementation and generator -->
-  <add-node path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='PdfSearchViewLazy']">
+  <!--<add-node path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='PdfSearchViewLazy']">
     <method abstract="false" deprecated="not deprecated" final="false" name="hideView" native="false" return="void" static="false" synchronized="false" visibility="public">
     </method>
-  </add-node>
+  </add-node>-->
 </metadata>
