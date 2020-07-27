@@ -73,6 +73,7 @@
   <attr path="/api/package[@name='com.pspdfkit.document.printing']" name="managedName">PSPDFKit.Document.Printing</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.providers']" name="managedName">PSPDFKit.Document.Providers</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.processor']" name="managedName">PSPDFKit.Document.Processor</attr>
+<!--  <attr path="/api/package[@name='com.pspdfkit.document.processor.ocr']" name="managedName">PSPDFKit.Document.Processor.Ocr</attr>-->
   <attr path="/api/package[@name='com.pspdfkit.document.search']" name="managedName">PSPDFKit.Document.Search</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.sharing']" name="managedName">PSPDFKit.Document.Sharing</attr>
   <attr path="/api/package[@name='com.pspdfkit.exceptions']" name="managedName">PSPDFKit.Exceptions</attr>
@@ -470,6 +471,9 @@
         <parameter name="animate" type="boolean" jni-type="Z" />
     </method>
   </add-node>
+
+  <remove-node path="/api/package[@name='com.pspdfkit.document.processor.ocr']/class[@name='OcrLanguage']" />
+  <remove-node path="/api/package[@name='com.pspdfkit.document.processor']/class[@name='PdfProcessorTask']/method[@name='performOcrOnPages']" />
 
   <!-- ImmutableDate is inmutable so no need to re-expose setters -->
   <!--<remove-node path="/api/package[@name='com.pspdfkit.datastructures']/class[@name='ImmutableDate']/method[@name='setDate' and count(parameter)=1 and parameter[1][@type='int']]" />
