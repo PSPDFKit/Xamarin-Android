@@ -100,6 +100,8 @@
     <Compile Include="Catalog\Activities\CustomFragmentActivity.cs" />
     <Compile Include="Catalog\FragmentExample.cs" />
     <Compile Include="Helpers\Settings.cs" />
+    <Compile Include="Catalog\AnnotationConfigurationExample.cs" />
+    <Compile Include="Catalog\Activities\AnnotationConfigurationExampleActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProguardConfiguration Include="..\AndroidSample\AndroidSample\pspdfkit-proguard.cfg">

@@ -62,6 +62,11 @@ namespace PSPDFCatalog {
 					Description = "Password is: test123",
 					ExampleClass = typeof (PasswordExample)
 				},
+				new Example {
+					Name = "Annotation Configuration",
+					Description = "How to customize annotation configuration",
+					ExampleClass = typeof (AnnotationConfigurationExample)
+				},
 			},
 			new CatalogExamples ("FORMS") {
 				new Example {
