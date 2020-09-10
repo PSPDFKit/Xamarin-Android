@@ -211,7 +211,7 @@ var fragment = PdfFragment.NewInstance(pdfDocument, configuration);
 SupportFragmentManager.BeginTransaction().Replace(Resource.Id.Content, fragment).Commit();
 ```
 
->Note that the `PdfFragment` extends `Android.Support.V4.App.Fragment` and not `Android.App.Fragment`.
+> Note that the `PdfFragment` extends `AndroidX.Fragment.App.Fragment` and not `Android.App.Fragment`.
 
 ### Render Page to a Bitmap
 
