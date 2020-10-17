@@ -32,8 +32,8 @@
                 <dependency id="Xamarin.AndroidX.Lifecycle.LiveData" version="2.2.0" include="All" />
                 <dependency id="Xamarin.AndroidX.MultiDex" version="2.0.1" include="All" />
                 <dependency id="Xamarin.AndroidX.Browser" version="1.2.0" include="All" />
-                <dependency id="Square.OkHttp3" version="4.2.2" include="All" />
-                <dependency id="Xamarin.Kotlin.StdLib" version="1.3.50.1" include="All" />
+                <dependency id="Square.OkHttp3" version="4.3.1" include="All" />
+                <dependency id="Xamarin.Kotlin.StdLib" version="1.4.10" include="All" />
                 <dependency id="Xamarin.Android.ReactiveX.RxAndroid" version="2.1.1" include="All" />
                 <dependency id="Xamarin.Android.ReactiveX.RxJava" version="2.2.7" include="All" />
             </group>
