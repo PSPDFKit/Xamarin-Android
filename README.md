@@ -28,7 +28,7 @@ PSPDFKit runs on Android devices running:
 * **Microsoft Mobile OpenJDK 1.8.0**
 * Android **4.4** or newer / API level **19** or higher
 * 32/64-bit ARM (armeabi-v7a with NEON/ arm64-v8a) or 32/64-bit Intel x86 CPU.
-* Projects using PSPDFKit.Android.dll **must** set [Target Framework](https://developer.xamarin.com/guides/android/application_fundamentals/understanding_android_api_levels/#framework) to **API 28 (Android 9.0)**.
+* Projects using PSPDFKit.Android.dll **must** set [Target Framework](https://developer.xamarin.com/guides/android/application_fundamentals/understanding_android_api_levels/#framework) to **API 29 (Android 10.0)** or higher.
 * In your Android Options select `d8` as your `Dex compiler`. Otherwise you will get errors about default interface methods not being supported.
 
 ## Integrating PSPDFKit
