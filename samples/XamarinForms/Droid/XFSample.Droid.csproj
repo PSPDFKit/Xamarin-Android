@@ -22,6 +22,7 @@
     <AndroidUseAapt2>true</AndroidUseAapt2>
     <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+    <AndroidEnableMultiDex>true</AndroidEnableMultiDex>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,7 +34,6 @@
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
     <AndroidSupportedAbis>arm64-v8a;armeabi-v7a;x86;x86_64</AndroidSupportedAbis>
-    <AndroidEnableMultiDex>true</AndroidEnableMultiDex>
     <AndroidR8ExtraArguments>--pg-conf "$(MSBuildProjectDirectory)\..\..\AndroidSample\AndroidSample\pspdfkit-proguard.cfg"</AndroidR8ExtraArguments>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -108,7 +108,7 @@
     <PackageReference Include="Xamarin.AndroidX.CardView" Version="1.0.0.5" />
     <PackageReference Include="Xamarin.AndroidX.GridLayout" Version="1.0.0.5" />
     <PackageReference Include="Xamarin.AndroidX.Palette" Version="1.0.0.5" />
-    <PackageReference Include="Xamarin.Google.Android.Material" Version="1.1.0.1-rc3" />
+    <PackageReference Include="Xamarin.Google.Android.Material" Version="1.1.0.5-rc3" />
     <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.2.0.3" />
     <PackageReference Include="Xamarin.AndroidX.MultiDex" Version="2.0.1.5" />
     <PackageReference Include="Xamarin.AndroidX.Browser" Version="1.2.0.2" />
