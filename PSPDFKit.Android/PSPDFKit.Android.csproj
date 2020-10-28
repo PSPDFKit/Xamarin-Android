@@ -81,7 +81,7 @@
     <!-- <EmbeddedReferenceJar Include="Jars\okio-1.13.0.jar" /> -->
   </ItemGroup>
   <ItemGroup>
-    <LibraryProjectZip Include="Jars\pspdfkit-6.5.2.aar" />
+    <LibraryProjectZip Include="Jars\pspdfkit-6.5.3.aar" />
   </ItemGroup>
   <!-- <ItemGroup>
     <EmbeddedJar Include="Jars\YouTubeAndroidPlayerApi-1.2.2\libs\YouTubeAndroidPlayerApi.jar">
