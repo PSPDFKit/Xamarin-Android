@@ -6,7 +6,7 @@
         <title>PSPDFKit for Xamarin.Android</title>
         <authors>PSPDFKit GmbH</authors>
         <owners>PSPDFKit GmbH</owners>
-        <copyright>Copyright 2010-2020</copyright>
+        <copyright>Copyright 2010-2021</copyright>
         <license type="file">LICENSE.md</license>
         <projectUrl>https://pspdfkit.com/</projectUrl>
         <repository type="git" url="https://github.com/PSPDFKit/Xamarin-Android"/>
@@ -22,20 +22,20 @@
         <tags>pdf, pdf document, pdf document view, pdf sdk, pdf annotation, edit pdf, display pdf, display pdf, xamarin, android</tags>
         <dependencies>
             <group targetFramework="MonoAndroid9.0">
-                <dependency id="Xamarin.AndroidX.Legacy.Support.V4" version="1.0.0.5" include="All" />
-                <dependency id="Xamarin.AndroidX.AppCompat" version="1.2.0.4" include="All" />
-                <dependency id="Xamarin.AndroidX.RecyclerView" version="1.1.0.5" include="All" />
-                <dependency id="Xamarin.AndroidX.CardView" version="1.0.0.5" include="All" />
-                <dependency id="Xamarin.AndroidX.GridLayout" version="1.0.0.5" include="All" />
-                <dependency id="Xamarin.AndroidX.Palette" version="1.0.0.5" include="All" />
-                <dependency id="Xamarin.Google.Android.Material" version="1.1.0.5-rc3" include="All" />
-                <dependency id="Xamarin.AndroidX.Lifecycle.LiveData" version="2.2.0.3" include="All" />
-                <dependency id="Xamarin.AndroidX.MultiDex" version="2.0.1.5" include="All" />
-                <dependency id="Xamarin.AndroidX.Browser" version="1.2.0.2" include="All" />
-                <dependency id="Square.OkHttp3" version="4.3.1" include="All" />
-                <dependency id="Xamarin.Kotlin.StdLib" version="1.4.10" include="All" />
+                <dependency id="Xamarin.AndroidX.Legacy.Support.V4" version="1.0.0.6" include="All" />
+                <dependency id="Xamarin.AndroidX.AppCompat" version="1.2.0.6" include="All" />
+                <dependency id="Xamarin.AndroidX.RecyclerView" version="1.1.0.6" include="All" />
+                <dependency id="Xamarin.AndroidX.CardView" version="1.0.0.6" include="All" />
+                <dependency id="Xamarin.AndroidX.GridLayout" version="1.0.0.6" include="All" />
+                <dependency id="Xamarin.AndroidX.Palette" version="1.0.0.6" include="All" />
+                <dependency id="Xamarin.Google.Android.Material" version="1.2.1.1" include="All" />
+                <dependency id="Xamarin.AndroidX.Lifecycle.LiveData" version="2.2.0.4" include="All" />
+                <dependency id="Xamarin.AndroidX.MultiDex" version="2.0.1.6" include="All" />
+                <dependency id="Xamarin.AndroidX.Browser" version="1.3.0.4" include="All" />
+                <dependency id="Square.OkHttp3" version="4.9.0" include="All" />
+                <dependency id="Xamarin.Kotlin.StdLib" version="1.4.20" include="All" />
                 <dependency id="Xamarin.Android.ReactiveX.RxAndroid" version="2.1.1" include="All" />
-                <dependency id="Xamarin.Android.ReactiveX.RxJava" version="2.2.7" include="All" />
+                <dependency id="Xamarin.Android.ReactiveX.RxJava" version="2.2.9" include="All" />
             </group>
         </dependencies>
         <frameworkAssemblies>
