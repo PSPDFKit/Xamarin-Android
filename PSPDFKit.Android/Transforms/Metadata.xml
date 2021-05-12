@@ -275,6 +275,12 @@
       <parameter name="obj" type="java.lang.Object"></parameter>
     </method>
   </add-node>
+  <add-node path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfThumbnailBar.ConvertToDrawable']">
+    <method abstract="false" deprecated="not deprecated" final="false" name="apply" jni-signature="(Ljava/lang/Object;)Ljava/lang/Object;" bridge="false" native="false" return="java.lang.Object" jni-return="Ljava/lang/Object;" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="p0" type="java.lang.Object" jni-type="Ljava/lang/Object;">
+        </parameter>
+    </method>
+  </add-node>
 
   <add-node path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfUiFragment']">
     <method abstract="false" deprecated="not deprecated" final="false" name="getPropertyInspectorCoordinator" jni-signature="()Lcom/pspdfkit/ui/inspector/PropertyInspectorCoordinatorLayout;" bridge="false" native="false" return="com.pspdfkit.ui.inspector.PropertyInspectorCoordinatorLayout" jni-return="Lcom/pspdfkit/ui/inspector/PropertyInspectorCoordinatorLayout;" static="false" synchronized="false" synthetic="false" visibility="public" />
