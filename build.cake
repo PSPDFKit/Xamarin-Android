@@ -5,7 +5,7 @@ var target = Argument ("target", "Default");
 // Nice online pom dependency explorer
 // https://jar-download.com/
 
-var PSPDFKIT_VERSION = "6.6.1";
+var PSPDFKIT_VERSION = "6.6.2";
 var SERVICERELEASE_VERSION = "0"; // This is combined with the PSPDFKIT_VERSION variable for the NuGet Package version
 var RXANDROID_VERSION = "2.1.0";
 var RXJAVA_VERSION = "2.2.4"; // Check Reactive-Streams if updated.
@@ -21,6 +21,8 @@ var OKHTTP3_VERSION = "3.9.0"; // Check OKIO version if updated.
 var OKHTTP3LOGGING_VERSION = "3.9.0";
 var OKIO_VERSION = "1.13.0";
 
+
+var PSPDFKITURL = $"https://customers.pspdfkit.com/maven/com/pspdfkit/pspdfkit/{PSPDFKIT_VERSION}/pspdfkit-{PSPDFKIT_VERSION}.aar";
 var RXANDROIDURL = $"http://search.maven.org/remotecontent?filepath=io/reactivex/rxjava2/rxandroid/{RXANDROID_VERSION}/rxandroid-{RXANDROID_VERSION}.aar";
 var RXJAVAURL = $"http://search.maven.org/remotecontent?filepath=io/reactivex/rxjava2/rxjava/{RXJAVA_VERSION}/rxjava-{RXJAVA_VERSION}.jar";
 var YOUTUBEURL = $"https://developers.google.com/youtube/android/player/downloads/YouTubeAndroidPlayerApi-{YOUTUBE_VERSION}.zip";
@@ -40,6 +42,7 @@ Task ("FetchDependencies")
 	.Does (() => {
 		// PSPDFKit.Android
 		Information ("Downloading all the dependencies...");
+		DownloadFile (PSPDFKITURL, $"./PSPDFKit.Android/Jars/pspdfkit-{PSPDFKIT_VERSION}.aar");
 		// DownloadFile (RXANDROIDURL, $"./PSPDFKit.Android/Jars/rxandroid-{RXANDROID_VERSION}.aar");
 		// DownloadFile (RXJAVAURL, $"./PSPDFKit.Android/Jars/rxjava-{RXJAVA_VERSION}.jar");
 		// DownloadFile (REACTIVESTREAMSURL, $"./PSPDFKit.Android/Jars/reactive-streams-{REACTIVESTREAMS_VERSION}.jar");

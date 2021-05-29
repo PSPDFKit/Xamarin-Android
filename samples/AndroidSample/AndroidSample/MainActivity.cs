@@ -19,10 +19,10 @@ using AndroidHUD;
 
 // This will add your license key into AndroidManifest.xml at build time. For more info on how this Attribute works see:
 // https://developer.xamarin.com/guides/android/advanced_topics/working_with_androidmanifest.xml/
-[assembly: MetaData (
-	name:"pspdfkit_license_key",
-	Value = "LICENSE_KEY_GOES_HERE"
-)]
+//[assembly: MetaData (
+//	name:"pspdfkit_license_key",
+//	Value = "LICENSE_KEY_GOES_HERE"
+//)]
 
 namespace AndroidSample {
 	[Activity (Label = "@string/app_name", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/AppTheme")]
