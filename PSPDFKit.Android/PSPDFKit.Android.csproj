@@ -12,7 +12,7 @@
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <AssemblyName>PSPDFKit.Android</AssemblyName>
-    <TargetFrameworkVersion>v10.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v11.0</TargetFrameworkVersion>
     <JavaOptions>$(JavaOptions) -noverify </JavaOptions>
     <AndroidClassParser>class-parse</AndroidClassParser>
     <AndroidCodeGenTarget>XAJavaInterop1</AndroidCodeGenTarget>
@@ -81,7 +81,7 @@
     <!-- <EmbeddedReferenceJar Include="Jars\okio-1.13.0.jar" /> -->
   </ItemGroup>
   <ItemGroup>
-    <LibraryProjectZip Include="Jars\pspdfkit-6.6.2.aar" />
+    <LibraryProjectZip Include="Jars\pspdfkit-7.0.0.aar" />
   </ItemGroup>
   <!-- <ItemGroup>
     <EmbeddedJar Include="Jars\YouTubeAndroidPlayerApi-1.2.2\libs\YouTubeAndroidPlayerApi.jar">
@@ -90,8 +90,9 @@
   </ItemGroup> -->
   <ItemGroup>
     <PackageReference Include="Xamarin.AndroidX.Legacy.Support.V4" Version="1.0.0.7" />
-    <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.2.0.7" />
-    <PackageReference Include="Xamarin.AndroidX.RecyclerView" Version="1.2.0" />
+    <PackageReference Include="Xamarin.AndroidX.AppCompat" version="1.3.0" />
+    <PackageReference Include="Xamarin.AndroidX.Core" Version="1.6.0" />
+    <PackageReference Include="Xamarin.AndroidX.RecyclerView" Version="1.2.1" />
     <PackageReference Include="Xamarin.AndroidX.CardView" Version="1.0.0.8" />
     <PackageReference Include="Xamarin.AndroidX.GridLayout" Version="1.0.0.7" />
     <PackageReference Include="Xamarin.AndroidX.Palette" Version="1.0.0.7" />
@@ -100,7 +101,7 @@
     <PackageReference Include="Xamarin.AndroidX.MultiDex" Version="2.0.1.7" />
     <PackageReference Include="Xamarin.AndroidX.Browser" Version="1.3.0.5" />
     <PackageReference Include="Square.OkHttp3" Version="4.9.1" />
-    <PackageReference Include="Xamarin.Kotlin.StdLib" Version="1.5.10" />
+    <PackageReference Include="Xamarin.Kotlin.StdLib" Version="1.5.21" />
     <PackageReference Include="Xamarin.Android.ReactiveX.RxAndroid" Version="2.1.1.1" />
     <PackageReference Include="Xamarin.Android.ReactiveX.RxJava" Version="2.2.10.1" />
   </ItemGroup>

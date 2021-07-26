@@ -12,9 +12,9 @@
   <remove-node path="//class['Impl' = substring(substring-before(@name,'.') , string-length(substring-before(@name,'.')) - 3)]" />
 
   <!-- Removes any "constructor" that any of its parameters uses any of the types contained in com.pspdfkit.internal.* -->
-  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.j0')]" />
-  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.tb')]" />
-  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.m8')]" />
+  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.q0')]" />
+  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.bc')]" />
+  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.u8')]" />
   <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.jni.NativeAnnotation')]" />
   <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.jni.NativeFormField')]" />
   <!-- Not creating a general rule to avoid bug reported by David -->
