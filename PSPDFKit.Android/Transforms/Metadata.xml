@@ -3,7 +3,6 @@
   <!-- Remove non public Api namespaces -->
   <remove-node path="/api/package[contains(@name, 'com.pspdfkit.internal')]" />
   <remove-node path="/api/package[contains(@name, 'com.pspdfkit.instant.internal')]" />
-  <remove-node path="/api/package[contains(@name, 'com.pspdfkit.lint')]" />
 
   <!-- Removes any class that ends with *Impl since it should not be public. This matches for example "PSPDFKitActivityImpl" -->
   <remove-node path="//class['Impl' = substring(@name, string-length(@name) - 3)]" />
@@ -12,9 +11,10 @@
   <remove-node path="//class['Impl' = substring(substring-before(@name,'.') , string-length(substring-before(@name,'.')) - 3)]" />
 
   <!-- Removes any "constructor" that any of its parameters uses any of the types contained in com.pspdfkit.internal.* -->
-  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.q0')]" />
-  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.bc')]" />
-  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.u8')]" />
+  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.q1')]" />
+  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.jd')]" />
+  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.vi')]" />
+  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.b5')]" />
   <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.jni.NativeAnnotation')]" />
   <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.jni.NativeFormField')]" />
   <!-- Not creating a general rule to avoid bug reported by David -->
@@ -73,7 +73,6 @@
   <attr path="/api/package[@name='com.pspdfkit.document.printing']" name="managedName">PSPDFKit.Document.Printing</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.providers']" name="managedName">PSPDFKit.Document.Providers</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.processor']" name="managedName">PSPDFKit.Document.Processor</attr>
-<!--  <attr path="/api/package[@name='com.pspdfkit.document.processor.ocr']" name="managedName">PSPDFKit.Document.Processor.Ocr</attr>-->
   <attr path="/api/package[@name='com.pspdfkit.document.search']" name="managedName">PSPDFKit.Document.Search</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.sharing']" name="managedName">PSPDFKit.Document.Sharing</attr>
   <attr path="/api/package[@name='com.pspdfkit.exceptions']" name="managedName">PSPDFKit.Exceptions</attr>
@@ -85,6 +84,7 @@
   <attr path="/api/package[@name='com.pspdfkit.instant.exceptions']" name="managedName">PSPDFKit.Instant</attr>
   <attr path="/api/package[@name='com.pspdfkit.instant.listeners']" name="managedName">PSPDFKit.Instant</attr>
   <attr path="/api/package[@name='com.pspdfkit.instant.ui']" name="managedName">PSPDFKit.Instant</attr>
+  <attr path="/api/package[@name='com.pspdfkit.jetpack.compose']" name="managedName">PSPDFKit.Jetpack.Compose</attr>
   <attr path="/api/package[@name='com.pspdfkit.listeners']" name="managedName">PSPDFKit.Listeners</attr>
   <attr path="/api/package[@name='com.pspdfkit.listeners.scrolling']" name="managedName">PSPDFKit.Listeners.Scrolling</attr>
   <attr path="/api/package[@name='com.pspdfkit.media']" name="managedName">PSPDFKit.Media</attr>
@@ -92,6 +92,7 @@
   <attr path="/api/package[@name='com.pspdfkit.projection']" name="managedName">PSPDFKit.Projection</attr>
   <attr path="/api/package[@name='com.pspdfkit.signatures']" name="managedName">PSPDFKit.Signatures</attr>
   <attr path="/api/package[@name='com.pspdfkit.signatures.contents']" name="managedName">PSPDFKit.Signatures.Contents</attr>
+  <attr path="/api/package[@name='com.pspdfkit.signatures.listeners']" name="managedName">PSPDFKit.Signatures.Listeners</attr>
   <attr path="/api/package[@name='com.pspdfkit.signatures.provider']" name="managedName">PSPDFKit.Signatures.Provider</attr>
   <attr path="/api/package[@name='com.pspdfkit.signatures.signers']" name="managedName">PSPDFKit.Signatures.Signers</attr>
   <attr path="/api/package[@name='com.pspdfkit.signatures.storage']" name="managedName">PSPDFKit.Signatures.Storage</attr>
@@ -212,6 +213,9 @@
 
   <remove-node path="/api/package[@name='com.pspdfkit.document.image']/class[@name='BaseImagePickerFragment']/field[@name='lastActivityResult']" />
   <remove-node path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfActivity']/field[@name='internalPdfUi']" />
+
+  <remove-node path="/api/package[@name='com.pspdfkit.jetpack.compose']/class[@name='DocumentState.Companion']" />
+  <remove-node path="/api/package[@name='com.pspdfkit.jetpack.compose']/class[@name='DocumentState']/field[@name='Companion']" />
   
   <attr path="/api/package[@name='com.pspdfkit.ui.overlay']/class[@name='OverlayLayoutParams']/field[@name='layoutPosition']" name="managedName">LayoutPositionField</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.overlay']/class[@name='OverlayLayoutParams']/field[@name='sizingMode']" name="managedName">SizingModeField</attr>
