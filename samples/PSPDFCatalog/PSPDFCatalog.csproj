@@ -257,7 +257,7 @@
     <PackageReference Include="Xamarin.Android.ReactiveX.RxAndroid" Version="2.1.1.1" />
     <PackageReference Include="Xamarin.Android.ReactiveX.RxJava" Version="2.2.21.2" />
     <PackageReference Include="AndHUD" Version="1.4.3" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2291" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Plugin.CurrentActivity" Version="2.1.0.4" />
     <PackageReference Include="Plugin.Permissions" Version="6.0.1" />
