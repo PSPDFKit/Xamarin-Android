@@ -11,10 +11,10 @@
   <remove-node path="//class['Impl' = substring(substring-before(@name,'.') , string-length(substring-before(@name,'.')) - 3)]" />
 
   <!-- Removes any "constructor" that any of its parameters uses any of the types contained in com.pspdfkit.internal.* -->
-  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.q1')]" />
-  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.jd')]" />
-  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.vi')]" />
-  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.b5')]" />
+  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.i1')]" />
+  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.ed')]" />
+  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.ri')]" />
+  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.u4')]" />
   <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.jni.NativeAnnotation')]" />
   <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.jni.NativeFormField')]" />
   <!-- Not creating a general rule to avoid bug reported by David -->
@@ -216,6 +216,11 @@
 
   <remove-node path="/api/package[@name='com.pspdfkit.jetpack.compose']/class[@name='DocumentState.Companion']" />
   <remove-node path="/api/package[@name='com.pspdfkit.jetpack.compose']/class[@name='DocumentState']/field[@name='Companion']" />
+ 
+  <remove-node path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfThumbnailGrid']/method[@name='setOnDocumentSavedListener' and count(parameter)=1 and parameter[1][@type='com.pspdfkit.ui.PdfThumbnailGrid.OnDocumentSavedListener']]" />
+  <remove-node path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfThumbnailGrid']/method[@name='addOnPageClickListener' and count(parameter)=1 and parameter[1][@type='com.pspdfkit.ui.PdfThumbnailGrid.OnPageClickListener']]" />
+
+  <!--<remove-node path="/api/package[@name='com.pspdfkit.ui']/interface[@name='PdfThumbnailGrid.OnPageClickListener']/method[@name='onPageClick' and count(parameter)=2 and parameter[1][@type='com.pspdfkit.ui.PdfThumbnailGrid'] and parameter[2][@type='int']]" />-->
   
   <attr path="/api/package[@name='com.pspdfkit.ui.overlay']/class[@name='OverlayLayoutParams']/field[@name='layoutPosition']" name="managedName">LayoutPositionField</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.overlay']/class[@name='OverlayLayoutParams']/field[@name='sizingMode']" name="managedName">SizingModeField</attr>
