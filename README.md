@@ -1,6 +1,6 @@
 # Xamarin PSPDFKit.Android Bindings
 
-Xamarin.Android Bindings for PSPDFKit `v8.2.1`.
+Xamarin.Android Bindings for PSPDFKit `v8.4.0`.
 
 #### PSPDFKit
 
@@ -24,12 +24,11 @@ To make sure this is fast, please use a work email and have someone from your co
 
 PSPDFKit runs on Android devices running:
 
-* **Xamarin.Android >= 9.4.1.0**
-* **Microsoft Mobile OpenJDK 1.8.0**
+* **Xamarin.Android >= 13.0.0.0**
+* **Microsoft Mobile OpenJDK >= 11.0**
 * Android **4.4** or newer / API level **19** or higher
 * 32/64-bit ARM (armeabi-v7a with NEON/ arm64-v8a) or 32/64-bit Intel x86 CPU.
-* Projects using PSPDFKit.Android.dll **must** set [Target Framework](https://developer.xamarin.com/guides/android/application_fundamentals/understanding_android_api_levels/#framework) to **API 29 (Android 10.0)** or higher.
-* In your Android Options select `d8` as your `Dex compiler`. Otherwise you will get errors about default interface methods not being supported.
+* Projects using PSPDFKit.Android.dll **must** set [Target Framework](https://developer.xamarin.com/guides/android/application_fundamentals/understanding_android_api_levels/#framework) to **API 31 (Android 12.0)** or higher.
 
 ## Integrating PSPDFKit
 

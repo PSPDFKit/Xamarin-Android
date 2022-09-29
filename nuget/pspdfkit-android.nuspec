@@ -23,18 +23,18 @@
         <dependencies>
             <group targetFramework="MonoAndroid12.0">
                 <dependency id="Xamarin.AndroidX.Legacy.Support.V4" version="1.0.0.14" include="All" />
-                <dependency id="Xamarin.AndroidX.AppCompat" version="1.4.2.1" include="All" />
-                <dependency id="Xamarin.AndroidX.Core" version="1.8.0.1" include="All" />
+                <dependency id="Xamarin.AndroidX.AppCompat" version="1.5.1" include="All" />
+                <dependency id="Xamarin.AndroidX.Core" version="1.9.0" include="All" />
                 <dependency id="Xamarin.AndroidX.RecyclerView" version="1.2.1.7" include="All" />
                 <dependency id="Xamarin.AndroidX.CardView" version="1.0.0.16" include="All" />
                 <dependency id="Xamarin.AndroidX.GridLayout" version="1.0.0.14" include="All" />
                 <dependency id="Xamarin.AndroidX.Palette" version="1.0.0.14" include="All" />
                 <dependency id="Xamarin.Google.Android.Material" version="1.6.1.1" include="All" />
-                <dependency id="Xamarin.AndroidX.Lifecycle.LiveData" version="2.4.1.2" include="All" />
+                <dependency id="Xamarin.AndroidX.Lifecycle.LiveData" version="2.5.1" include="All" />
                 <dependency id="Xamarin.AndroidX.MultiDex" version="2.0.1.14" include="All" />
                 <dependency id="Xamarin.AndroidX.Browser" version="1.4.0.2" include="All" />
-                <dependency id="Square.OkHttp3" version="4.9.3.1" include="All" />
-                <dependency id="Xamarin.Kotlin.StdLib" version="1.7.0" include="All" />
+                <dependency id="Square.OkHttp3" version="4.9.3.2" include="All" />
+                <dependency id="Xamarin.Kotlin.StdLib" version="1.7.10" include="All" />
                 <dependency id="Xamarin.Android.ReactiveX.RxAndroid" version="2.1.1.1" include="All" />
                 <dependency id="Xamarin.Android.ReactiveX.RxJava" version="2.2.21.7" include="All" />
             </group>

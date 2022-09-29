@@ -11,10 +11,10 @@
   <remove-node path="//class['Impl' = substring(substring-before(@name,'.') , string-length(substring-before(@name,'.')) - 3)]" />
 
   <!-- Removes any "constructor" that any of its parameters uses any of the types contained in com.pspdfkit.internal.* -->
-  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.i1')]" />
-  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.ed')]" />
-  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.ri')]" />
-  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.u4')]" />
+  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.l1')]" />
+  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.ld')]" />
+  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.qj')]" />
+  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.x4')]" />
   <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.jni.NativeAnnotation')]" />
   <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.jni.NativeFormField')]" />
   <!-- Not creating a general rule to avoid bug reported by David -->
@@ -40,6 +40,7 @@
   <attr path="/api/package[@name='com.pspdfkit.annotations.appearance']" name="managedName">PSPDFKit.Annotations.Appearance</attr>
   <attr path="/api/package[@name='com.pspdfkit.annotations.defaults']" name="managedName">PSPDFKit.Annotations.Defaults</attr>
   <attr path="/api/package[@name='com.pspdfkit.annotations.links']" name="managedName">PSPDFKit.Annotations.Links</attr>
+  <attr path="/api/package[@name='com.pspdfkit.annotations.measurements']" name="managedName">PSPDFKit.Annotations.Measurements</attr>
   <attr path="/api/package[@name='com.pspdfkit.annotations.note']" name="managedName">PSPDFKit.Annotations.Note</attr>
   <attr path="/api/package[@name='com.pspdfkit.annotations.sound']" name="managedName">PSPDFKit.Annotations.Sound</attr>
   <attr path="/api/package[@name='com.pspdfkit.annotations.stamps']" name="managedName">PSPDFKit.Annotations.Stamps</attr>
@@ -200,6 +201,9 @@
   <attr path="/api/package[@name='com.pspdfkit.annotations.configuration']/interface[@name='InkAnnotationConfiguration.Builder']/method[@name='build']" name="managedReturn">PSPDFKit.Annotations.Configuration.IAnnotationConfiguration</attr>
   <attr path="/api/package[@name='com.pspdfkit.annotations.configuration']/interface[@name='ShapeAnnotationConfiguration.Builder']/method[@name='build']" name="managedReturn">PSPDFKit.Annotations.Configuration.IAnnotationConfiguration</attr>
   <attr path="/api/package[@name='com.pspdfkit.annotations.configuration']/interface[@name='SoundAnnotationConfiguration.Builder']/method[@name='build']" name="managedReturn">PSPDFKit.Annotations.Configuration.IAnnotationConfiguration</attr>
+  <attr path="/api/package[@name='com.pspdfkit.annotations.configuration']/interface[@name='MeasurementDistanceAnnotationConfiguration.Builder']/method[@name='build']" name="managedReturn">PSPDFKit.Annotations.Configuration.IAnnotationConfiguration</attr>
+  <attr path="/api/package[@name='com.pspdfkit.annotations.configuration']/interface[@name='MeasurementAreaAnnotationConfiguration.Builder']/method[@name='build']" name="managedReturn">PSPDFKit.Annotations.Configuration.IAnnotationConfiguration</attr>
+  <attr path="/api/package[@name='com.pspdfkit.annotations.configuration']/interface[@name='MeasurementPerimeterAnnotationConfiguration.Builder']/method[@name='build']" name="managedReturn">PSPDFKit.Annotations.Configuration.IAnnotationConfiguration</attr>
   <!--  The following break the generator really bad brcause they share the same simbol name.  -->
   <remove-node path="/api/package[@name='com.pspdfkit.annotations.configuration']/interface[@name='AnnotationFillColorConfiguration.Builder']/method[@name='setCustomColorPickerEnabled']" />
   <remove-node path="/api/package[@name='com.pspdfkit.annotations.configuration']/interface[@name='AnnotationOutlineColorConfiguration.Builder']/method[@name='setCustomColorPickerEnabled']" />
@@ -224,6 +228,8 @@
   
   <attr path="/api/package[@name='com.pspdfkit.ui.overlay']/class[@name='OverlayLayoutParams']/field[@name='layoutPosition']" name="managedName">LayoutPositionField</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.overlay']/class[@name='OverlayLayoutParams']/field[@name='sizingMode']" name="managedName">SizingModeField</attr>
+  <attr path="/api/package[@name='com.pspdfkit.annotations.measurements']/class[@name='Scale']/field[@name='unitFrom']" name="managedName">UnitFromField</attr>
+  <attr path="/api/package[@name='com.pspdfkit.annotations.measurements']/class[@name='Scale']/field[@name='unitTo']" name="managedName">UnitToField</attr>
 
   <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='BasePdfUiBuilder']" name="visibility">public</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfActivityIntentBuilder']" name="extends">java.lang.Object</attr>

@@ -19,7 +19,7 @@ using Android.App;
 // The form "{Major}.{Minor}.*" will automatically update the build and revision,
 // and "{Major}.{Minor}.{Build}.*" will update just the revision.
 
-[assembly: AssemblyVersion ("8.2.1")]
+[assembly: AssemblyVersion ("8.4.0")]
 [assembly: LinkerSafe]
 
 // The following attributes are used to specify the signing key for the assembly,
