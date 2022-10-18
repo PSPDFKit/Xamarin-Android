@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="app_name">PSPDFKit Example</string>
+    <string name="main_open_from_url_example">Open PDF from URL</string>
+    <string name="main_open_from_url_android_example">Open PDF from URL Android</string>
     <string name="main_open_example">Open example PDF</string>
     <string name="main_open_other">Open other document</string>
 </resources>

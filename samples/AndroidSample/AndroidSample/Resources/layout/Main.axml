@@ -16,6 +16,16 @@
             android:layout_height="match_parent"
             android:id="@+id/imageView1" />
         <Button
+            android:id="@+id/main_btn_open_from_url_example"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/main_open_from_url_example" />
+        <!--<Button
+            android:id="@+id/main_btn_open_from_url_android_example"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/main_open_from_url_android_example" />-->
+        <Button
             android:id="@+id/main_btn_open_example"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

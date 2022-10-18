@@ -16,6 +16,19 @@ using PSPDFKit.Configuration.Page;
 using PSPDFKit.UI;
 using SampleTools;
 using AndroidHUD;
+using System.Diagnostics;
+using Debug = System.Diagnostics.Debug;
+using Environment = System.Environment;
+using System.Threading.Tasks;
+using System.Runtime.Remoting.Contexts;
+using PSPDFKit.Document.Download;
+using Android.Icu.Util;
+using Java.Lang;
+using Exception = System.Exception;
+using Java.Net;
+using PSPDFKit.Document.Download.Source;
+using PSPDFKit.Document.Processor;
+using System.Net.Http;
 
 // This will add your license key into AndroidManifest.xml at build time. For more info on how this Attribute works see:
 // https://developer.xamarin.com/guides/android/advanced_topics/working_with_androidmanifest.xml/
@@ -45,38 +58,91 @@ namespace AndroidSample {
 			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Main);
 
-			var openDemoDocumentButton = FindViewById<Button> (Resource.Id.main_btn_open_example);
-			var openDocumentButton = FindViewById <Button> (Resource.Id.main_btn_open_document);
+            //var openDemoDocumentFromUrlAndroidButton = FindViewById<Button>(Resource.Id.main_btn_open_from_url_android_example);
+            var openDemoDocumentFromUrlButton = FindViewById<Button>(Resource.Id.main_btn_open_from_url_example);
+            var openDemoDocumentButton = FindViewById<Button>(Resource.Id.main_btn_open_example);
+            var openDocumentButton = FindViewById <Button> (Resource.Id.main_btn_open_document);
 
-			// Opens a demo document from assets directory
-			openDemoDocumentButton.Click += (sender, e) => {
-				// On Marshmallow devices the user must grant write permission to the extrnal storage.
-				const string permission = Manifest.Permission.WriteExternalStorage;
-				if (ContextCompat.CheckSelfPermission (this, permission) == (int) Permission.Granted) {
-					ShowDocumentFromAssets ();
-					return;
-				}
+            // Opens a demo document from url
+            openDemoDocumentFromUrlButton.Click += async (sender, e) => {
+                var downloadedFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "newDocument.pdf");
 
-				ActivityCompat.RequestPermissions (this, PermissionsExternalStorage, RequestWritePermission);
-			};
+                var success = await DownloadFileAsync("https://pspdfkit.com/downloads/case-study-box.pdf", downloadedFilePath);
 
-			// Opens a document from Android document provider
-			openDocumentButton.Click += (sender, e) => {
+                if (success)
+                {
+                    Console.WriteLine($"File downloaded to: {downloadedFilePath}");
+                }
+                else
+                {
+                    Console.WriteLine("Download failed");
+                }
+
+                var file = new Java.IO.File(downloadedFilePath);
+                var filePath = Android.Net.Uri.FromFile(file);
+
+                ShowPdfDocument(filePath);
+                return;
+            };
+
+            // Opens a demo document from assets directory
+            openDemoDocumentButton.Click += (sender, e) => {
+                // On Marshmallow devices the user must grant write permission to the extrnal storage.
+                const string permission = Manifest.Permission.WriteExternalStorage;
+                if (ContextCompat.CheckSelfPermission(this, permission) == (int)Permission.Granted)
+                {
+                    ShowDocumentFromAssets();
+                    return;
+                }
+
+                ActivityCompat.RequestPermissions(this, PermissionsExternalStorage, RequestWritePermission);
+            };
+
+            // Opens a document from Android document provider
+            openDocumentButton.Click += (sender, e) => {
 				var openIntent = new Intent (Build.VERSION.SdkInt >= BuildVersionCodes.Kitkat ? Intent.ActionOpenDocument : Intent.ActionGetContent);
 				openIntent.AddCategory (Intent.CategoryOpenable);
 				openIntent.SetType ("application/*");
 				StartActivityForResult (openIntent, RequestOpenDocument);
 			};
-		}
+        }
 
-		void ShowDocumentFromAssets() {
-			// Extract the pdf from assets if not already extracted
-			var docUri = Utils.ExtractAsset (this, sampleDoc);
-			ShowPdfDocument (docUri);
-			return;
-		}
+        private void Job_Complete(object sender, DownloadJob.CompleteEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
 
-		void ShowPdfDocument (Android.Net.Uri docUri)
+        private async Task<bool> DownloadFileAsync(string fileUrl, string downloadedFilePath)
+        {
+            try
+            {
+                using var client = new HttpClient();
+
+                var downloadStream = await client.GetStreamAsync(fileUrl);
+
+                using var fileStream = File.Create(downloadedFilePath);
+
+                await downloadStream.CopyToAsync(fileStream);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                //TODO handle exception
+                return false;
+            }
+            return true;
+        }
+
+        void ShowDocumentFromAssets()
+        {
+            // Extract the pdf from assets if not already extracted
+            var docUri = Utils.ExtractAsset(this, sampleDoc);
+            ShowPdfDocument(docUri);
+            return;
+        }
+
+        void ShowPdfDocument (Android.Net.Uri docUri)
 		{
 			// Show Document using PSPDFKit activity
 			var pspdfkitConfiguration = new PdfActivityConfiguration.Builder (ApplicationContext)
