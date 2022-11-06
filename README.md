@@ -1,6 +1,6 @@
 # Xamarin PSPDFKit.Android Bindings
 
-Xamarin.Android Bindings for PSPDFKit `v8.4.0`.
+Xamarin.Android Bindings for PSPDFKit `v8.4.1`.
 
 #### PSPDFKit
 
