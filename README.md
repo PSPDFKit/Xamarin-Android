@@ -279,7 +279,7 @@ You can find several sample projects in the `samples` folder, including a catalo
 
 ## How to Run the Example Projects
 
-1. Complete [advanced setup](https://github.com/PSPDFKit/Xamarin-Android#integrating-pspdfkit-via-dlls-advanced).
+1. Complete the [first step in the advanced setup](https://github.com/PSPDFKit/Xamarin-Android#step-1---get-pspdfkit-aar-file) to download the required files by executing the `./build.sh` script in the `Xamarin-Android` folder.
 2. Open the `PSPDFKit.Android.sln` solution in Visual Studio.
 3. Select the example project and device you want to run it on (alternatively you can also right-click on the project and select "Build `Project Name`").
 <img width="60%" src="Images/Project-setup.png"/>
