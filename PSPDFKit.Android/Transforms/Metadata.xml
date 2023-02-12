@@ -11,10 +11,10 @@
   <remove-node path="//class['Impl' = substring(substring-before(@name,'.') , string-length(substring-before(@name,'.')) - 3)]" />
 
   <!-- Removes any "constructor" that any of its parameters uses any of the types contained in com.pspdfkit.internal.* -->
-  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.l1')]" />
-  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.ld')]" />
-  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.qj')]" />
-  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.x4')]" />
+  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.n1')]" />
+  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.od')]" />
+  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.xj')]" />
+  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.v4')]" />
   <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.jni.NativeAnnotation')]" />
   <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.jni.NativeFormField')]" />
   <!-- Not creating a general rule to avoid bug reported by David -->
@@ -189,6 +189,7 @@
   <attr path="/api/package[@name='com.pspdfkit.forms']/class[@name='FormElementConfiguration']" name="visibility">public</attr>
   <attr path="/api/package[@name='com.pspdfkit.signatures.signers']/class[@name='PrivateKeySigner']/method[@name='loadPrivateKey' and count(parameter)=3 and parameter[1][@type='java.lang.String'] and parameter[2][@type='com.pspdfkit.signatures.signers.InteractiveSigner.LoadingFeedbackListener'] and parameter[3][@type='com.pspdfkit.signatures.signers.PrivateKeySigner.OnPrivateKeyLoadedCallback']]" name="visibility">public</attr>
   <attr path="/api/package[@name='com.pspdfkit.signatures.signers']/interface[@name='PrivateKeySigner.OnPrivateKeyLoadedCallback']" name="visibility">public</attr>
+  <attr path="/api/package[@name='com.pspdfkit.annotations']/class[@name='PolygonAnnotation']/method[@name='getLineEnds' and count(parameter)=0]" name="visibility">public</attr>
 
   <attr path="/api/package[@name='com.pspdfkit.annotations.configuration']/interface[@name='StampAnnotationConfiguration.Builder']/method[@name='build']" name="managedReturn">PSPDFKit.Annotations.Configuration.IAnnotationConfiguration</attr>
   <attr path="/api/package[@name='com.pspdfkit.annotations.configuration']/interface[@name='FileAnnotationConfiguration.Builder']/method[@name='build']" name="managedReturn">PSPDFKit.Annotations.Configuration.IAnnotationConfiguration</attr>
