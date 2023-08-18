@@ -7,13 +7,12 @@ using Android.Views;
 using AndroidX.AppCompat.App;
 using AndroidX.AppCompat.Widget;
 using Plugin.CurrentActivity;
-using Plugin.Permissions;
-using Plugin.Permissions.Abstractions;
 
 using PSPDFKit;
 using PSPDFKit.Configuration.Activity;
 
 using SampleTools;
+using Xamarin.Essentials;
 using Xamarin.Forms.Platform.Android;
 
 // This will add your license key into AndroidManifest.xml at build time. For more info on how this Attribute works see:
@@ -91,13 +90,16 @@ namespace PSPDFCatalog {
 		{
 			var page = sender as MainMenuPage;
 
-			// We need storage permission, we can use Permissions Plugin to help here
-			var status = await CrossPermissions.Current.CheckPermissionStatusAsync<StoragePermission> ();
-			if (status != PermissionStatus.Granted) {
-				if (await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync (Permission.Storage))
-					await page.DisplayAlert ("Need Storage Permission", "Need access to store yor PDF documents", "OK");
+			PermissionStatus status;
 
-				status = await CrossPermissions.Current.RequestPermissionAsync <StoragePermission> ();
+			if (DeviceInfo.Platform == DevicePlatform.Android && DeviceInfo.Version.Major >= 13)
+				status = PermissionStatus.Granted;
+			else {
+				status = await Permissions.CheckStatusAsync<Permissions.StorageRead> ();
+				if (status != PermissionStatus.Granted) {
+					await page.DisplayAlert ("Need Storage Permission", "Need access to store yor PDF documents", "OK");
+					status = await Permissions.RequestAsync<Permissions.StorageRead> ();
+				}
 			}
 
 			if (status == PermissionStatus.Granted) {
@@ -114,7 +116,7 @@ namespace PSPDFCatalog {
 
 		public override void OnRequestPermissionsResult (int requestCode, string[] permissions, Android.Content.PM.Permission[] grantResults)
 		{
-			PermissionsImplementation.Current.OnRequestPermissionsResult (requestCode, permissions, grantResults);
+			Xamarin.Essentials.Platform.OnRequestPermissionsResult (requestCode, permissions, grantResults);
 			base.OnRequestPermissionsResult (requestCode, permissions, grantResults);
 		}
 

@@ -2,7 +2,13 @@
 using System.Globalization;
 using System.IO;
 using System.Threading.Tasks;
+using Android;
+using Android.App;
 using Android.Content;
+using Android.Content.PM;
+using Android.OS;
+using AndroidX.Core.App;
+using AndroidX.Core.Content;
 
 namespace SampleTools {
 	public static partial class Utils {
@@ -70,6 +76,25 @@ namespace SampleTools {
 				ret = ret.Replace ("_", " ");
 
 			return CultureInfo.CurrentCulture.TextInfo.ToTitleCase (ret.ToLower ());
+		}
+
+		public static bool RequestExternalStorageRwPermission (Activity activity, int requestCode)
+		{
+			// On Android 6.0+ we ask for SD card access permission.
+			// Since documents can be annotated we ask for write permission as well.
+			if (Build.VERSION.SdkInt >= BuildVersionCodes.M) {
+				if (ContextCompat.CheckSelfPermission (activity, Manifest.Permission.ReadExternalStorage)
+						!= Permission.Granted) {
+					ActivityCompat.RequestPermissions (
+							activity,
+							new [] {
+								Manifest.Permission.ReadExternalStorage, Manifest.Permission.WriteExternalStorage
+							},
+							requestCode);
+					return false;
+				}
+			}
+			return true;
 		}
 	}
 

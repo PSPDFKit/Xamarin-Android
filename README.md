@@ -1,6 +1,6 @@
 # Xamarin PSPDFKit.Android Bindings
 
-Xamarin.Android Bindings for PSPDFKit `v8.5.0`.
+Xamarin.Android Bindings for PSPDFKit `v8.7.3`.
 
 #### PSPDFKit
 
@@ -99,8 +99,8 @@ Once you have done this you will need to add some [NuGet](https://www.nuget.org/
 * [Xamarin.Google.Android.Material](https://www.nuget.org/packages/Xamarin.Google.Android.Material)
 * [Square.OkHttp3](https://www.nuget.org/packages/Square.OkHttp3)
 * [Xamarin.Kotlin.StdLib](https://www.nuget.org/packages/Xamarin.Kotlin.StdLib)
-* [Xamarin.Android.ReactiveX.RxAndroid](https://www.nuget.org/packages/Xamarin.Android.ReactiveX.RxAndroid)
-* [Xamarin.Android.ReactiveX.RxJava](https://www.nuget.org/packages/Xamarin.Android.ReactiveX.RxJava)
+* [Xamarin.Android.ReactiveX.RxJava3.RxAndroid](https://www.nuget.org/packages/Xamarin.Android.ReactiveX.RxJava3.RxAndroid)
+* [Xamarin.Android.ReactiveX.RxJava3.RxJava](https://www.nuget.org/packages/Xamarin.Android.ReactiveX.RxJava3.RxJava)
 
 If you need to know how to add NuGet packages to your Xamarin project please refer to [Walkthrough: Including a NuGet in your project](http://developer.xamarin.com/guides/cross-platform/application_fundamentals/nuget_walkthrough/) from Xamarin site.
 

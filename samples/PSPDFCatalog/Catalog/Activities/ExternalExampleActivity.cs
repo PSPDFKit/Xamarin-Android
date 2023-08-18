@@ -6,10 +6,9 @@ using Android.OS;
 using Android.Runtime;
 using AndroidX.Fragment.App;
 using Android.Views;
+using Xamarin.Essentials;
 
 using AndroidHUD;
-using Plugin.Permissions;
-using Plugin.Permissions.Abstractions;
 
 using PSPDFKit;
 using PSPDFKit.Configuration.Activity;
@@ -47,15 +46,19 @@ namespace PSPDFCatalog {
 			if (!waitingForResult) {
 				waitingForResult = true;
 
-				// On Android 6.0+ we ask for SD card access permission. This isn't strictly necessary, but PSPDFKit
-				// being able to access file directly will significantly improve performance.
-				// Since documents can be annotated we ask for write permission as well.
-				var status = await CrossPermissions.Current.CheckPermissionStatusAsync <StoragePermission> ();
-				if (status != PermissionStatus.Granted) {
-					if (await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync (Permission.Storage))
-						AndHUD.Shared.Show (this, "Need Storage Permission", maskType: MaskType.Clear, timeout: TimeSpan.FromSeconds (1));
+				PermissionStatus status;
 
-					status = await CrossPermissions.Current.RequestPermissionAsync <StoragePermission> ();
+				if (DeviceInfo.Platform == DevicePlatform.Android && DeviceInfo.Version.Major >= 13)
+					status = PermissionStatus.Granted;
+				else {
+					// On Android 6.0+ we ask for SD card access permission. This isn't strictly necessary, but PSPDFKit
+					// being able to access file directly will significantly improve performance.
+					// Since documents can be annotated we ask for write permission as well.
+					status = await Permissions.CheckStatusAsync<Permissions.StorageRead> ();
+					if (status != PermissionStatus.Granted) {
+						AndHUD.Shared.Show (this, "Need Storage Permission", maskType: MaskType.Clear, timeout: TimeSpan.FromSeconds (1));
+						status = await Permissions.RequestAsync<Permissions.StorageRead> ();
+					}
 				}
 
 				if (status == PermissionStatus.Granted)
@@ -109,8 +112,8 @@ namespace PSPDFCatalog {
 
 		public override void OnRequestPermissionsResult (int requestCode, string [] permissions, Android.Content.PM.Permission [] grantResults)
 		{
+			Xamarin.Essentials.Platform.OnRequestPermissionsResult (requestCode, permissions, grantResults);
 			base.OnRequestPermissionsResult (requestCode, permissions, grantResults);
-			PermissionsImplementation.Current.OnRequestPermissionsResult (requestCode, permissions, grantResults);
 		}
 
 		protected override void OnSaveInstanceState (Bundle outState)

@@ -115,7 +115,7 @@ namespace AndroidSample {
 			
 		public override void OnRequestPermissionsResult (int requestCode, string[] permissions, Permission[] grantResults)
 		{
-			if (requestCode == RequestWritePermission && grantResults[0] == Permission.Granted)
+			if (requestCode == RequestWritePermission)
 				ShowDocumentFromAssets ();
 		}
 

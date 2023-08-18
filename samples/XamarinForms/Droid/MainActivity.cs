@@ -3,7 +3,6 @@ using Android.Content;
 using Android.Content.PM;
 using Android.OS;
 using Plugin.CurrentActivity;
-using Plugin.Permissions;
 using PSPDFKit;
 using PSPDFKit.Configuration.Activity;
 using PSPDFKit.Configuration.Page;
@@ -43,8 +42,8 @@ namespace XFSample.Droid {
 
 		public override void OnRequestPermissionsResult (int requestCode, string [] permissions, Permission [] grantResults)
 		{
+			Xamarin.Essentials.Platform.OnRequestPermissionsResult (requestCode, permissions, grantResults);
 			base.OnRequestPermissionsResult (requestCode, permissions, grantResults);
-			PermissionsImplementation.Current.OnRequestPermissionsResult (requestCode, permissions, grantResults);
 		}
 
 		// Opens a demo document from assets directory, called from Xamarin.Forms's DependencyService, see 'ShowPDF ()' method in XFSamplePage.xaml.cs
