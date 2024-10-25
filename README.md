@@ -2,6 +2,9 @@
 
 Xamarin.Android Bindings for PSPDFKit `v8.7.3`.
 
+<blockquote>Nutrient Xamarin SDK (formerly known as PSPDFKit Xamarin SDK) has been deprecated and replaced by <a href='https://www.nutrient.io/guides/ios/dotnet/'>Nutrient .NET for iOS</a> and <a href='https://www.nutrient.io/guides/android/dotnet/'>Nutrient .NET for Android</a>. All Nutrient Xamarin licenses will remain valid and fully supported until 1 December 2025, or until your license expires, whichever occurs later. Interested in transitioning to another Nutrient product? <a href='https://www.nutrient.io/company/contact'>Contact us</a> and we are happy to help.</blockquote>
+
+
 #### PSPDFKit
 
 The [PSPDFKit SDK](https://pspdfkit.com/) is a framework that allows you to view, annotate, sign, and fill PDF forms on iOS, Android, Windows, macOS, and Web.
