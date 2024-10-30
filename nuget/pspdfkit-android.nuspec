@@ -15,7 +15,7 @@
         <description>
             The leading framework for displaying, annotating and editing PDFs on iOS, Android, Windows, Electron and the Web.
 
-            The PSPDFKit Xamarin SDK is being sunset and replaced Nutrient .NET for Android (formally PSPDFKit .NET for Android). All current Xamarin licenses are valid and supported through Dec 1, 2025, or until they expire—whichever comes later. The migration from Xamarin to .NET is straightforward, as explained in the official Microsoft guide. Interested in transitioning to another Nutrient product? Contact us and we are happy to help.
+            The PSPDFKit Xamarin SDK is being sunset and replaced by Nutrient .NET for Android (formally PSPDFKit .NET for Android). All Xamarin SDK licenses will remain valid and fully supported until 1 December 2025, or until your license expires, whichever occurs later. Interested in transitioning to another Nutrient product? Contact us and we’ll be happy to help.
         </description>
         <releaseNotes>
             For changelog go to: https://pspdfkit.com/changelog/android/
